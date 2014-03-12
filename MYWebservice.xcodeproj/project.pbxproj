@@ -14,10 +14,7 @@
 		1301397518CC7CBC009A4C82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1301397318CC7CBC009A4C82 /* InfoPlist.strings */; };
 		1301397718CC7CBC009A4C82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301397618CC7CBC009A4C82 /* main.m */; };
 		1301397B18CC7CBC009A4C82 /* MYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301397A18CC7CBC009A4C82 /* MYAppDelegate.m */; };
-		1301397E18CC7CBC009A4C82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1301397C18CC7CBC009A4C82 /* Main.storyboard */; };
 		1301398118CC7CBC009A4C82 /* MYWebservice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1301397F18CC7CBC009A4C82 /* MYWebservice.xcdatamodeld */; };
-		1301398418CC7CBC009A4C82 /* MYMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301398318CC7CBC009A4C82 /* MYMasterViewController.m */; };
-		1301398718CC7CBC009A4C82 /* MYDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301398618CC7CBC009A4C82 /* MYDetailViewController.m */; };
 		1301398918CC7CBC009A4C82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1301398818CC7CBC009A4C82 /* Images.xcassets */; };
 		1301399018CC7CBC009A4C82 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1301398F18CC7CBC009A4C82 /* XCTest.framework */; };
 		1301399118CC7CBC009A4C82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1301396818CC7CBC009A4C82 /* Foundation.framework */; };
@@ -25,6 +22,14 @@
 		1301399318CC7CBC009A4C82 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1301396E18CC7CBC009A4C82 /* CoreData.framework */; };
 		1301399B18CC7CBC009A4C82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1301399918CC7CBC009A4C82 /* InfoPlist.strings */; };
 		1301399D18CC7CBC009A4C82 /* MYWebserviceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301399C18CC7CBC009A4C82 /* MYWebserviceTests.m */; };
+		130139A818CC7EE9009A4C82 /* MYWebservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139A718CC7EE9009A4C82 /* MYWebservice.m */; };
+		130139AB18CCD050009A4C82 /* MYImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139AA18CCD050009A4C82 /* MYImporter.m */; };
+		130139B118CCD4F0009A4C82 /* MYModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B018CCD4F0009A4C82 /* MYModelObject.m */; };
+		130139B418CCDC58009A4C82 /* Video+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B318CCDC58009A4C82 /* Video+Helper.m */; };
+		130139B718CD00AA009A4C82 /* FetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */; };
+		130139BA18CD0719009A4C82 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B918CD0719009A4C82 /* PersistentStack.m */; };
+		1363967718CF1BB8007AD63A /* MYVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* MYVideoListViewController.m */; };
+		1363967A18CF2D68007AD63A /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967918CF2D68007AD63A /* Video.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,18 +54,31 @@
 		1301397818CC7CBC009A4C82 /* MYWebservice-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MYWebservice-Prefix.pch"; sourceTree = "<group>"; };
 		1301397918CC7CBC009A4C82 /* MYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYAppDelegate.h; sourceTree = "<group>"; };
 		1301397A18CC7CBC009A4C82 /* MYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYAppDelegate.m; sourceTree = "<group>"; };
-		1301397D18CC7CBC009A4C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1301398018CC7CBC009A4C82 /* MYWebservice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MYWebservice.xcdatamodel; sourceTree = "<group>"; };
-		1301398218CC7CBC009A4C82 /* MYMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYMasterViewController.h; sourceTree = "<group>"; };
-		1301398318CC7CBC009A4C82 /* MYMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYMasterViewController.m; sourceTree = "<group>"; };
-		1301398518CC7CBC009A4C82 /* MYDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYDetailViewController.h; sourceTree = "<group>"; };
-		1301398618CC7CBC009A4C82 /* MYDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYDetailViewController.m; sourceTree = "<group>"; };
 		1301398818CC7CBC009A4C82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1301398E18CC7CBC009A4C82 /* MYWebserviceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MYWebserviceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1301398F18CC7CBC009A4C82 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1301399818CC7CBC009A4C82 /* MYWebserviceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MYWebserviceTests-Info.plist"; sourceTree = "<group>"; };
 		1301399A18CC7CBC009A4C82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1301399C18CC7CBC009A4C82 /* MYWebserviceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYWebserviceTests.m; sourceTree = "<group>"; };
+		130139A618CC7EE9009A4C82 /* MYWebservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWebservice.h; sourceTree = "<group>"; };
+		130139A718CC7EE9009A4C82 /* MYWebservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWebservice.m; sourceTree = "<group>"; };
+		130139A918CCD050009A4C82 /* MYImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYImporter.h; sourceTree = "<group>"; };
+		130139AA18CCD050009A4C82 /* MYImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImporter.m; sourceTree = "<group>"; };
+		130139AF18CCD4F0009A4C82 /* MYModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYModelObject.h; sourceTree = "<group>"; };
+		130139B018CCD4F0009A4C82 /* MYModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYModelObject.m; sourceTree = "<group>"; };
+		130139B218CCDC58009A4C82 /* Video+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Video+Helper.h"; sourceTree = "<group>"; };
+		130139B318CCDC58009A4C82 /* Video+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Video+Helper.m"; sourceTree = "<group>"; };
+		130139B518CCF8E3009A4C82 /* FetchedResultsControllerDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchedResultsControllerDataSource.h; sourceTree = "<group>"; };
+		130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsControllerDataSource.m; sourceTree = "<group>"; };
+		130139B818CD0719009A4C82 /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
+		130139B918CD0719009A4C82 /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
+		1363967218CDE3F5007AD63A /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video.h; path = MYWebservice/Video.h; sourceTree = "<group>"; };
+		1363967318CDE3F5007AD63A /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Video.m; path = MYWebservice/Video.m; sourceTree = "<group>"; };
+		1363967518CF1BB8007AD63A /* MYVideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYVideoListViewController.h; sourceTree = "<group>"; };
+		1363967618CF1BB8007AD63A /* MYVideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYVideoListViewController.m; sourceTree = "<group>"; };
+		1363967818CF2D68007AD63A /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		1363967918CF2D68007AD63A /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +110,8 @@
 		1301395C18CC7CBB009A4C82 = {
 			isa = PBXGroup;
 			children = (
+				1363967218CDE3F5007AD63A /* Video.h */,
+				1363967318CDE3F5007AD63A /* Video.m */,
 				1301397018CC7CBC009A4C82 /* MYWebservice */,
 				1301399618CC7CBC009A4C82 /* MYWebserviceTests */,
 				1301396718CC7CBC009A4C82 /* Frameworks */,
@@ -123,16 +143,11 @@
 		1301397018CC7CBC009A4C82 /* MYWebservice */ = {
 			isa = PBXGroup;
 			children = (
-				1301397918CC7CBC009A4C82 /* MYAppDelegate.h */,
-				1301397A18CC7CBC009A4C82 /* MYAppDelegate.m */,
-				1301397C18CC7CBC009A4C82 /* Main.storyboard */,
-				1301398218CC7CBC009A4C82 /* MYMasterViewController.h */,
-				1301398318CC7CBC009A4C82 /* MYMasterViewController.m */,
-				1301398518CC7CBC009A4C82 /* MYDetailViewController.h */,
-				1301398618CC7CBC009A4C82 /* MYDetailViewController.m */,
-				1301398818CC7CBC009A4C82 /* Images.xcassets */,
-				1301397F18CC7CBC009A4C82 /* MYWebservice.xcdatamodeld */,
+				130139BB18CDA959009A4C82 /* Application */,
+				130139BC18CDA969009A4C82 /* ViewControllers */,
+				130139BD18CDA9A1009A4C82 /* Models */,
 				1301397118CC7CBC009A4C82 /* Supporting Files */,
+				130139BE18CDA9C5009A4C82 /* Controllers */,
 			);
 			path = MYWebservice;
 			sourceTree = "<group>";
@@ -140,6 +155,8 @@
 		1301397118CC7CBC009A4C82 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1301398818CC7CBC009A4C82 /* Images.xcassets */,
+				1301397F18CC7CBC009A4C82 /* MYWebservice.xcdatamodeld */,
 				1301397218CC7CBC009A4C82 /* MYWebservice-Info.plist */,
 				1301397318CC7CBC009A4C82 /* InfoPlist.strings */,
 				1301397618CC7CBC009A4C82 /* main.m */,
@@ -164,6 +181,52 @@
 				1301399918CC7CBC009A4C82 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		130139BB18CDA959009A4C82 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				1301397918CC7CBC009A4C82 /* MYAppDelegate.h */,
+				1301397A18CC7CBC009A4C82 /* MYAppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		130139BC18CDA969009A4C82 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1363967518CF1BB8007AD63A /* MYVideoListViewController.h */,
+				1363967618CF1BB8007AD63A /* MYVideoListViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		130139BD18CDA9A1009A4C82 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1363967818CF2D68007AD63A /* Video.h */,
+				1363967918CF2D68007AD63A /* Video.m */,
+				130139B218CCDC58009A4C82 /* Video+Helper.h */,
+				130139B318CCDC58009A4C82 /* Video+Helper.m */,
+				130139AF18CCD4F0009A4C82 /* MYModelObject.h */,
+				130139B018CCD4F0009A4C82 /* MYModelObject.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		130139BE18CDA9C5009A4C82 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				130139A618CC7EE9009A4C82 /* MYWebservice.h */,
+				130139A718CC7EE9009A4C82 /* MYWebservice.m */,
+				130139A918CCD050009A4C82 /* MYImporter.h */,
+				130139AA18CCD050009A4C82 /* MYImporter.m */,
+				130139B518CCF8E3009A4C82 /* FetchedResultsControllerDataSource.h */,
+				130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */,
+				130139B818CD0719009A4C82 /* PersistentStack.h */,
+				130139B918CD0719009A4C82 /* PersistentStack.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +308,6 @@
 			files = (
 				1301398918CC7CBC009A4C82 /* Images.xcassets in Resources */,
 				1301397518CC7CBC009A4C82 /* InfoPlist.strings in Resources */,
-				1301397E18CC7CBC009A4C82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,11 +326,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1301398418CC7CBC009A4C82 /* MYMasterViewController.m in Sources */,
-				1301398718CC7CBC009A4C82 /* MYDetailViewController.m in Sources */,
+				1363967718CF1BB8007AD63A /* MYVideoListViewController.m in Sources */,
+				130139B118CCD4F0009A4C82 /* MYModelObject.m in Sources */,
+				130139BA18CD0719009A4C82 /* PersistentStack.m in Sources */,
+				130139B418CCDC58009A4C82 /* Video+Helper.m in Sources */,
+				130139B718CD00AA009A4C82 /* FetchedResultsControllerDataSource.m in Sources */,
 				1301397B18CC7CBC009A4C82 /* MYAppDelegate.m in Sources */,
 				1301397718CC7CBC009A4C82 /* main.m in Sources */,
+				130139A818CC7EE9009A4C82 /* MYWebservice.m in Sources */,
+				1363967A18CF2D68007AD63A /* Video.m in Sources */,
 				1301398118CC7CBC009A4C82 /* MYWebservice.xcdatamodeld in Sources */,
+				130139AB18CCD050009A4C82 /* MYImporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +365,6 @@
 				1301397418CC7CBC009A4C82 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1301397C18CC7CBC009A4C82 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1301397D18CC7CBC009A4C82 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		1301399918CC7CBC009A4C82 /* InfoPlist.strings */ = {
@@ -398,6 +458,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MYWebservice/MYWebservice-Prefix.pch";
 				INFOPLIST_FILE = "MYWebservice/MYWebservice-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -411,6 +472,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MYWebservice/MYWebservice-Prefix.pch";
 				INFOPLIST_FILE = "MYWebservice/MYWebservice-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -477,6 +539,7 @@
 				130139A218CC7CBC009A4C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		130139A318CC7CBC009A4C82 /* Build configuration list for PBXNativeTarget "MYWebserviceTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +548,7 @@
 				130139A518CC7CBC009A4C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
