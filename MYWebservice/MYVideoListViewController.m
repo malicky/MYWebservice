@@ -47,30 +47,34 @@
                                                                                    managedObjectContext:self.managedObjectContext
                                                                                      sectionNameKeyPath:nil cacheName:nil];
     
-//    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
-//                                                      object:nil queue:nil usingBlock:^(NSNotification *note) {
-//                                                          NSManagedObjectContext *moc = self.managedObjectContext;
-//                                                         if (note.object != moc)
-//                                                          {
-//                                                              [self.tableView reloadData];
-//                                                          }
-//                                                      }];
-
+    
+    // Respond to changes in underlying store
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(performFetch)
+                                                 name:@"somethingChanged"
+                                               object:nil];
 
 }
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+#pragma mark - FETCHING
+- (void)performFetch {
     
     NSError *error;
 	if (![ self.dataSource.fetchedResultsController  performFetch:&error]) {
 		// Update to handle the error appropriately.
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		exit(-1);  // Fail
-	}
+		NSLog(@"Failed to perform fetch %@, %@", error, [error userInfo]);
+    } else {
+        [self.tableView reloadData];
+
+    }
+
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    self.title = @"Failed Banks";
+    [self performFetch];
+
+     self.title = @"Videos";
     
 }
 
