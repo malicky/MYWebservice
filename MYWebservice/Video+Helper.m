@@ -34,11 +34,6 @@
     } else {
         Video *video = [self insertNewObjectIntoContext:context];
         video.id = identifier;
-        
-        NSError *error = nil;
-        NSAssert([context save:&error], @"Error saving import context: %@\n%@", [error localizedDescription], [error userInfo]);
-
-      
         return video;
     }
 }

@@ -54,14 +54,8 @@
                         [self somethingChanged];
                     }
                 }
-
-        
             }
             
-//            // Stop periodically refreshing the interface
-//            [_importTimer invalidate];
-//            
-//            // Tell the interface to refresh once import completes
 
             
          }];
