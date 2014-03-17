@@ -21,6 +21,9 @@
     return self;
 }
 
+- (void)reloadData {
+    [self.tableView reloadData];
+}
 -(void)reuseIdentifier:(NSString *)reuseIdentifier {
     if (!_reuseIdentifier) {
         _reuseIdentifier = reuseIdentifier;

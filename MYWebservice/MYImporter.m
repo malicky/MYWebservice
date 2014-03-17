@@ -16,6 +16,8 @@
 }
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic,strong) MYWebservice *webservice;
+@property (nonatomic) int batchCount;
+
 @end
 @implementation MYImporter
 
@@ -32,6 +34,8 @@
 }
 
 - (void)import {
+    self.batchCount = 0;
+
     [self.webservice fetchAll:^(NSArray *records) {
         [self.context performBlock:^{
             
@@ -39,14 +43,25 @@
                 NSNumber *identifier = record[@"id"];
                 Video *video = [Video findOrCreateVideoWithIdentifier:identifier inContext:[self context]];
                 [video loadFromDictionary:record];
+                
+                self.batchCount++;
+                if (self.batchCount % 10 == 0) {
+                    NSError *error = nil;
+                    [self.context save:&error];
+                    if (error) {
+                        NSLog(@"Error: %@", error.localizedDescription);
+                    } else{
+                        [self somethingChanged];
+                    }
+                }
+
         
             }
             
-            // Stop periodically refreshing the interface
-            [_importTimer invalidate];
-            
-            // Tell the interface to refresh once import completes
-            [self somethingChanged];
+//            // Stop periodically refreshing the interface
+//            [_importTimer invalidate];
+//            
+//            // Tell the interface to refresh once import completes
 
             
          }];

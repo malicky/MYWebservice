@@ -49,10 +49,23 @@
     
     
     // Respond to changes in underlying store
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(performFetch)
-                                                 name:@"somethingChanged"
-                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"somethingChanged"
+                                                      object:nil queue:nil usingBlock:^(NSNotification *note) {
+                                                          NSManagedObjectContext *moc = self.managedObjectContext;
+                                                          if (note.object != moc)
+                                                          {
+                                                              NSError *error;
+                                                              if (![ self.dataSource.fetchedResultsController  performFetch:&error]) {
+                                                                  // Update to handle the error appropriately.
+                                                                  NSLog(@"Failed to perform fetch %@, %@", error, [error userInfo]);
+                                                              } else {
+                                                                  [self.dataSource reloadData];
+                                                              }
+                                                          }
+                                                      }];
+
 
 }
 

@@ -15,7 +15,6 @@
 
 - (void)configureCell:(id)cell withObject:(id)object;
 - (void)deleteObject:(id)object;
-
 @end
 
 @interface FetchedResultsControllerDataSource : NSObject <UITableViewDataSource, NSFetchedResultsControllerDelegate>
@@ -28,4 +27,6 @@
 - (id)initWithTableView:(UITableView*)tableView;
 - (id)objectAtIndexPath:(NSIndexPath*)indexPath;
 - (void)reuseIdentifier:(NSString *)reuseIdentifier;
+- (void)reloadData;
+
 @end
