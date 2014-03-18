@@ -9,7 +9,7 @@
 #import "MYVideoListViewController.h"
 #import "FetchedResultsControllerDataSource.h"
 #import "Video.h"
-
+#import "MYConstants.h"
 
 @interface MYVideoListViewController () <FetchedResultsControllerDataSourceDelegate>
 
@@ -49,12 +49,10 @@
     
     
     // Respond to changes in underlying store
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"somethingChanged"
+    [[NSNotificationCenter defaultCenter] addObserverForName:kDidImportNotification
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
-                                                          NSManagedObjectContext *moc = self.managedObjectContext;
-                                                          if (note.object != moc)
+                                                         // NSManagedObjectContext *moc = self.managedObjectContext;
+                                                         // if (note.object != moc)
                                                           {
                                                               NSError *error;
                                                               if (![ self.dataSource.fetchedResultsController  performFetch:&error]) {

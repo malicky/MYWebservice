@@ -11,8 +11,10 @@
 #import "Video.h"
 #import "Video+Helper.h"
 
+
+NSString *kDidImportNotification = @"kDidImportNotification";
+
 @interface MYImporter () {
-    NSTimer *_importTimer;
 }
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic,strong) MYWebservice *webservice;
@@ -26,7 +28,6 @@
     if (!self) {
         return nil;
     }
-    _importTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(somethingChanged) userInfo:nil repeats:YES];
     self.context = context;
     self.webservice = webservice;
     
@@ -64,6 +65,6 @@
 
 - (void)somethingChanged {
     // send a notification
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"somethingChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDidImportNotification object:nil];
 }
 @end

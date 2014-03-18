@@ -73,12 +73,11 @@
 		130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsControllerDataSource.m; sourceTree = "<group>"; };
 		130139B818CD0719009A4C82 /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
 		130139B918CD0719009A4C82 /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
-		1363967218CDE3F5007AD63A /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video.h; path = MYWebservice/Video.h; sourceTree = "<group>"; };
-		1363967318CDE3F5007AD63A /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Video.m; path = MYWebservice/Video.m; sourceTree = "<group>"; };
 		1363967518CF1BB8007AD63A /* MYVideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYVideoListViewController.h; sourceTree = "<group>"; };
 		1363967618CF1BB8007AD63A /* MYVideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYVideoListViewController.m; sourceTree = "<group>"; };
 		1363967818CF2D68007AD63A /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		1363967918CF2D68007AD63A /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		13C2E2FD18D837EF00BD6455 /* MYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +109,7 @@
 		1301395C18CC7CBB009A4C82 = {
 			isa = PBXGroup;
 			children = (
-				1363967218CDE3F5007AD63A /* Video.h */,
-				1363967318CDE3F5007AD63A /* Video.m */,
+				13C2E2FD18D837EF00BD6455 /* MYConstants.h */,
 				1301397018CC7CBC009A4C82 /* MYWebservice */,
 				1301399618CC7CBC009A4C82 /* MYWebserviceTests */,
 				1301396718CC7CBC009A4C82 /* Frameworks */,
