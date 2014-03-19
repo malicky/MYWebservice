@@ -35,14 +35,13 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.listViewController  = [[MYVideoListViewController alloc] initWithFrame:self.window.bounds
-                                                                                           andContext:self.persistentStack.backgroundManagedObjectContext];
+                                                                     andContext:self.persistentStack.backgroundManagedObjectContext];
     self.listViewController.managedObjectContext = self.persistentStack.managedObjectContext;
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.listViewController];
     self.window.rootViewController = navigationController;
     
    [self.window makeKeyAndVisible];
-
 
     return YES;
 }

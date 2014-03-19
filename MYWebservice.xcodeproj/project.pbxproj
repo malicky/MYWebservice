@@ -29,7 +29,9 @@
 		130139B718CD00AA009A4C82 /* FetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */; };
 		130139BA18CD0719009A4C82 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B918CD0719009A4C82 /* PersistentStack.m */; };
 		1363967718CF1BB8007AD63A /* MYVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* MYVideoListViewController.m */; };
-		1363967A18CF2D68007AD63A /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967918CF2D68007AD63A /* Video.m */; };
+		137809AC18D88CCC006184AC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809AB18D88CCC006184AC /* Song.m */; };
+		137809AF18D88CCC006184AC /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809AE18D88CCC006184AC /* Video.m */; };
+		137809B818D9B3AD006184AC /* Song+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809B718D9B3AD006184AC /* Song+Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +77,12 @@
 		130139B918CD0719009A4C82 /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
 		1363967518CF1BB8007AD63A /* MYVideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYVideoListViewController.h; sourceTree = "<group>"; };
 		1363967618CF1BB8007AD63A /* MYVideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYVideoListViewController.m; sourceTree = "<group>"; };
-		1363967818CF2D68007AD63A /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
-		1363967918CF2D68007AD63A /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		137809AA18D88CCC006184AC /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		137809AB18D88CCC006184AC /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		137809AD18D88CCC006184AC /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		137809AE18D88CCC006184AC /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		137809B618D9B3AD006184AC /* Song+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Song+Helper.h"; sourceTree = "<group>"; };
+		137809B718D9B3AD006184AC /* Song+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Song+Helper.m"; sourceTree = "<group>"; };
 		13C2E2FD18D837EF00BD6455 /* MYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,8 +208,12 @@
 		130139BD18CDA9A1009A4C82 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1363967818CF2D68007AD63A /* Video.h */,
-				1363967918CF2D68007AD63A /* Video.m */,
+				137809AD18D88CCC006184AC /* Video.h */,
+				137809AE18D88CCC006184AC /* Video.m */,
+				137809AA18D88CCC006184AC /* Song.h */,
+				137809B618D9B3AD006184AC /* Song+Helper.h */,
+				137809B718D9B3AD006184AC /* Song+Helper.m */,
+				137809AB18D88CCC006184AC /* Song.m */,
 				130139B218CCDC58009A4C82 /* Video+Helper.h */,
 				130139B318CCDC58009A4C82 /* Video+Helper.m */,
 				130139AF18CCD4F0009A4C82 /* MYModelObject.h */,
@@ -324,15 +334,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137809AC18D88CCC006184AC /* Song.m in Sources */,
 				1363967718CF1BB8007AD63A /* MYVideoListViewController.m in Sources */,
 				130139B118CCD4F0009A4C82 /* MYModelObject.m in Sources */,
 				130139BA18CD0719009A4C82 /* PersistentStack.m in Sources */,
+				137809B818D9B3AD006184AC /* Song+Helper.m in Sources */,
 				130139B418CCDC58009A4C82 /* Video+Helper.m in Sources */,
 				130139B718CD00AA009A4C82 /* FetchedResultsControllerDataSource.m in Sources */,
 				1301397B18CC7CBC009A4C82 /* MYAppDelegate.m in Sources */,
 				1301397718CC7CBC009A4C82 /* main.m in Sources */,
 				130139A818CC7EE9009A4C82 /* MYWebservice.m in Sources */,
-				1363967A18CF2D68007AD63A /* Video.m in Sources */,
+				137809AF18D88CCC006184AC /* Video.m in Sources */,
 				1301398118CC7CBC009A4C82 /* MYWebservice.xcdatamodeld in Sources */,
 				130139AB18CCD050009A4C82 /* MYImporter.m in Sources */,
 			);

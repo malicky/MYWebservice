@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MYWebservice : NSObject
+@interface MYWebservice : NSObject <NSXMLParserDelegate>
 
 - (void)fetchAll:(void (^)(NSArray* records))callback;
 

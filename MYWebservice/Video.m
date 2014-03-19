@@ -2,7 +2,7 @@
 //  Video.m
 //  MYWebservice
 //
-//  Created by Malick Youla on 2014-03-11.
+//  Created by Malick Youla on 2014-03-18.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
@@ -12,11 +12,11 @@
 @implementation Video
 
 @dynamic id;
+@dynamic thumbnailImage;
 @dynamic title;
-@dynamic videoDescription;
 @dynamic uploadDate;
 @dynamic userName;
 @dynamic userPortrait;
-@dynamic thumbnailImage;
+@dynamic videoDescription;
 
 @end

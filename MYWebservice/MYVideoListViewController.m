@@ -48,12 +48,9 @@
                                                                                      sectionNameKeyPath:nil cacheName:nil];
     
     
-    // Respond to changes in underlying store
+    // Respond to changes
     [[NSNotificationCenter defaultCenter] addObserverForName:kDidImportNotification
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
-                                                         // NSManagedObjectContext *moc = self.managedObjectContext;
-                                                         // if (note.object != moc)
-                                                          {
                                                               NSError *error;
                                                               if (![ self.dataSource.fetchedResultsController  performFetch:&error]) {
                                                                   // Update to handle the error appropriately.
@@ -61,7 +58,6 @@
                                                               } else {
                                                                   [self.dataSource reloadData];
                                                               }
-                                                          }
                                                       }];
 
 
