@@ -1,6 +1,6 @@
 //
 //  MYAppDelegate.m
-//  MYWebservice
+//  iTunesWebservice
 //
 //  Created by Malick Youla on 2014-03-09.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
@@ -11,13 +11,13 @@
 #import "MYMasterViewController.h"
 #import "MYImporter.h"
 #import "PersistentStack.h"
-#import "MYWebservice.h"
-#import "MYSongListViewController.h"
+#import "iTunesWebservice.h"
+#import "SongListViewController.h"
 
 @interface MYAppDelegate ()
 
 @property (nonatomic, strong) MYImporter *importer;
-@property (nonatomic, strong) MYSongListViewController *listViewController;
+@property (nonatomic, strong) SongListViewController *listViewController;
 
 @end
 
@@ -27,14 +27,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
-    self.webservice = [[MYWebservice alloc] init];
+    self.webservice = [[iTunesWebservice alloc] init];
     self.importer = [[MYImporter alloc] initWithContext:self.persistentStack.backgroundManagedObjectContext
                                              webservice:self.webservice];
     [self.importer import];
     
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.listViewController  = [[MYSongListViewController alloc] initWithFrame:self.window.bounds
+    self.listViewController  = [[SongListViewController alloc] initWithFrame:self.window.bounds
                                                                      andContext:self.persistentStack.backgroundManagedObjectContext];
     self.listViewController.managedObjectContext = self.persistentStack.managedObjectContext;
     

@@ -1,6 +1,6 @@
 //
-//  MYWebserviceTests.m
-//  MYWebserviceTests
+//  iTunesWebserviceTests.m
+//  iTunesWebserviceTests
 //
 //  Created by Malick Youla on 2014-03-09.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface MYWebserviceTests : XCTestCase
+@interface iTunesWebserviceTests : XCTestCase
 
 @end
 
-@implementation MYWebserviceTests
+@implementation iTunesWebserviceTests
 
 - (void)setUp
 {

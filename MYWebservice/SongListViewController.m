@@ -1,24 +1,24 @@
 //
-//  MYSongListViewController.m
-//  MYWebservice
+//  SongListViewController.m
+//  iTunesWebservice
 //
 //  Created by Malick Youla on 2014-03-11.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "MYSongListViewController.h"
+#import "SongListViewController.h"
 #import "FetchedResultsControllerDataSource.h"
 #import "Song.h"
 #import "MYConstants.h"
 
-@interface MYSongListViewController () <NSXMLParserDelegate , FetchedResultsControllerDataSourceDelegate>
+@interface SongListViewController () <NSXMLParserDelegate , FetchedResultsControllerDataSourceDelegate>
 
 @property (nonatomic, strong) FetchedResultsControllerDataSource *dataSource;
 
 @end
 
 
-@implementation MYSongListViewController {
+@implementation SongListViewController {
     CGRect _frame;
 }
 

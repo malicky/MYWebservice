@@ -1,13 +1,13 @@
 //
 //  MYImporter.m
-//  MYWebservice
+//  iTunesWebservice
 //
 //  Created by Malick Youla on 2014-03-09.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
 #import "MYImporter.h"
-#import "MYWebservice.h"
+#import "iTunesWebservice.h"
 #import "Song.h"
 #import "Song+Helper.h"
 
@@ -17,13 +17,13 @@ NSString *kDidImportNotification = @"kDidImportNotification";
 @interface MYImporter () {
 }
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic,strong) MYWebservice *webservice;
+@property (nonatomic,strong) iTunesWebservice *webservice;
 @property (nonatomic) int batchCount;
 
 @end
 @implementation MYImporter
 
-- (id)initWithContext:(NSManagedObjectContext *)context webservice:(MYWebservice *)webservice {
+- (id)initWithContext:(NSManagedObjectContext *)context webservice:(iTunesWebservice *)webservice {
     self = [super init];
     if (!self) {
         return nil;

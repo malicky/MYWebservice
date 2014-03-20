@@ -7,17 +7,7 @@
         <attribute name="releaseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Video" representedClassName="Video" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="thumbnailImage" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uploadDate" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userPortrait" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="videoDescription" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
-        <element name="Video" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Song" positionX="0" positionY="54" width="128" height="120"/>
     </elements>
 </model>
