@@ -1,24 +1,24 @@
 //
-//  MYVideoListViewController.m
+//  MYSongListViewController.m
 //  MYWebservice
 //
 //  Created by Malick Youla on 2014-03-11.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "MYVideoListViewController.h"
+#import "MYSongListViewController.h"
 #import "FetchedResultsControllerDataSource.h"
-#import "Video.h"
+#import "Song.h"
 #import "MYConstants.h"
 
-@interface MYVideoListViewController () <FetchedResultsControllerDataSourceDelegate>
+@interface MYSongListViewController () <NSXMLParserDelegate , FetchedResultsControllerDataSourceDelegate>
 
 @property (nonatomic, strong) FetchedResultsControllerDataSource *dataSource;
 
 @end
 
 
-@implementation MYVideoListViewController {
+@implementation MYSongListViewController {
     CGRect _frame;
 }
 
@@ -37,10 +37,10 @@
     [super loadView];
     
     self.view.frame = _frame;
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Video"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Song"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
     self.dataSource = [[FetchedResultsControllerDataSource alloc] initWithTableView:self.tableView];
-    [self.dataSource reuseIdentifier:@"VideoCellIdentifier"];
+    [self.dataSource reuseIdentifier:@"SongCellIdentifier"];
 
     self.dataSource.delegate = self;
     self.dataSource.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
@@ -81,13 +81,13 @@
     
     [self performFetch];
 
-     self.title = @"Videos";
+     self.title = @"Songs";
     
 }
 
-- (void)configureCell:(UITableViewCell*)cell withObject:(Video*)object {
+- (void)configureCell:(UITableViewCell*)cell withObject:(Song*)object {
     cell.textLabel.text = object.title;
-    cell.detailTextLabel.text = object.videoDescription;
+    //cell.detailTextLabel.text = object.videoDescription;
 }
 
 - (void)deleteObject:(id)object {

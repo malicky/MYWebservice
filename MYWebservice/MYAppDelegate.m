@@ -12,12 +12,12 @@
 #import "MYImporter.h"
 #import "PersistentStack.h"
 #import "MYWebservice.h"
-#import "MYVideoListViewController.h"
+#import "MYSongListViewController.h"
 
 @interface MYAppDelegate ()
 
 @property (nonatomic, strong) MYImporter *importer;
-@property (nonatomic, strong) MYVideoListViewController *listViewController;
+@property (nonatomic, strong) MYSongListViewController *listViewController;
 
 @end
 
@@ -34,7 +34,7 @@
     
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.listViewController  = [[MYVideoListViewController alloc] initWithFrame:self.window.bounds
+    self.listViewController  = [[MYSongListViewController alloc] initWithFrame:self.window.bounds
                                                                      andContext:self.persistentStack.backgroundManagedObjectContext];
     self.listViewController.managedObjectContext = self.persistentStack.managedObjectContext;
     

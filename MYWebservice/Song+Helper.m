@@ -18,7 +18,7 @@
     self.category = dictionary[@"category"];
 }
 
-+ (Song *)findOrCreateSongWithTitle:(NSString *)title inContext:(NSManagedObjectContext *)context {
++ (Song *)findOrCreateSongWithIdentifier:(NSString *)title inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[self entityName]];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"title = %@", title];
     

@@ -8,8 +8,8 @@
 
 #import "MYImporter.h"
 #import "MYWebservice.h"
-#import "Video.h"
-#import "Video+Helper.h"
+#import "Song.h"
+#import "Song+Helper.h"
 
 
 NSString *kDidImportNotification = @"kDidImportNotification";
@@ -41,9 +41,9 @@ NSString *kDidImportNotification = @"kDidImportNotification";
         [self.context performBlock:^{
             
             for (NSDictionary *record in records) {
-                NSNumber *identifier = record[@"id"];
-                Video *video = [Video findOrCreateVideoWithIdentifier:identifier inContext:[self context]];
-                [video loadFromDictionary:record];
+                NSString *identifier = record[@"title"];
+                Song *song = [Song findOrCreateSongWithIdentifier:identifier inContext:[self context]];
+                [song loadFromDictionary:record];
                 
                 self.batchCount++;
                 if (self.batchCount % 10 == 0) {

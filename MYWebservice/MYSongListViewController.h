@@ -1,5 +1,5 @@
 //
-//  MYVideoListViewController.h
+//  MYSongListViewController.h
 //  MYWebservice
 //
 //  Created by Malick Youla on 2014-03-11.
@@ -10,7 +10,7 @@
 
 @class FetchedResultsControllerDataSource;
 
-@interface MYVideoListViewController : UITableViewController
+@interface MYSongListViewController : UITableViewController
 
 @property ( nonatomic,strong) NSManagedObjectContext *managedObjectContext;
 -(id)initWithFrame:(CGRect)rect andContext:(NSManagedObjectContext*)context;

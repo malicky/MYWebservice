@@ -10,5 +10,5 @@
 
 @interface Song (Helper)
 - (void)loadFromDictionary:(NSDictionary *)dictionary;
-+ (Song *)findOrCreateSongWithTitle:(NSString *)title inContext:(NSManagedObjectContext *)context;
++ (Song *)findOrCreateSongWithIdentifier:(NSString *)title inContext:(NSManagedObjectContext *)context;
 @end

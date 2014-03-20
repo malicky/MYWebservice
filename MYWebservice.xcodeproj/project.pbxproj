@@ -25,13 +25,12 @@
 		130139A818CC7EE9009A4C82 /* MYWebservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139A718CC7EE9009A4C82 /* MYWebservice.m */; };
 		130139AB18CCD050009A4C82 /* MYImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139AA18CCD050009A4C82 /* MYImporter.m */; };
 		130139B118CCD4F0009A4C82 /* MYModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B018CCD4F0009A4C82 /* MYModelObject.m */; };
-		130139B418CCDC58009A4C82 /* Video+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B318CCDC58009A4C82 /* Video+Helper.m */; };
 		130139B718CD00AA009A4C82 /* FetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */; };
 		130139BA18CD0719009A4C82 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B918CD0719009A4C82 /* PersistentStack.m */; };
-		1363967718CF1BB8007AD63A /* MYVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* MYVideoListViewController.m */; };
+		1363967718CF1BB8007AD63A /* MYSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* MYSongListViewController.m */; };
 		137809AC18D88CCC006184AC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809AB18D88CCC006184AC /* Song.m */; };
-		137809AF18D88CCC006184AC /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809AE18D88CCC006184AC /* Video.m */; };
 		137809B818D9B3AD006184AC /* Song+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809B718D9B3AD006184AC /* Song+Helper.m */; };
+		13C122BD18DB00590044C816 /* iTunesXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C122BC18DB00590044C816 /* iTunesXMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,20 +68,18 @@
 		130139AA18CCD050009A4C82 /* MYImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImporter.m; sourceTree = "<group>"; };
 		130139AF18CCD4F0009A4C82 /* MYModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYModelObject.h; sourceTree = "<group>"; };
 		130139B018CCD4F0009A4C82 /* MYModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYModelObject.m; sourceTree = "<group>"; };
-		130139B218CCDC58009A4C82 /* Video+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Video+Helper.h"; sourceTree = "<group>"; };
-		130139B318CCDC58009A4C82 /* Video+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Video+Helper.m"; sourceTree = "<group>"; };
 		130139B518CCF8E3009A4C82 /* FetchedResultsControllerDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchedResultsControllerDataSource.h; sourceTree = "<group>"; };
 		130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsControllerDataSource.m; sourceTree = "<group>"; };
 		130139B818CD0719009A4C82 /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
 		130139B918CD0719009A4C82 /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
-		1363967518CF1BB8007AD63A /* MYVideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYVideoListViewController.h; sourceTree = "<group>"; };
-		1363967618CF1BB8007AD63A /* MYVideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYVideoListViewController.m; sourceTree = "<group>"; };
+		1363967518CF1BB8007AD63A /* MYSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MYSongListViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1363967618CF1BB8007AD63A /* MYSongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MYSongListViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		137809AA18D88CCC006184AC /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
 		137809AB18D88CCC006184AC /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
-		137809AD18D88CCC006184AC /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
-		137809AE18D88CCC006184AC /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		137809B618D9B3AD006184AC /* Song+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Song+Helper.h"; sourceTree = "<group>"; };
 		137809B718D9B3AD006184AC /* Song+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Song+Helper.m"; sourceTree = "<group>"; };
+		13C122BB18DB00590044C816 /* iTunesXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesXMLParser.h; sourceTree = "<group>"; };
+		13C122BC18DB00590044C816 /* iTunesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesXMLParser.m; sourceTree = "<group>"; };
 		13C2E2FD18D837EF00BD6455 /* MYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,8 +196,8 @@
 		130139BC18CDA969009A4C82 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1363967518CF1BB8007AD63A /* MYVideoListViewController.h */,
-				1363967618CF1BB8007AD63A /* MYVideoListViewController.m */,
+				1363967518CF1BB8007AD63A /* MYSongListViewController.h */,
+				1363967618CF1BB8007AD63A /* MYSongListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -208,14 +205,10 @@
 		130139BD18CDA9A1009A4C82 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				137809AD18D88CCC006184AC /* Video.h */,
-				137809AE18D88CCC006184AC /* Video.m */,
 				137809AA18D88CCC006184AC /* Song.h */,
 				137809B618D9B3AD006184AC /* Song+Helper.h */,
 				137809B718D9B3AD006184AC /* Song+Helper.m */,
 				137809AB18D88CCC006184AC /* Song.m */,
-				130139B218CCDC58009A4C82 /* Video+Helper.h */,
-				130139B318CCDC58009A4C82 /* Video+Helper.m */,
 				130139AF18CCD4F0009A4C82 /* MYModelObject.h */,
 				130139B018CCD4F0009A4C82 /* MYModelObject.m */,
 			);
@@ -225,6 +218,8 @@
 		130139BE18CDA9C5009A4C82 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				13C122BB18DB00590044C816 /* iTunesXMLParser.h */,
+				13C122BC18DB00590044C816 /* iTunesXMLParser.m */,
 				130139A618CC7EE9009A4C82 /* MYWebservice.h */,
 				130139A718CC7EE9009A4C82 /* MYWebservice.m */,
 				130139A918CCD050009A4C82 /* MYImporter.h */,
@@ -334,17 +329,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C122BD18DB00590044C816 /* iTunesXMLParser.m in Sources */,
 				137809AC18D88CCC006184AC /* Song.m in Sources */,
-				1363967718CF1BB8007AD63A /* MYVideoListViewController.m in Sources */,
+				1363967718CF1BB8007AD63A /* MYSongListViewController.m in Sources */,
 				130139B118CCD4F0009A4C82 /* MYModelObject.m in Sources */,
 				130139BA18CD0719009A4C82 /* PersistentStack.m in Sources */,
 				137809B818D9B3AD006184AC /* Song+Helper.m in Sources */,
-				130139B418CCDC58009A4C82 /* Video+Helper.m in Sources */,
 				130139B718CD00AA009A4C82 /* FetchedResultsControllerDataSource.m in Sources */,
 				1301397B18CC7CBC009A4C82 /* MYAppDelegate.m in Sources */,
 				1301397718CC7CBC009A4C82 /* main.m in Sources */,
 				130139A818CC7EE9009A4C82 /* MYWebservice.m in Sources */,
-				137809AF18D88CCC006184AC /* Video.m in Sources */,
 				1301398118CC7CBC009A4C82 /* MYWebservice.xcdatamodeld in Sources */,
 				130139AB18CCD050009A4C82 /* MYImporter.m in Sources */,
 			);
