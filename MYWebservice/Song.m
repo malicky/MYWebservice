@@ -1,8 +1,8 @@
 //
 //  Song.m
-//  iTunesWebservice
+//  MYWebservice
 //
-//  Created by Malick Youla on 2014-03-18.
+//  Created by Malick Youla on 2014-03-24.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
@@ -12,9 +12,8 @@
 @implementation Song
 
 @dynamic title;
-@dynamic artiste;
-@dynamic album;
-@dynamic releaseDate;
-@dynamic category;
+@dynamic id;
+@dynamic image;
+@dynamic audio;
 
 @end

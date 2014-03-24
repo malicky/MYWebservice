@@ -1,3 +1,4 @@
+
 //
 //  PersistentStack.m
 //  iTunesWebservice
@@ -41,7 +42,7 @@
         object:nil queue:nil usingBlock:^(NSNotification *note) {
             NSManagedObjectContext *moc = self.managedObjectContext;
             if (note.object != moc) {
-                [moc performBlock:^{
+                [moc performBlockAndWait:^{
                     [moc mergeChangesFromContextDidSaveNotification:note];
                 }];
             }

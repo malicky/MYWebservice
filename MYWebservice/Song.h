@@ -1,8 +1,8 @@
 //
 //  Song.h
-//  iTunesWebservice
+//  MYWebservice
 //
-//  Created by Malick Youla on 2014-03-18.
+//  Created by Malick Youla on 2014-03-24.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
@@ -11,13 +11,11 @@
 
 #import "MYModelObject.h"
 
-
 @interface Song : MYModelObject
 
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * artiste;
-@property (nonatomic, retain) NSString * album;
-@property (nonatomic, retain) NSDate * releaseDate;
-@property (nonatomic, retain) NSString * category;
+@property (nonatomic, retain) NSString * id;
+@property (nonatomic, retain) NSString * image;
+@property (nonatomic, retain) NSString * audio;
 
 @end

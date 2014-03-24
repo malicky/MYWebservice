@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface iTunesWebservice : NSObject <NSXMLParserDelegate>
+@interface iTunesWebservice : NSObject
 
-- (void)fetchAll:(void (^)(NSArray* records))callback;
+- (void)fetchAll:(void (^)(NSMutableArray* records))callback;
 
 @end

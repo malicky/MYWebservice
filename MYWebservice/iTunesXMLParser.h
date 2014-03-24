@@ -11,5 +11,7 @@
 @property (nonatomic, strong) NSDateFormatter *parseFormatter;
 
 - (NSArray *)parseData:(NSData *)data;
+- (NSMutableArray *)parseData:(NSData *)data batch:(NSUInteger)count callback:(void (^)(NSMutableArray* records))callback;
+
 
 @end

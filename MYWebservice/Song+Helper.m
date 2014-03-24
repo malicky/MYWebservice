@@ -10,17 +10,15 @@
 
 @implementation Song (Helper)
 - (void)loadFromDictionary:(NSDictionary *)dictionary {
-
+    self.id = dictionary[@"id"];
     self.title = dictionary[@"title"];
-    self.artiste = dictionary[@"artiste"];
-    self.album = dictionary[@"album"];
-    self.releaseDate = dictionary[@"releaseDate"];
-    self.category = dictionary[@"category"];
+    self.image = dictionary[@"image"];
+    self.audio = dictionary[@"audio"];
 }
 
-+ (Song *)findOrCreateSongWithIdentifier:(NSString *)title inContext:(NSManagedObjectContext *)context {
++ (Song *)findOrCreateSongWithIdentifier:(NSString *)id inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[self entityName]];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"title = %@", title];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id = %@", id];
     
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
@@ -31,7 +29,7 @@
         return result.lastObject;
     } else {
         Song *song = [self insertNewObjectIntoContext:context];
-        song.title = title;
+        song.title = id;
         return song;
     }
 }

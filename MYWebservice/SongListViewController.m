@@ -49,15 +49,11 @@
     
     
     // Respond to changes
-    [[NSNotificationCenter defaultCenter] addObserverForName:kDidImportNotification
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
-                                                              NSError *error;
-                                                              if (![ self.dataSource.fetchedResultsController  performFetch:&error]) {
-                                                                  // Update to handle the error appropriately.
-                                                                  NSLog(@"Failed to perform fetch %@, %@", error, [error userInfo]);
-                                                              } else {
-                                                                  [self.dataSource reloadData];
-                                                              }
+                                                          [self performSelectorOnMainThread:@selector(performFetch)
+                                                                                 withObject:nil
+                                                                              waitUntilDone:NO];
                                                       }];
 
 
@@ -72,6 +68,8 @@
 		NSLog(@"Failed to perform fetch %@, %@", error, [error userInfo]);
     } else {
         [self.tableView reloadData];
+        
+        self.title =  [NSString stringWithFormat:@"%d Songs", [self.dataSource.fetchedResultsController.fetchedObjects count]];
 
     }
 
@@ -87,6 +85,8 @@
 
 - (void)configureCell:(UITableViewCell*)cell withObject:(Song*)object {
     cell.textLabel.text = object.title;
+    NSLog(@"cell.textLabel.text: %@", cell.textLabel.text);
+
     //cell.detailTextLabel.text = object.videoDescription;
 }
 
