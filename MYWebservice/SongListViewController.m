@@ -68,8 +68,7 @@
 		NSLog(@"Failed to perform fetch %@, %@", error, [error userInfo]);
     } else {
         [self.tableView reloadData];
-        
-        self.title =  [NSString stringWithFormat:@"%d Songs", [self.dataSource.fetchedResultsController.fetchedObjects count]];
+        self.title =  [NSString stringWithFormat:@"%lu Songs", (unsigned long)[self.dataSource.fetchedResultsController.fetchedObjects count]];
 
     }
 
@@ -78,9 +77,7 @@
     [super viewDidLoad];
     
     [self performFetch];
-
-     self.title = @"Songs";
-    
+    self.title = @"Songs";
 }
 
 - (void)configureCell:(UITableViewCell*)cell withObject:(Song*)object {

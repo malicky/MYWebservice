@@ -22,12 +22,7 @@ const unsigned int kBatchRecordsCount = 10;
 
 - (void)fetchAll:(void (^)(NSMutableArray* records))callback {
     
-    NSDateFormatter *parseFormatter = [[NSDateFormatter alloc] init];
-    [parseFormatter setDateStyle:NSDateFormatterLongStyle];
-    [parseFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [parseFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"US"]];
-
-    NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=108/xml";
+     NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=99/xml";
     NSURL *url = [NSURL URLWithString:urlString];
     [[[NSURLSession sharedSession] dataTaskWithURL:url
                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -39,7 +34,6 @@ const unsigned int kBatchRecordsCount = 10;
                                      dispatch_queue_t parserQueue = dispatch_queue_create("parserQueue", NULL);
                                      dispatch_async(parserQueue, ^{
                                          iTunesXMLParser *parser = [[iTunesXMLParser alloc] init];
-                                         parser.parseFormatter = parseFormatter;
                                          NSMutableArray * result = [parser parseData:data batch:kBatchRecordsCount callback:callback];
                                          if (result && ( [result count] > 0 ) && callback) {
                                              callback (result);

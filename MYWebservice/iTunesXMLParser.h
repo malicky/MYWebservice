@@ -8,10 +8,7 @@
 
 @interface iTunesXMLParser : NSObject <NSXMLParserDelegate>
 
-@property (nonatomic, strong) NSDateFormatter *parseFormatter;
-
+- (instancetype)init;
 - (NSArray *)parseData:(NSData *)data;
 - (NSMutableArray *)parseData:(NSData *)data batch:(NSUInteger)count callback:(void (^)(NSMutableArray* records))callback;
-
-
 @end

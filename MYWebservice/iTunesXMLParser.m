@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSMutableArray *songs;
 @property (nonatomic, copy) NSString *currentLinkAudio;
 @property (nonatomic, copy) NSString *currentSongIdentifier;
+@property (nonatomic, strong) NSDateFormatter *parseFormatter;
 
 @end
 
@@ -23,7 +24,17 @@
     void (^_callback)(NSMutableArray* records) ;
 }
 
-
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        // for itunes
+        _parseFormatter = [[NSDateFormatter alloc] init];
+        [_parseFormatter setDateStyle:NSDateFormatterLongStyle];
+        [_parseFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [_parseFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"US"]];
+    }
+    return self;
+}
 - (NSArray *)parseData:(NSMutableData *)data {
     _songs = [NSMutableArray array];
     self.xmlData = data;
