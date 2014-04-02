@@ -16,12 +16,11 @@
 @property (nonatomic, strong) NSDateFormatter *parseFormatter;
 @property (nonatomic) BOOL storingCharacters;
 @property (nonatomic) NSUInteger kCountForNotification;
-
+@property (nonatomic, copy) parseCompletionHandler callback;;
 @end
 
 @implementation iTunesXMLParser {
-    parseCompletionHandler _callback;
-    NSUInteger _kCountForNotification;
+    
 }
 
 - (instancetype)init {
@@ -52,7 +51,7 @@
               batchItemsCount:(NSUInteger)count
           withCompletionBlock:(parseCompletionHandler)completionBlock {
     
-    _kCountForNotification = count;
+    self.kCountForNotification = count;
     completionBlock = [completionBlock copy];
     
     self.songs = [NSMutableArray array];
@@ -74,8 +73,8 @@
     
     [self addCurrentSong];
     
-    if ([self.songs count] % _kCountForNotification == 0 && _callback) {
-        _callback ([self.songs copy]);
+    if ([self.songs count] % self.kCountForNotification == 0 && self.callback) {
+        self.callback ([self.songs copy]);
         [self.songs removeAllObjects];
     }
     self.currentSong = nil;
