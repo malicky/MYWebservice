@@ -17,10 +17,4 @@
 + (id)entityName {
     return NSStringFromClass(self);
 }
-
-+ (NSDateFormatter*)dateFormatter {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    return dateFormatter;
-}
 @end

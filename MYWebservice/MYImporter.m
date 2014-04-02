@@ -34,9 +34,8 @@
 
 - (void)import {
 
-    [self.webservice fetchAll:^(NSMutableArray *records) {
+    [self.webservice fetchAllWithCompletionBlock:^(NSMutableArray *records) {
         [self.context performBlock:^{
-            
             for (NSDictionary *record in records) {
                 NSString *identifier = record[@"id"];
                 Song *song = [Song findOrCreateSongWithIdentifier:identifier inContext:[self context]];

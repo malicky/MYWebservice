@@ -12,14 +12,13 @@
 #import "MYConstants.h"
 
 @interface SongListViewController () <NSXMLParserDelegate , FetchedResultsControllerDataSourceDelegate>
-
 @property (nonatomic, strong) FetchedResultsControllerDataSource *dataSource;
-
+@property (nonatomic, assign) CGRect frame;
 @end
 
 
 @implementation SongListViewController {
-    CGRect _frame;
+    
 }
 
 
@@ -30,13 +29,12 @@
 	}
     
     return self;
-
 }
 
 - (void)loadView {
     [super loadView];
     
-    self.view.frame = _frame;
+    self.view.frame = self.frame;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Song"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
     self.dataSource = [[FetchedResultsControllerDataSource alloc] initWithTableView:self.tableView];
@@ -49,7 +47,12 @@
     
     
     // Respond to changes
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
+    [[NSNotificationCenter defaultCenter] addObserverForName:
+#if 0
+     NSManagedObjectContextDidSaveNotification
+#else
+     NSManagedObjectContextObjectsDidChangeNotification
+#endif
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
                                                           [self performSelectorOnMainThread:@selector(performFetch)
                                                                                  withObject:nil

@@ -9,8 +9,6 @@
 #import <CoreData/CoreData.h>
 
 @interface MYModelObject : NSManagedObject
-
 + (id)entityName;
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context;
-+ (NSDateFormatter*)dateFormatter;
 @end

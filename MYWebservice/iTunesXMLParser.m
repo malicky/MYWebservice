@@ -10,8 +10,7 @@
 
 @property (nonatomic, strong) NSMutableString *currentString;
 @property (nonatomic, strong) NSMutableDictionary *currentSong;
-@property (nonatomic, strong) NSMutableData *xmlData;
-@property (nonatomic, copy) NSMutableArray *songs;
+@property (nonatomic, strong) NSMutableArray *songs;
 @property (nonatomic, copy) NSString *currentLinkAudio;
 @property (nonatomic, copy) NSString *currentSongIdentifier;
 @property (nonatomic, strong) NSDateFormatter *parseFormatter;
@@ -21,7 +20,7 @@
 @implementation iTunesXMLParser {
     BOOL _storingCharacters;
     NSUInteger _kCountForNotification;
-    void (^_callback)(NSMutableArray* records) ;
+    parseCompletionHandler _callback;
 }
 
 - (instancetype)init {
@@ -36,35 +35,35 @@
     return self;
 }
 - (NSArray *)parseData:(NSMutableData *)data {
-    _songs = [NSMutableArray array];
-    self.xmlData = data;
+    self.songs = [NSMutableArray array];
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
     parser.delegate = self;
     self.currentString = [NSMutableString string];
     BOOL result = [parser parse];
     if (result) {
-        return _songs;
+        return self.songs;
     }
     
     return nil;
 }
 
-- (NSMutableArray *)parseData:(NSMutableData *)data batch:(NSUInteger)count callback:(void (^)(NSMutableArray* records))callback {
-    _kCountForNotification = count;
-    _callback = [callback copy];
+- (NSMutableArray *)parseData:(NSMutableData *)data
+              batchItemsCount:(NSUInteger)count
+          withCompletionBlock:(parseCompletionHandler)completionBlock {
     
-    _songs = [NSMutableArray array];
-    self.xmlData = data;
+    _kCountForNotification = count;
+    completionBlock = [completionBlock copy];
+    
+    self.songs = [NSMutableArray array];
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
     parser.delegate = self;
     self.currentString = [NSMutableString string];
     BOOL result = [parser parse];
     if (result) {
-        return _songs;
+        return self.songs;
     }
     
     return nil;
-
 }
 
 #pragma mark Parsing support methods
@@ -72,23 +71,22 @@
 
 - (void)finishedCurrentSong {
     
-    if (self.currentSong) {
-        
-        self.currentSong[kElementName_LinkAudio] = [self.currentLinkAudio copy];
-        self.currentSong[kElementName_Id] = [self.currentSongIdentifier copy];
-
-        [_songs addObject:self.currentSong];
-
-    }
-    if ([_songs count] % 10 == 0 && _callback) {
-        _callback ([_songs copy]);
-        [_songs removeAllObjects];
-    }
+    [self addCurrentSong];
     
+    if ([self.songs count] % _kCountForNotification == 0 && _callback) {
+        _callback ([self.songs copy]);
+        [self.songs removeAllObjects];
+    }
     self.currentSong = nil;
 }
 
-
+- (void)addCurrentSong {
+    if (self.currentSong) {
+        self.currentSong[kElementName_LinkAudio] = [self.currentLinkAudio copy];
+        self.currentSong[kElementName_Id] = [self.currentSongIdentifier copy];
+        [self.songs addObject:self.currentSong];
+    }
+}
 #pragma mark NSXMLParser Parsing Callbacks
 
 // Constants for the XML element names that will be considered during the parse. 
@@ -114,7 +112,7 @@ static NSString *kAttributeName_inId = @"im:id";
     } else if ([elementName isEqualToString:kElementName_Title] ||
                [elementName isEqualToString:kElementName_LinkImage]
                ) {
-        [_currentString setString:@""];
+        [self.currentString setString:@""];
         _storingCharacters = YES;
         
     } else if ([elementName isEqualToString:kElementName_LinkAudio]) {
@@ -143,7 +141,7 @@ static NSString *kAttributeName_inId = @"im:id";
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     if (_storingCharacters) {
-        [_currentString appendString:string];
+        [self.currentString appendString:string];
         NSLog(@"self.currentString = %@", self.currentString);
     }
 }

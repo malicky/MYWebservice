@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^webServiceCompletionHandler) (NSMutableArray *records);
+
 @interface iTunesWebservice : NSObject
 
-- (void)fetchAll:(void (^)(NSMutableArray* records))callback;
+- (void)fetchAllWithCompletionBlock:(webServiceCompletionHandler)completionBlock;
 
 @end
