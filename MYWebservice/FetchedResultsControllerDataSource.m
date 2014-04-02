@@ -82,11 +82,12 @@
     }
 }
 
-- (void)setFetchResultsController:(NSFetchedResultsController *)fetchedResultsController {
-    NSAssert(_fetchedResultsController == Nil, @"TODO: you can currently only assign this property once");
-    _fetchedResultsController = fetchedResultsController;
-    fetchedResultsController.delegate = self;
-    [fetchedResultsController performFetch:NULL];
+- (void)setFetchResultsController:(NSFetchedResultsController *)fetchedResultsController {static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _fetchedResultsController = fetchedResultsController;
+        fetchedResultsController.delegate = self;
+        [fetchedResultsController performFetch:NULL];
+    });
 }
 
 - (id)selectedItem {
