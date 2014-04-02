@@ -14,13 +14,14 @@
 @property (nonatomic, copy) NSString *currentLinkAudio;
 @property (nonatomic, copy) NSString *currentSongIdentifier;
 @property (nonatomic, strong) NSDateFormatter *parseFormatter;
+@property (nonatomic) BOOL storingCharacters;
+@property (nonatomic) NSUInteger kCountForNotification;
 
 @end
 
 @implementation iTunesXMLParser {
-    BOOL _storingCharacters;
-    NSUInteger _kCountForNotification;
     parseCompletionHandler _callback;
+    NSUInteger _kCountForNotification;
 }
 
 - (instancetype)init {
@@ -113,7 +114,7 @@ static NSString *kAttributeName_inId = @"im:id";
                [elementName isEqualToString:kElementName_LinkImage]
                ) {
         [self.currentString setString:@""];
-        _storingCharacters = YES;
+        self.storingCharacters = YES;
         
     } else if ([elementName isEqualToString:kElementName_LinkAudio]) {
         if (attributeDict[kAttributeName_Type] && [attributeDict[kAttributeName_Type]  isEqualToString:kAttributeName_TypeAudio]){
@@ -136,11 +137,11 @@ static NSString *kAttributeName_inId = @"im:id";
     } else if ([elementName isEqualToString:kElementName_LinkImage]) {
         self.currentSong[kElementName_LinkImage] = [self.currentString copy];
     }
-    _storingCharacters = NO;
+    self.storingCharacters = NO;
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    if (_storingCharacters) {
+    if (self.storingCharacters) {
         [self.currentString appendString:string];
         NSLog(@"self.currentString = %@", self.currentString);
     }

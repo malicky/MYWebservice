@@ -6,6 +6,7 @@
 @interface FetchedResultsControllerDataSource ()
 
 @property (nonatomic, strong) UITableView* tableView;
+@property (nonatomic,copy) NSString *reuseIdentifier;
 
 @end
 
@@ -25,9 +26,9 @@
     [self.tableView reloadData];
 }
 -(void)reuseIdentifier:(NSString *)reuseIdentifier {
-    if (!_reuseIdentifier) {
-        _reuseIdentifier = reuseIdentifier;
-        [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:_reuseIdentifier];
+    if (!self.reuseIdentifier) {
+        self.reuseIdentifier = reuseIdentifier;
+        [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:self.reuseIdentifier];
     }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

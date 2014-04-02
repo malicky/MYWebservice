@@ -21,7 +21,6 @@
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, weak) id<FetchedResultsControllerDataSourceDelegate> delegate;
-@property (nonatomic,copy) NSString *reuseIdentifier;
 @property (nonatomic) BOOL paused;
 
 - (id)initWithTableView:(UITableView*)tableView;
