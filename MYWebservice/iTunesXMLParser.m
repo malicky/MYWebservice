@@ -52,7 +52,7 @@
           withCompletionBlock:(parseCompletionHandler)completionBlock {
     
     self.kCountForNotification = count;
-    completionBlock = [completionBlock copy];
+    self.callback = [completionBlock copy];
     
     self.songs = [NSMutableArray array];
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];

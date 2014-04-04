@@ -32,12 +32,35 @@
 }
 
 - (void)setupManagedObjectContexts {
+#if 1
+     self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    self.managedObjectContext.undoManager = [[NSUndoManager alloc] init];
+    
+    self.backgroundManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    self.backgroundManagedObjectContext.undoManager = nil;
+    [self.backgroundManagedObjectContext setParentContext:self.managedObjectContext];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
+                                                      object:nil queue:nil usingBlock:^(NSNotification *note) {
+                                                          NSManagedObjectContext *moc = self.managedObjectContext;
+                                                          if (note.object != moc) {
+                                                              [moc performBlockAndWait:^{
+                                                                  [moc mergeChangesFromContextDidSaveNotification:note];
+                                                              }];
+                                                          }
+                                                      }];
+
+#else   
+    
     self.managedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType];
     self.managedObjectContext.undoManager = [[NSUndoManager alloc] init];
     
     self.backgroundManagedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
     self.backgroundManagedObjectContext.undoManager = nil;
     
+    [self.backgroundManagedObjectContext setParentContext:self.managedObjectContext];
+        
     [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
         object:nil queue:nil usingBlock:^(NSNotification *note) {
             NSManagedObjectContext *moc = self.managedObjectContext;
@@ -47,8 +70,9 @@
                 }];
             }
         }];
+#endif
 }
-    
+
 - (NSManagedObjectContext *)setupManagedObjectContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)concurrencyType {
     NSManagedObjectContext *managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:concurrencyType];
     managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
@@ -66,9 +90,11 @@
     return managedObjectContext;
 }
 
-- (NSManagedObjectModel*)managedObjectModel
-{
+
+
+- (NSManagedObjectModel*)managedObjectModel {
     return [[NSManagedObjectModel alloc] initWithContentsOfURL:self.modelURL];
 }
+
 
 @end

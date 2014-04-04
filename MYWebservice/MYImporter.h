@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class iTunesWebservice;
+@class iTunesWebservice, PersistantStack;
 
 @interface MYImporter : NSObject
 - (id)initWithContext:(NSManagedObjectContext *)context webservice:(iTunesWebservice *)webservice;

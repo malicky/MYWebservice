@@ -10,7 +10,7 @@
 #import "iTunesWebservice.h"
 #import "Song.h"
 #import "Song+Helper.h"
-
+#import "PersistentStack.h"
 
 
 @interface MYImporter () {
@@ -31,6 +31,7 @@
     
     return self;
 }
+
 
 - (void)import {
 

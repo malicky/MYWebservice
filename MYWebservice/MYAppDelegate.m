@@ -30,6 +30,7 @@
     self.webservice = [[iTunesWebservice alloc] init];
     self.importer = [[MYImporter alloc] initWithContext:self.persistentStack.backgroundManagedObjectContext
                                              webservice:self.webservice];
+    
     [self.importer import];
     
     // Override point for customization after application launch.
@@ -49,10 +50,14 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    [self saveContext];
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    [self saveContext];
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
