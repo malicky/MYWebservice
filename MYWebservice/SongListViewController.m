@@ -47,12 +47,7 @@
     
     
     // Respond to changes
-    [[NSNotificationCenter defaultCenter] addObserverForName:
-#if 0
-     NSManagedObjectContextDidSaveNotification
-#else
-     NSManagedObjectContextObjectsDidChangeNotification
-#endif
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextObjectsDidChangeNotification
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
                                                           [self performSelectorOnMainThread:@selector(performFetch)
                                                                                  withObject:nil
