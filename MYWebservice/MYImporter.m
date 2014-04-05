@@ -11,15 +11,31 @@
 #import "Song.h"
 #import "Song+Helper.h"
 #import "PersistentStack.h"
-
+#import "MYAppDelegate.h"
 
 @interface MYImporter () {
 }
+@property (nonatomic, strong) NSManagedObjectContext *contextParent;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic,strong) iTunesWebservice *webservice;
 
 @end
 @implementation MYImporter
+
+
+- (id)initWithParentContext:(NSManagedObjectContext *)context webservice:(iTunesWebservice *)webservice {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    self.context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    [self.context setParentContext:context];
+    self.contextParent = context;
+     
+    self.webservice = webservice;
+    
+    return self;
+}
 
 - (id)initWithContext:(NSManagedObjectContext *)context webservice:(iTunesWebservice *)webservice {
     self = [super init];
@@ -39,7 +55,7 @@
         [self.context performBlock:^{
             for (NSDictionary *record in records) {
                 NSString *identifier = record[@"id"];
-                Song *song = [Song findOrCreateSongWithIdentifier:identifier inContext:[self context]];
+                Song *song = [Song findOrCreateSongWithIdentifier:identifier inContext:[self contextParent]];
                 [song loadFromDictionary:record];
             }
             
@@ -47,7 +63,24 @@
             [self.context save:&error];
             if (error) {
                 NSLog(@"Error: %@", error.localizedDescription);
+                return;
             }
+            
+            
+            [self.contextParent performBlock:^{
+                
+                NSError *error = nil;
+                [self.contextParent save:&error];
+                if (error) {
+                    NSLog(@"Error: %@", error.localizedDescription);
+                    return;
+                }
+                
+                MYAppDelegate *theAppDelegate = (MYAppDelegate*) [UIApplication sharedApplication].delegate;
+                [theAppDelegate saveContext];
+                
+            }];
+            
          }];
     }];
 }

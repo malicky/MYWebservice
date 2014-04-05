@@ -18,4 +18,6 @@
 
 @property (nonatomic,strong) PersistentStack *persistentStack;
 @property (nonatomic, strong) iTunesWebservice *webservice;
+
+- (void)saveContext;
 @end

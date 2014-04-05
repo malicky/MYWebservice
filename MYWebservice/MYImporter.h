@@ -11,6 +11,7 @@
 @class iTunesWebservice, PersistantStack;
 
 @interface MYImporter : NSObject
-- (id)initWithContext:(NSManagedObjectContext *)context webservice:(iTunesWebservice *)webservice;
+//- (id)initWithContext:(NSManagedObjectContext *)context webservice:(iTunesWebservice *)webservice;
+- (id)initWithParentContext:(NSManagedObjectContext *)context webservice:(iTunesWebservice *)webservice;
 - (void)import;
 @end

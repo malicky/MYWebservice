@@ -7,7 +7,6 @@
 //
 
 #import "iTunesWebservice.h"
-#import "MYAppDelegate.h"
 #import "iTunesXMLParser.h"
 #import "Song.h"
 

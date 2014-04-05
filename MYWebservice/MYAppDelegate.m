@@ -28,7 +28,7 @@
 {
     self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
     self.webservice = [[iTunesWebservice alloc] init];
-    self.importer = [[MYImporter alloc] initWithContext:self.persistentStack.backgroundManagedObjectContext
+    self.importer = [[MYImporter alloc] initWithParentContext:self.persistentStack.managedObjectContext
                                              webservice:self.webservice];
     
     [self.importer import];
@@ -77,11 +77,16 @@
 - (void)saveContext
 {
     NSError *error = nil;
-    [self.persistentStack.managedObjectContext save:&error];
-    if (error) {
-        NSLog(@"error saving: %@ ", error.localizedDescription);
+    NSManagedObjectContext *moc = self.persistentStack.backgroundManagedObjectContext;
+    if (moc && [moc hasChanges])
+    {
+        if (![moc save:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
     }
-}
+   }
 
 - (NSURL*)storeURL {
     NSURL *documentsDirectory = [self applicationDocumentsDirectory];
