@@ -29,7 +29,7 @@
         return result.lastObject;
     } else {
         Song *song = [self insertNewObjectIntoContext:context];
-        song.title = id;
+        song.id = id;
         return song;
     }
 }
