@@ -32,7 +32,6 @@
     }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"%@", @(self.fetchedResultsController.sections.count));
     return self.fetchedResultsController.sections.count;
 }
 

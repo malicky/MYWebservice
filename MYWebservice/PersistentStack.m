@@ -32,8 +32,6 @@
 }
 
 
-#if 1
-
 
 - (void)setupManagedObjectContexts {
     
@@ -58,32 +56,6 @@
                                                       }];
 }
 
-#else
-
-// standard
-- (void)setupManagedObjectContexts {
-     self.managedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSMainQueueConcurrencyType];
-    self.managedObjectContext.undoManager = [[NSUndoManager alloc] init];
-    
-    self.backgroundManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    self.backgroundManagedObjectContext.undoManager = nil;
-    
-    [self.backgroundManagedObjectContext setParentContext:self.managedObjectContext];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
-                                                      object:nil
-                                                       queue:nil
-                                                  usingBlock:^(NSNotification *note) {
-                                                          NSManagedObjectContext *moc = self.managedObjectContext;
-                                                          if (note.object != moc) {
-                                                              [moc performBlockAndWait:^{
-                                                                  [moc mergeChangesFromContextDidSaveNotification:note];
-                                                              }];
-                                                          }
-                                                      }];
-}
-
-#endif
 
 - (NSManagedObjectContext *)setupManagedObjectContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)concurrencyType {
     NSManagedObjectContext *managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:concurrencyType];
@@ -102,11 +74,22 @@
     return managedObjectContext;
 }
 
-
-
 - (NSManagedObjectModel*)managedObjectModel {
     return [[NSManagedObjectModel alloc] initWithContentsOfURL:self.modelURL];
 }
 
+- (void)saveContexts {
+    [self saveManagedObjectContext:self.managedObjectContext];
+    [self saveManagedObjectContext:self.backgroundManagedObjectContext];
+}
 
+- (void)saveManagedObjectContext:(NSManagedObjectContext *)context {
+    NSError *error = nil;
+    if (context && [context hasChanges]) {
+        if (![context save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
 @end

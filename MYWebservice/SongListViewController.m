@@ -11,6 +11,8 @@
 #import "Song.h"
 #import "MYConstants.h"
 
+#define debug 0
+
 @interface SongListViewController () <NSXMLParserDelegate , FetchedResultsControllerDataSourceDelegate>
 @property (nonatomic, strong) FetchedResultsControllerDataSource *dataSource;
 @property (nonatomic, assign) CGRect frame;
@@ -65,8 +67,10 @@
 		// Update to handle the error appropriately.
 		NSLog(@"Failed to perform fetch %@, %@", error, [error userInfo]);
     } else {
+        NSUInteger count = [self.dataSource.fetchedResultsController.fetchedObjects count];
         [self.tableView reloadData];
-        self.title =  [NSString stringWithFormat:@"%lu Songs", (unsigned long)[self.dataSource.fetchedResultsController.fetchedObjects count]];
+        
+        self.title =  [NSString stringWithFormat:@"%lu Songs", (unsigned long)count];
 
     }
 
@@ -75,12 +79,13 @@
     [super viewDidLoad];
     
     [self performFetch];
-    self.title = @"Songs";
 }
 
 - (void)configureCell:(UITableViewCell*)cell withObject:(Song*)object {
     cell.textLabel.text = object.title;
-    NSLog(@"cell.textLabel.text: %@", cell.textLabel.text);
+    if (debug == 1) {
+        NSLog(@"cell.textLabel.text: %@", cell.textLabel.text);
+    }
 
     //cell.detailTextLabel.text = object.videoDescription;
 }

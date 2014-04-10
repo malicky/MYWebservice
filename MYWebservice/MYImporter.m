@@ -13,6 +13,10 @@
 #import "PersistentStack.h"
 #import "MYAppDelegate.h"
 
+#define debug 1
+
+NSString *kUniqueIdforImport = @"id";
+
 @interface MYImporter () {
 }
 @property (nonatomic, strong) NSManagedObjectContext *contextParent;
@@ -31,7 +35,6 @@
     self.context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     [self.context setParentContext:context];
     self.contextParent = context;
-     
     self.webservice = webservice;
     
     return self;
@@ -54,34 +57,56 @@
     [self.webservice fetchAllWithCompletionBlock:^(NSMutableArray *records) {
         [self.context performBlock:^{
             for (NSDictionary *record in records) {
-                NSString *identifier = record[@"id"];
-                Song *song = [Song findOrCreateSongWithIdentifier:identifier inContext:[self contextParent]];
-                [song loadFromDictionary:record];
+                NSString *identifier = record[kUniqueIdforImport];
+                [[self contextParent] performBlock:^{
+                    Song *song = nil;
+                    NSArray *songs = [Song findOrCreateSongWithIdentifier:identifier inContext:[self contextParent]];
+                    
+                    if (songs.lastObject) {
+                        song = songs.lastObject;
+                    } else {
+                        song = [Song insertNewObjectIntoContext:[self contextParent]];
+                        song.id = identifier;
+                        [song loadFromDictionary:record];
+                        [self saveContext];
+                    }
+                }];
             }
             
+        }];
+    }];
+}
+
+- (void)saveContext {
+    
+    
+    if ([self.context hasChanges]) {
+        if (debug == 1) {
+            NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+        }
+        
+        NSError *error = nil;
+        [self.context save:&error];
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+            return;
+        }
+        
+        [self parentSaveContext];
+    }
+}
+
+- (void)parentSaveContext {
+    [self.contextParent performBlock:^{
+        if ([self.contextParent hasChanges]) {
             NSError *error = nil;
-            [self.context save:&error];
+            [self.contextParent save:&error];
             if (error) {
                 NSLog(@"Error: %@", error.localizedDescription);
                 return;
             }
             
-            
-            [self.contextParent performBlock:^{
-                
-                NSError *error = nil;
-                [self.contextParent save:&error];
-                if (error) {
-                    NSLog(@"Error: %@", error.localizedDescription);
-                    return;
-                }
-                
-                MYAppDelegate *theAppDelegate = (MYAppDelegate*) [UIApplication sharedApplication].delegate;
-                [theAppDelegate saveContext];
-                
-            }];
-            
-         }];
+        }
     }];
 }
 

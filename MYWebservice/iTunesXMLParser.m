@@ -5,6 +5,7 @@
 #import "iTunesXMLParser.h"
 #import "Song.h"
 
+#define debug 0
 
 @interface iTunesXMLParser ()
 
@@ -117,12 +118,16 @@ static NSString *kAttributeName_inId = @"im:id";
         
     } else if ([elementName isEqualToString:kElementName_LinkAudio]) {
         if (attributeDict[kAttributeName_Type] && [attributeDict[kAttributeName_Type]  isEqualToString:kAttributeName_TypeAudio]){
-            NSLog(@"href = %@", attributeDict[kAttributeName_Href]);
+            if (debug == 1) {
+                NSLog(@"href = %@", attributeDict[kAttributeName_Href]);
+            }
             self.currentLinkAudio = attributeDict[kAttributeName_Href];
         }
     } else if ([elementName isEqualToString:kElementName_Id]) {
         if (attributeDict[kAttributeName_inId]){
-            NSLog(@"id = %@", attributeDict[kAttributeName_inId]);
+            if (debug == 1) {
+                NSLog(@"id = %@", attributeDict[kAttributeName_inId]);
+            }
             self.currentSongIdentifier = attributeDict[kAttributeName_inId];
         }
     }
@@ -142,7 +147,9 @@ static NSString *kAttributeName_inId = @"im:id";
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     if (self.storingCharacters) {
         [self.currentString appendString:string];
-        NSLog(@"self.currentString = %@", self.currentString);
+        if (debug == 1) {
+            NSLog(@"self.currentString = %@", self.currentString);
+        }
     }
 }
 
@@ -152,6 +159,9 @@ static NSString *kAttributeName_inId = @"im:id";
  */
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
     // Handle errors as appropriate for your application.
+    if (debug==1) {
+        NSLog(@"parser error: %@", parseError.localizedDescription);
+    }
 }
 
 @end

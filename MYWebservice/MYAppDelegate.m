@@ -74,19 +74,9 @@
     [self saveContext];
 }
 
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *moc = self.persistentStack.backgroundManagedObjectContext;
-    if (moc && [moc hasChanges])
-    {
-        if (![moc save:&error])
-        {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
-   }
+- (void)saveContext {
+    [self.persistentStack saveContexts];
+}
 
 - (NSURL*)storeURL {
     NSURL *documentsDirectory = [self applicationDocumentsDirectory];
