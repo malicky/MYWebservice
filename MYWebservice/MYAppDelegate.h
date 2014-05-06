@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#define appDelegate__ (MYAppDelegate*)[UIApplication sharedApplication].delegate
 
 @class PersistentStack;
 @class iTunesWebservice;

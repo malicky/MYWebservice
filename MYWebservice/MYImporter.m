@@ -61,17 +61,19 @@ NSString *kUniqueIdforImport = @"id";
                 [[self contextParent] performBlock:^{
                     Song *song = nil;
                     NSArray *songs = [Song findOrCreateSongWithIdentifier:identifier inContext:[self contextParent]];
-                    
                     if (songs.lastObject) {
-                        song = songs.lastObject;
+                        if (debug == 1) {
+                            song = songs.lastObject;
+                            NSLog(@"Existing song: id = %@, title = %@", song.id, song.title);
+                        }
                     } else {
                         song = [Song insertNewObjectIntoContext:[self contextParent]];
                         song.id = identifier;
                         [song loadFromDictionary:record];
-                        [self saveContext];
                     }
                 }];
             }
+            [self parentSaveContext];
             
         }];
     }];

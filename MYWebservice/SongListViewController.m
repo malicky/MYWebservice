@@ -10,8 +10,9 @@
 #import "FetchedResultsControllerDataSource.h"
 #import "Song.h"
 #import "MYConstants.h"
+#import "MYAppDelegate.h"
 
-#define debug 0
+#define debug 1
 
 @interface SongListViewController () <NSXMLParserDelegate , FetchedResultsControllerDataSourceDelegate>
 @property (nonatomic, strong) FetchedResultsControllerDataSource *dataSource;
@@ -49,11 +50,15 @@
     
     
     // Respond to changes
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextObjectsDidChangeNotification
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
-                                                          [self performSelectorOnMainThread:@selector(performFetch)
+                                                          NSManagedObjectContext *moc = self.managedObjectContext;
+                                                          if (note.object == moc) {
+                                                              [self performSelectorOnMainThread:@selector(performFetch)
                                                                                  withObject:nil
                                                                               waitUntilDone:NO];
+                                                          }
+                                                          
                                                       }];
 
 
@@ -61,7 +66,7 @@
 
 #pragma mark - FETCHING
 - (void)performFetch {
-    
+    int static k = 0;
     NSError *error;
 	if (![ self.dataSource.fetchedResultsController  performFetch:&error]) {
 		// Update to handle the error appropriately.
@@ -69,9 +74,12 @@
     } else {
         NSUInteger count = [self.dataSource.fetchedResultsController.fetchedObjects count];
         [self.tableView reloadData];
-        
         self.title =  [NSString stringWithFormat:@"%lu Songs", (unsigned long)count];
-
+        [appDelegate__ saveContext];
+        
+        if (debug == 1) {
+            NSLog(@"int static k: %d: %@", ++k, self.title);
+        }
     }
 
 }
@@ -84,7 +92,7 @@
 - (void)configureCell:(UITableViewCell*)cell withObject:(Song*)object {
     cell.textLabel.text = object.title;
     if (debug == 1) {
-        NSLog(@"cell.textLabel.text: %@", cell.textLabel.text);
+        //NSLog(@"cell.textLabel.text: %@", cell.textLabel.text);
     }
 
     //cell.detailTextLabel.text = object.videoDescription;
