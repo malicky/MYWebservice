@@ -11,17 +11,13 @@
 
 @class  NSFetchedResultsController;
 
-@protocol FetchedResultsControllerDataSourceDelegate
-
+@protocol YMFetchedResultsControllerDataSourceDelegate
 - (void)configureCell:(id)cell withObject:(id)object;
-- (void)deleteObject:(id)object;
 @end
 
-@interface FetchedResultsControllerDataSource : NSObject <UITableViewDataSource, NSFetchedResultsControllerDelegate>
-
+@interface YMFetchedResultsControllerDataSource : NSObject <UITableViewDataSource, NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, weak) id<FetchedResultsControllerDataSourceDelegate> delegate;
-@property (nonatomic) BOOL paused;
+@property (nonatomic, weak) id<YMFetchedResultsControllerDataSourceDelegate> delegate;
 
 - (id)initWithTableView:(UITableView*)tableView;
 - (id)objectAtIndexPath:(NSIndexPath*)indexPath;

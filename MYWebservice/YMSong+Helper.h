@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "Song.h"
+#import "YMSong.h"
 
-@interface Song (Helper)
+@interface YMSong (Helper)
 - (void)loadFromDictionary:(NSDictionary *)dictionary;
 + (NSArray *)findOrCreateSongWithIdentifier:(NSString *)title inContext:(NSManagedObjectContext *)context;
 @end

@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "iTunesWebservice.h"
-#import "iTunesXMLParser.h"
-#import "Song.h"
+#import "YMiTunesWebservice.h"
+#import "YMiTunesXMLParser.h"
+#import "YMSong.h"
 
-const unsigned int kBatchRecordsCount = 10;
+const unsigned int kBatchRecordsCount = 20;
 
-@implementation iTunesWebservice {
+@implementation YMiTunesWebservice {
 }
 
 - (void)fetchAllWithCompletionBlock:(webServiceCompletionHandler)completionBlock {
     
-     NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=10/xml";
+     NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=400/xml";
     NSURL *url = [NSURL URLWithString:urlString];
     [[[NSURLSession sharedSession] dataTaskWithURL:url
                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -28,7 +28,7 @@ const unsigned int kBatchRecordsCount = 10;
                                      }
                                      dispatch_queue_t parserQueue = dispatch_queue_create("parserQueue", NULL);
                                      dispatch_async(parserQueue, ^{
-                                         iTunesXMLParser *parser = [[iTunesXMLParser alloc] init];
+                                         YMiTunesXMLParser *parser = [[YMiTunesXMLParser alloc] init];
                                          NSMutableArray * result = [parser parseData:data batchItemsCount:kBatchRecordsCount
                                                                  withCompletionBlock:completionBlock];
                                          if (result && ( [result count] > 0 ) && completionBlock) {

@@ -6,31 +6,28 @@
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "SongListViewController.h"
-#import "FetchedResultsControllerDataSource.h"
-#import "Song.h"
+#import "YMSongListViewController.h"
+#import "YMFetchedResultsControllerDataSource.h"
+#import "YMSong.h"
 #import "MYConstants.h"
-#import "MYAppDelegate.h"
+#import "YMAppDelegate.h"
+#import "YMPersistence.h"
 
 #define debug 1
 
-@interface SongListViewController () <NSXMLParserDelegate , FetchedResultsControllerDataSourceDelegate>
-@property (nonatomic, strong) FetchedResultsControllerDataSource *dataSource;
+@interface YMSongListViewController () <NSXMLParserDelegate , YMFetchedResultsControllerDataSourceDelegate>
+@property (nonatomic, strong) YMFetchedResultsControllerDataSource *dataSource;
 @property (nonatomic, assign) CGRect frame;
 @end
 
-
-@implementation SongListViewController {
-    
+@implementation YMSongListViewController {
 }
-
 
 -(id)initWithFrame:(CGRect)rect andContext:(NSManagedObjectContext *)context{
 	if (self = [super init]) {
         _frame = rect;
         self.managedObjectContext = context;
 	}
-    
     return self;
 }
 
@@ -38,9 +35,10 @@
     [super loadView];
     
     self.view.frame = self.frame;
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Song"];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"YMSong"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
-    self.dataSource = [[FetchedResultsControllerDataSource alloc] initWithTableView:self.tableView];
+    self.dataSource = [[YMFetchedResultsControllerDataSource alloc] initWithTableView:self.tableView];
     [self.dataSource reuseIdentifier:@"SongCellIdentifier"];
 
     self.dataSource.delegate = self;
@@ -58,10 +56,7 @@
                                                                                  withObject:nil
                                                                               waitUntilDone:NO];
                                                           }
-                                                          
                                                       }];
-
-
 }
 
 #pragma mark - FETCHING
@@ -75,31 +70,26 @@
         NSUInteger count = [self.dataSource.fetchedResultsController.fetchedObjects count];
         [self.tableView reloadData];
         self.title =  [NSString stringWithFormat:@"%lu Songs", (unsigned long)count];
-        [appDelegate__ saveContext];
+        [[YMPersistence sharedInstance] saveContexts];
         
         if (debug == 1) {
             NSLog(@"int static k: %d: %@", ++k, self.title);
         }
     }
-
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self performFetch];
 }
 
-- (void)configureCell:(UITableViewCell*)cell withObject:(Song*)object {
+- (void)configureCell:(UITableViewCell*)cell withObject:(YMSong*)object {
     cell.textLabel.text = object.title;
     if (debug == 1) {
         //NSLog(@"cell.textLabel.text: %@", cell.textLabel.text);
     }
 
     //cell.detailTextLabel.text = object.videoDescription;
-}
-
-- (void)deleteObject:(id)object {
-    
 }
 
 @end

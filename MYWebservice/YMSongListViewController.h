@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class FetchedResultsControllerDataSource;
+@class YMFetchedResultsControllerDataSource;
 
-@interface SongListViewController : UITableViewController
-
-@property ( nonatomic,strong) NSManagedObjectContext *managedObjectContext;
+@interface YMSongListViewController : UITableViewController
+@property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;
 -(id)initWithFrame:(CGRect)rect andContext:(NSManagedObjectContext*)context;
 @end

@@ -6,16 +6,15 @@
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "Song+Helper.h"
+#import "YMSong+Helper.h"
 
-@implementation Song (Helper)
+@implementation YMSong (Helper)
 - (void)loadFromDictionary:(NSDictionary *)dictionary {
     self.id = dictionary[@"id"];
     self.title = dictionary[@"title"];
     self.image = dictionary[@"image"];
     self.audio = dictionary[@"audio"];
 }
-
 
 + (NSArray *)findOrCreateSongWithIdentifier:(NSString *)id inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[self entityName]];

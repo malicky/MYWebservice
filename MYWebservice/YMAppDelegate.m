@@ -1,44 +1,51 @@
 //
-//  MYAppDelegate.m
+//  YMAppDelegate.m
 //  iTunesWebservice
 //
 //  Created by Malick Youla on 2014-03-09.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "MYAppDelegate.h"
+#import "YMAppDelegate.h"
 
 #import "MYMasterViewController.h"
-#import "MYImporter.h"
-#import "PersistentStack.h"
-#import "iTunesWebservice.h"
-#import "SongListViewController.h"
+#import "YMImporter.h"
+#import "YMPersistence.h"
+#import "YMiTunesWebservice.h"
+#import "YMSongListViewController.h"
 
-@interface MYAppDelegate ()
-
-@property (nonatomic, strong) MYImporter *importer;
-@property (nonatomic, strong) SongListViewController *listViewController;
-
+@interface YMAppDelegate ()
+@property (nonatomic, strong) YMImporter *importer;
+@property (nonatomic, strong) YMSongListViewController *listViewController;
 @end
 
 
-@implementation MYAppDelegate
+@implementation YMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
-    self.webservice = [[iTunesWebservice alloc] init];
-    self.importer = [[MYImporter alloc] initWithParentContext:self.persistentStack.managedObjectContext
+    // Set up the Persistence stack as a singleton
+    YMPersistence *stack = [[YMPersistence sharedInstance] initWithStoreURL:self.storeURL
+                                                                   modelURL:self.modelURL];
+    // Create iTunes Web service
+    self.webservice = [[YMiTunesWebservice alloc] init];
+   
+    // Create itunes songs importer
+    self.importer = [[YMImporter alloc] initWithParentContext:stack.managedObjectContext
                                              webservice:self.webservice];
     
     [self.importer import];
     
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.listViewController  = [[SongListViewController alloc] initWithFrame:self.window.bounds
-                                                                     andContext:self.persistentStack.backgroundManagedObjectContext];
-    self.listViewController.managedObjectContext = self.persistentStack.managedObjectContext;
     
+    // View controller to display the songs list
+    self.listViewController  = [[YMSongListViewController alloc] initWithFrame:self.window.bounds
+                                                                     andContext:stack.backgroundManagedObjectContext];
+    // Pass the main context for UI
+    self.listViewController.managedObjectContext = stack.managedObjectContext;
+    
+    // set the songs list view controller to be the root view controller
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.listViewController];
     self.window.rootViewController = navigationController;
     
@@ -50,14 +57,12 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    [self saveContext];
-
+    [[YMPersistence sharedInstance] saveContexts];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [self saveContext];
-
+    [[YMPersistence sharedInstance] saveContexts];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -70,12 +75,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
-}
-
-- (void)saveContext {
-    [self.persistentStack saveContexts];
+    [[YMPersistence sharedInstance] saveContexts];
 }
 
 - (NSURL*)storeURL {

@@ -2,12 +2,12 @@
      File: iTunesXMLParser.m
 */
 
-#import "iTunesXMLParser.h"
-#import "Song.h"
+#import "YMiTunesXMLParser.h"
+#import "YMSong.h"
 
 #define debug 0
 
-@interface iTunesXMLParser ()
+@interface YMiTunesXMLParser ()
 
 @property (nonatomic, strong) NSMutableString *currentString;
 @property (nonatomic, strong) NSMutableDictionary *currentSong;
@@ -20,8 +20,7 @@
 @property (nonatomic, copy) parseCompletionHandler callback;;
 @end
 
-@implementation iTunesXMLParser {
-    
+@implementation YMiTunesXMLParser {
 }
 
 - (instancetype)init {
@@ -35,6 +34,7 @@
     }
     return self;
 }
+
 - (NSArray *)parseData:(NSMutableData *)data {
     self.songs = [NSMutableArray array];
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
@@ -44,7 +44,6 @@
     if (result) {
         return self.songs;
     }
-    
     return nil;
 }
 
@@ -63,15 +62,12 @@
     if (result) {
         return self.songs;
     }
-    
     return nil;
 }
 
 #pragma mark Parsing support methods
 
-
 - (void)finishedCurrentSong {
-    
     [self addCurrentSong];
     
     if ([self.songs count] % self.kCountForNotification == 0 && self.callback) {

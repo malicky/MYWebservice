@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#import "MYModelObject.h"
+#import "YMModelObject.h"
 
-@interface Song : MYModelObject
+@interface YMSong : YMModelObject
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * id;

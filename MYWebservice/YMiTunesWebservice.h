@@ -10,8 +10,6 @@
 
 typedef void(^webServiceCompletionHandler) (NSMutableArray *records);
 
-@interface iTunesWebservice : NSObject
-
+@interface YMiTunesWebservice : NSObject
 - (void)fetchAllWithCompletionBlock:(webServiceCompletionHandler)completionBlock;
-
 @end

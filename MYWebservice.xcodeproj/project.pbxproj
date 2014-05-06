@@ -13,7 +13,7 @@
 		1301396F18CC7CBC009A4C82 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1301396E18CC7CBC009A4C82 /* CoreData.framework */; };
 		1301397518CC7CBC009A4C82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1301397318CC7CBC009A4C82 /* InfoPlist.strings */; };
 		1301397718CC7CBC009A4C82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301397618CC7CBC009A4C82 /* main.m */; };
-		1301397B18CC7CBC009A4C82 /* MYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301397A18CC7CBC009A4C82 /* MYAppDelegate.m */; };
+		1301397B18CC7CBC009A4C82 /* YMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301397A18CC7CBC009A4C82 /* YMAppDelegate.m */; };
 		1301398118CC7CBC009A4C82 /* MYWebservice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1301397F18CC7CBC009A4C82 /* MYWebservice.xcdatamodeld */; };
 		1301398918CC7CBC009A4C82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1301398818CC7CBC009A4C82 /* Images.xcassets */; };
 		1301399018CC7CBC009A4C82 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1301398F18CC7CBC009A4C82 /* XCTest.framework */; };
@@ -22,15 +22,15 @@
 		1301399318CC7CBC009A4C82 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1301396E18CC7CBC009A4C82 /* CoreData.framework */; };
 		1301399B18CC7CBC009A4C82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1301399918CC7CBC009A4C82 /* InfoPlist.strings */; };
 		1301399D18CC7CBC009A4C82 /* MYWebserviceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1301399C18CC7CBC009A4C82 /* MYWebserviceTests.m */; };
-		130139A818CC7EE9009A4C82 /* iTunesWebservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139A718CC7EE9009A4C82 /* iTunesWebservice.m */; };
-		130139AB18CCD050009A4C82 /* MYImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139AA18CCD050009A4C82 /* MYImporter.m */; };
-		130139B118CCD4F0009A4C82 /* MYModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B018CCD4F0009A4C82 /* MYModelObject.m */; };
-		130139B718CD00AA009A4C82 /* FetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */; };
-		130139BA18CD0719009A4C82 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B918CD0719009A4C82 /* PersistentStack.m */; };
-		1363967718CF1BB8007AD63A /* SongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* SongListViewController.m */; };
-		137809B818D9B3AD006184AC /* Song+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809B718D9B3AD006184AC /* Song+Helper.m */; };
-		13C122BD18DB00590044C816 /* iTunesXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C122BC18DB00590044C816 /* iTunesXMLParser.m */; };
-		13D55E6B18E0922B0042C4F5 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D55E6A18E0922B0042C4F5 /* Song.m */; };
+		130139A818CC7EE9009A4C82 /* YMiTunesWebservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139A718CC7EE9009A4C82 /* YMiTunesWebservice.m */; };
+		130139AB18CCD050009A4C82 /* YMImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139AA18CCD050009A4C82 /* YMImporter.m */; };
+		130139B118CCD4F0009A4C82 /* YMModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B018CCD4F0009A4C82 /* YMModelObject.m */; };
+		130139B718CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B618CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m */; };
+		130139BA18CD0719009A4C82 /* YMPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B918CD0719009A4C82 /* YMPersistence.m */; };
+		1363967718CF1BB8007AD63A /* YMSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* YMSongListViewController.m */; };
+		137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809B718D9B3AD006184AC /* YMSong+Helper.m */; };
+		13C122BD18DB00590044C816 /* YMiTunesXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C122BC18DB00590044C816 /* YMiTunesXMLParser.m */; };
+		13D55E6B18E0922B0042C4F5 /* YMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D55E6A18E0922B0042C4F5 /* YMSong.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,8 @@
 		1301397418CC7CBC009A4C82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1301397618CC7CBC009A4C82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1301397818CC7CBC009A4C82 /* MYWebservice-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MYWebservice-Prefix.pch"; sourceTree = "<group>"; };
-		1301397918CC7CBC009A4C82 /* MYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYAppDelegate.h; sourceTree = "<group>"; };
-		1301397A18CC7CBC009A4C82 /* MYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYAppDelegate.m; sourceTree = "<group>"; };
+		1301397918CC7CBC009A4C82 /* YMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMAppDelegate.h; sourceTree = "<group>"; };
+		1301397A18CC7CBC009A4C82 /* YMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YMAppDelegate.m; sourceTree = "<group>"; };
 		1301398018CC7CBC009A4C82 /* MYWebservice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MYWebservice.xcdatamodel; sourceTree = "<group>"; };
 		1301398818CC7CBC009A4C82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1301398E18CC7CBC009A4C82 /* MYWebserviceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MYWebserviceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,25 +62,25 @@
 		1301399818CC7CBC009A4C82 /* MYWebserviceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MYWebserviceTests-Info.plist"; sourceTree = "<group>"; };
 		1301399A18CC7CBC009A4C82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1301399C18CC7CBC009A4C82 /* MYWebserviceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYWebserviceTests.m; sourceTree = "<group>"; };
-		130139A618CC7EE9009A4C82 /* iTunesWebservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesWebservice.h; sourceTree = "<group>"; };
-		130139A718CC7EE9009A4C82 /* iTunesWebservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesWebservice.m; sourceTree = "<group>"; };
-		130139A918CCD050009A4C82 /* MYImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYImporter.h; sourceTree = "<group>"; };
-		130139AA18CCD050009A4C82 /* MYImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImporter.m; sourceTree = "<group>"; };
-		130139AF18CCD4F0009A4C82 /* MYModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYModelObject.h; sourceTree = "<group>"; };
-		130139B018CCD4F0009A4C82 /* MYModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYModelObject.m; sourceTree = "<group>"; };
-		130139B518CCF8E3009A4C82 /* FetchedResultsControllerDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchedResultsControllerDataSource.h; sourceTree = "<group>"; };
-		130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsControllerDataSource.m; sourceTree = "<group>"; };
-		130139B818CD0719009A4C82 /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
-		130139B918CD0719009A4C82 /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
-		1363967518CF1BB8007AD63A /* SongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SongListViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1363967618CF1BB8007AD63A /* SongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SongListViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		137809B618D9B3AD006184AC /* Song+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Song+Helper.h"; sourceTree = "<group>"; };
-		137809B718D9B3AD006184AC /* Song+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Song+Helper.m"; sourceTree = "<group>"; };
-		13C122BB18DB00590044C816 /* iTunesXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesXMLParser.h; sourceTree = "<group>"; };
-		13C122BC18DB00590044C816 /* iTunesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesXMLParser.m; sourceTree = "<group>"; };
+		130139A618CC7EE9009A4C82 /* YMiTunesWebservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMiTunesWebservice.h; sourceTree = "<group>"; };
+		130139A718CC7EE9009A4C82 /* YMiTunesWebservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMiTunesWebservice.m; sourceTree = "<group>"; };
+		130139A918CCD050009A4C82 /* YMImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMImporter.h; sourceTree = "<group>"; };
+		130139AA18CCD050009A4C82 /* YMImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMImporter.m; sourceTree = "<group>"; };
+		130139AF18CCD4F0009A4C82 /* YMModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMModelObject.h; sourceTree = "<group>"; };
+		130139B018CCD4F0009A4C82 /* YMModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMModelObject.m; sourceTree = "<group>"; };
+		130139B518CCF8E3009A4C82 /* YMFetchedResultsControllerDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMFetchedResultsControllerDataSource.h; sourceTree = "<group>"; };
+		130139B618CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMFetchedResultsControllerDataSource.m; sourceTree = "<group>"; };
+		130139B818CD0719009A4C82 /* YMPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMPersistence.h; sourceTree = "<group>"; };
+		130139B918CD0719009A4C82 /* YMPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMPersistence.m; sourceTree = "<group>"; };
+		1363967518CF1BB8007AD63A /* YMSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YMSongListViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1363967618CF1BB8007AD63A /* YMSongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YMSongListViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		137809B618D9B3AD006184AC /* YMSong+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YMSong+Helper.h"; sourceTree = "<group>"; };
+		137809B718D9B3AD006184AC /* YMSong+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YMSong+Helper.m"; sourceTree = "<group>"; };
+		13C122BB18DB00590044C816 /* YMiTunesXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMiTunesXMLParser.h; sourceTree = "<group>"; };
+		13C122BC18DB00590044C816 /* YMiTunesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMiTunesXMLParser.m; sourceTree = "<group>"; };
 		13C2E2FD18D837EF00BD6455 /* MYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYConstants.h; sourceTree = "<group>"; };
-		13D55E6918E0922B0042C4F5 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
-		13D55E6A18E0922B0042C4F5 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		13D55E6918E0922B0042C4F5 /* YMSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSong.h; sourceTree = "<group>"; };
+		13D55E6A18E0922B0042C4F5 /* YMSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSong.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +187,8 @@
 		130139BB18CDA959009A4C82 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				1301397918CC7CBC009A4C82 /* MYAppDelegate.h */,
-				1301397A18CC7CBC009A4C82 /* MYAppDelegate.m */,
+				1301397918CC7CBC009A4C82 /* YMAppDelegate.h */,
+				1301397A18CC7CBC009A4C82 /* YMAppDelegate.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -196,8 +196,8 @@
 		130139BC18CDA969009A4C82 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1363967518CF1BB8007AD63A /* SongListViewController.h */,
-				1363967618CF1BB8007AD63A /* SongListViewController.m */,
+				1363967518CF1BB8007AD63A /* YMSongListViewController.h */,
+				1363967618CF1BB8007AD63A /* YMSongListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -205,12 +205,12 @@
 		130139BD18CDA9A1009A4C82 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				13D55E6918E0922B0042C4F5 /* Song.h */,
-				13D55E6A18E0922B0042C4F5 /* Song.m */,
-				137809B618D9B3AD006184AC /* Song+Helper.h */,
-				137809B718D9B3AD006184AC /* Song+Helper.m */,
-				130139AF18CCD4F0009A4C82 /* MYModelObject.h */,
-				130139B018CCD4F0009A4C82 /* MYModelObject.m */,
+				13D55E6918E0922B0042C4F5 /* YMSong.h */,
+				13D55E6A18E0922B0042C4F5 /* YMSong.m */,
+				137809B618D9B3AD006184AC /* YMSong+Helper.h */,
+				137809B718D9B3AD006184AC /* YMSong+Helper.m */,
+				130139AF18CCD4F0009A4C82 /* YMModelObject.h */,
+				130139B018CCD4F0009A4C82 /* YMModelObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -218,16 +218,16 @@
 		130139BE18CDA9C5009A4C82 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				13C122BB18DB00590044C816 /* iTunesXMLParser.h */,
-				13C122BC18DB00590044C816 /* iTunesXMLParser.m */,
-				130139A618CC7EE9009A4C82 /* iTunesWebservice.h */,
-				130139A718CC7EE9009A4C82 /* iTunesWebservice.m */,
-				130139A918CCD050009A4C82 /* MYImporter.h */,
-				130139AA18CCD050009A4C82 /* MYImporter.m */,
-				130139B518CCF8E3009A4C82 /* FetchedResultsControllerDataSource.h */,
-				130139B618CD00AA009A4C82 /* FetchedResultsControllerDataSource.m */,
-				130139B818CD0719009A4C82 /* PersistentStack.h */,
-				130139B918CD0719009A4C82 /* PersistentStack.m */,
+				13C122BB18DB00590044C816 /* YMiTunesXMLParser.h */,
+				13C122BC18DB00590044C816 /* YMiTunesXMLParser.m */,
+				130139A618CC7EE9009A4C82 /* YMiTunesWebservice.h */,
+				130139A718CC7EE9009A4C82 /* YMiTunesWebservice.m */,
+				130139A918CCD050009A4C82 /* YMImporter.h */,
+				130139AA18CCD050009A4C82 /* YMImporter.m */,
+				130139B518CCF8E3009A4C82 /* YMFetchedResultsControllerDataSource.h */,
+				130139B618CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m */,
+				130139B818CD0719009A4C82 /* YMPersistence.h */,
+				130139B918CD0719009A4C82 /* YMPersistence.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -329,18 +329,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13D55E6B18E0922B0042C4F5 /* Song.m in Sources */,
-				13C122BD18DB00590044C816 /* iTunesXMLParser.m in Sources */,
-				1363967718CF1BB8007AD63A /* SongListViewController.m in Sources */,
-				130139B118CCD4F0009A4C82 /* MYModelObject.m in Sources */,
-				130139BA18CD0719009A4C82 /* PersistentStack.m in Sources */,
-				137809B818D9B3AD006184AC /* Song+Helper.m in Sources */,
-				130139B718CD00AA009A4C82 /* FetchedResultsControllerDataSource.m in Sources */,
-				1301397B18CC7CBC009A4C82 /* MYAppDelegate.m in Sources */,
+				13D55E6B18E0922B0042C4F5 /* YMSong.m in Sources */,
+				13C122BD18DB00590044C816 /* YMiTunesXMLParser.m in Sources */,
+				1363967718CF1BB8007AD63A /* YMSongListViewController.m in Sources */,
+				130139B118CCD4F0009A4C82 /* YMModelObject.m in Sources */,
+				130139BA18CD0719009A4C82 /* YMPersistence.m in Sources */,
+				137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */,
+				130139B718CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m in Sources */,
+				1301397B18CC7CBC009A4C82 /* YMAppDelegate.m in Sources */,
 				1301397718CC7CBC009A4C82 /* main.m in Sources */,
-				130139A818CC7EE9009A4C82 /* iTunesWebservice.m in Sources */,
+				130139A818CC7EE9009A4C82 /* YMiTunesWebservice.m in Sources */,
 				1301398118CC7CBC009A4C82 /* MYWebservice.xcdatamodeld in Sources */,
-				130139AB18CCD050009A4C82 /* MYImporter.m in Sources */,
+				130139AB18CCD050009A4C82 /* YMImporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

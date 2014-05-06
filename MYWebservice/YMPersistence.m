@@ -1,25 +1,22 @@
 
 //
-//  PersistentStack.m
-//  iTunesWebservice
+//  Persistence.m
 //
 //  Created by Malick Youla on 2014-03-09.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "PersistentStack.h"
+#import "YMPersistence.h"
 
 
-@interface PersistentStack ()
-
+@interface YMPersistence ()
 @property (nonatomic, readwrite) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, readwrite) NSManagedObjectContext *backgroundManagedObjectContext;
 @property (nonatomic) NSURL *modelURL;
 @property (nonatomic) NSURL *storeURL;
-
 @end
 
-@implementation PersistentStack
+@implementation YMPersistence
 
 - (id)initWithStoreURL:(NSURL *)storeURL modelURL:(NSURL *)modelURL {
     self = [super init];
@@ -31,10 +28,7 @@
     return self;
 }
 
-
-
 - (void)setupManagedObjectContexts {
-    
     self.backgroundManagedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
     self.backgroundManagedObjectContext.undoManager = [[NSUndoManager alloc] init];
 
@@ -55,7 +49,6 @@
                                                           }
                                                       }];
 }
-
 
 - (NSManagedObjectContext *)setupManagedObjectContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType)concurrencyType {
     NSManagedObjectContext *managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:concurrencyType];
@@ -84,12 +77,27 @@
 }
 
 - (void)saveManagedObjectContext:(NSManagedObjectContext *)context {
-    NSError *error = nil;
     if (context && [context hasChanges]) {
-        if (![context save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
+        [context performBlockAndWait:^{
+            NSError *error = nil;
+            if (![context save:&error]) {
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                abort();
+            }
+        }];
     }
+}
+
++ (instancetype)sharedInstance {
+    static dispatch_once_t onceToken;
+    static id shared = nil;
+    dispatch_once(&onceToken, ^{
+        shared = [[super alloc] initUniqueInstance];
+    });
+    return shared;
+}
+
+-(instancetype) initUniqueInstance {
+    return [super init];
 }
 @end

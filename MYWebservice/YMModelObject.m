@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "MYModelObject.h"
+#import "YMModelObject.h"
 
-@implementation MYModelObject
-
+@implementation YMModelObject
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context {
     return [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
 }

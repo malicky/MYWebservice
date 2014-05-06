@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
-#import "Song.h"
+#import "YMSong.h"
 
 
-@implementation Song
+@implementation YMSong
 
 @dynamic title;
 @dynamic id;

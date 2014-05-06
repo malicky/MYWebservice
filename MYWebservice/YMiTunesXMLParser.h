@@ -7,10 +7,9 @@
 
 typedef void(^parseCompletionHandler) (NSMutableArray *records);
 
-@class Song;
+@class YMSong;
 
-@interface iTunesXMLParser : NSObject <NSXMLParserDelegate>
-
+@interface YMiTunesXMLParser : NSObject <NSXMLParserDelegate>
 - (instancetype)init;
 - (NSArray *)parseData:(NSData *)data;
 - (NSMutableArray *)parseData:(NSData *)data

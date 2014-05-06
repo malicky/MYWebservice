@@ -1,6 +1,5 @@
 //
-//  PersistentStack.h
-//  iTunesWebservice
+//  Persistence.h
 //
 //  Created by Malick Youla on 2014-03-09.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
@@ -9,8 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface PersistentStack : NSObject
-
+@interface YMPersistence : NSObject
++ (instancetype)sharedInstance;
 - (id)initWithStoreURL:(NSURL*)storeURL modelURL:(NSURL*)modelURL;
 - (void)saveContexts;
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
