@@ -12,6 +12,7 @@
 #import "MYConstants.h"
 #import "YMAppDelegate.h"
 #import "YMPersistence.h"
+#import "YMTableViewCell.h"
 
 #define debug 1
 
@@ -83,8 +84,8 @@
     [self performFetch];
 }
 
-- (void)configureCell:(UITableViewCell*)cell withObject:(YMSong*)object {
-    cell.textLabel.text = object.title;
+- (void)configureCell:(YMTableViewCell*)cell withObject:(YMSong*)object {
+    cell.song = object; //cell.textLabel.text = object.title;
     if (debug == 1) {
         //NSLog(@"cell.textLabel.text: %@", cell.textLabel.text);
     }

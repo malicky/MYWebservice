@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define appDelegate__ (YMAppDelegate*)[UIApplication sharedApplication].delegate
 
 @class YMiTunesWebservice;
 @interface YMAppDelegate : UIResponder <UIApplicationDelegate>

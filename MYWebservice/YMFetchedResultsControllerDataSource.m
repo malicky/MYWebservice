@@ -1,6 +1,9 @@
 
 #import <CoreData/CoreData.h>
 #import "YMFetchedResultsControllerDataSource.h"
+#import "YMTableViewCell.h"
+
+extern const NSInteger kRowHeight;
 
 
 @interface YMFetchedResultsControllerDataSource ()
@@ -15,6 +18,8 @@
     if (self) {
         self.tableView = tableView;
         self.tableView.dataSource = self;
+        [self.tableView setRowHeight:kRowHeight];
+
     }
     return self;
 }
@@ -26,7 +31,7 @@
 -(void)reuseIdentifier:(NSString *)reuseIdentifier {
     if (!self.reuseIdentifier) {
         self.reuseIdentifier = reuseIdentifier;
-        [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:self.reuseIdentifier];
+        [self.tableView registerClass:[YMTableViewCell class] forCellReuseIdentifier:self.reuseIdentifier];
     }
 }
 

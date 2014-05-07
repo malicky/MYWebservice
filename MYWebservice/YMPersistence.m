@@ -21,27 +21,27 @@
 - (id)initWithStoreURL:(NSURL *)storeURL modelURL:(NSURL *)modelURL {
     self = [super init];
     if (self) {
-        self.storeURL = storeURL;
-        self.modelURL = modelURL;
+        _storeURL = storeURL;
+        _modelURL = modelURL;
         [self setupManagedObjectContexts];
     }
     return self;
 }
 
 - (void)setupManagedObjectContexts {
-    self.backgroundManagedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    self.backgroundManagedObjectContext.undoManager = [[NSUndoManager alloc] init];
+    _backgroundManagedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    _backgroundManagedObjectContext.undoManager = [[NSUndoManager alloc] init];
 
-    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    self.managedObjectContext.undoManager = nil;
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    _managedObjectContext.undoManager = nil;
 
-    [self.managedObjectContext setParentContext:self.backgroundManagedObjectContext];
+    [_managedObjectContext setParentContext:_backgroundManagedObjectContext];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
                                                       object:nil
                                                        queue:nil
                                                   usingBlock:^(NSNotification *note) {
-                                                          NSManagedObjectContext *moc = self.backgroundManagedObjectContext;
+                                                          NSManagedObjectContext *moc = _backgroundManagedObjectContext;
                                                           if (note.object != moc) {
                                                               [moc performBlockAndWait:^{
                                                                   [moc mergeChangesFromContextDidSaveNotification:note];
