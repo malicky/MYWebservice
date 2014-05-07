@@ -5,7 +5,7 @@
 #import "YMiTunesXMLParser.h"
 #import "YMSong.h"
 
-#define debug 0
+#define debug 1
 
 @interface YMiTunesXMLParser ()
 
@@ -95,6 +95,8 @@ static NSString *kElementName_Title = @"title";
 static NSString *kElementName_LinkImage = @"im:image";
 static NSString *kElementName_LinkAudio = @"link";
 static NSString *kElementName_Id = @"id";
+static NSString *kElementName_NS_Artist = @"im:artist";
+static NSString *kElementName_Artist = @"artist";
 
 
 static NSString *kAttributeName_Type = @"type";
@@ -108,6 +110,7 @@ static NSString *kAttributeName_inId = @"im:id";
         self.currentSong = [NSMutableDictionary dictionary];
     } else if ([elementName isEqualToString:kElementName_Title] ||
                [elementName isEqualToString:kElementName_LinkImage]
+               || [elementName isEqualToString:kElementName_NS_Artist]
                ) {
         [self.currentString setString:@""];
         self.storingCharacters = YES;
@@ -136,6 +139,10 @@ static NSString *kAttributeName_inId = @"im:id";
         self.currentSong[kElementName_Title] = [self.currentString copy];
     } else if ([elementName isEqualToString:kElementName_LinkImage]) {
         self.currentSong[kElementName_LinkImage] = [self.currentString copy];
+    } else if ([elementName isEqualToString:kElementName_NS_Artist]) {
+        if (debug == 1) {
+            self.currentSong[kElementName_Artist] = [self.currentString copy];
+        }
     }
     self.storingCharacters = NO;
 }

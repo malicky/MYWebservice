@@ -8,12 +8,20 @@
 
 #import "YMSong+Helper.h"
 
+#define debug 1
+
 @implementation YMSong (Helper)
 - (void)loadFromDictionary:(NSDictionary *)dictionary {
+    
+    if (debug == 1) {
+        NSLog(@"error: %@", dictionary);
+    }
     self.id = dictionary[@"id"];
     self.title = dictionary[@"title"];
     self.image = dictionary[@"image"];
     self.audio = dictionary[@"audio"];
+    self.artist = dictionary[@"artist"];
+   
 }
 
 + (NSArray *)findOrCreateSongWithIdentifier:(NSString *)id inContext:(NSManagedObjectContext *)context {

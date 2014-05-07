@@ -9,11 +9,13 @@
 #import "YMSongView.h"
 #import "YMSong.h"
 
-static const NSUInteger kLeftColumnOffset = 10;
-//static const NSUInteger  MIDDLE_COLUMN_OFFSET = 170;
-//static const NSUInteger  RIGHT_COLUMN_OFFSET = 270;
-static const NSUInteger  kUpperRowTop = 12;
+static const NSUInteger kLeftColumnOffset = 5;
+//static const NSUInteger  kMiddleColumnOffset = 170;
+static const NSUInteger  kRightColumnOffset = 270;
+static const NSUInteger  kUpperRowTop = 5;
 static const NSUInteger kLowerRowTop = 44;
+static const NSUInteger kCoverImageHeight = 60;
+
 
 NSUInteger DeviceSystemMajorVersion();
 
@@ -73,13 +75,26 @@ NSUInteger DeviceSystemMajorVersion() {
     
      // Draw the title string
     NSAttributedString *songTitleAttributedString = [[NSAttributedString alloc] initWithString:self.song.title attributes:mainTextAttributes];
-    point = CGPointMake(kLeftColumnOffset, kUpperRowTop);
+    point = CGPointMake(2*kLeftColumnOffset + kCoverImageHeight, kUpperRowTop);
     [songTitleAttributedString drawAtPoint:point];
 
     // Draw the artist string.
-    NSAttributedString *artistTitleAttributedString = [[NSAttributedString alloc] initWithString:self.song.id attributes:secondaryTextAttributes];
-    point = CGPointMake(kLeftColumnOffset, kLowerRowTop);
-    [artistTitleAttributedString drawAtPoint:point];
+#if 1
+    NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:self.song.artist attributes:secondaryTextAttributes];
+    point = CGPointMake(2*kLeftColumnOffset + kCoverImageHeight, kLowerRowTop);
+    [artistString drawAtPoint:point];
+#endif
+    // Draw the id string.
+    NSAttributedString *idString = [[NSAttributedString alloc] initWithString:self.song.id attributes:secondaryTextAttributes];
+    point = CGPointMake(kRightColumnOffset, kLowerRowTop);
+    [idString drawAtPoint:point];
+
+    
+    //
+    CGRect imageframe = CGRectMake(kLeftColumnOffset, kUpperRowTop, kCoverImageHeight, kCoverImageHeight);
+    [[UIColor redColor] set];
+    UIRectFill(imageframe); // this will fill the upper rect all red,
+
 
 }
 

@@ -10,7 +10,7 @@
 #import "YMSong.h"
 #import "YMSongView.h"
 
-NSUInteger kRowHeight = 60;
+NSUInteger kRowHeight = 70;
 NSUInteger kSongViewTag = 1950;
 
 @implementation YMTableViewCell {
