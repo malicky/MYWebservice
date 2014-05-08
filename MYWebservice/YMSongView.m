@@ -13,7 +13,7 @@ static const NSUInteger kLeftColumnOffset = 5;
 //static const NSUInteger  kMiddleColumnOffset = 170;
 static const NSUInteger  kRightColumnOffset = 270;
 static const NSUInteger  kUpperRowTop = 5;
-static const NSUInteger kLowerRowTop = 44;
+static const NSUInteger kLowerRowTop = 50;
 static const NSUInteger kCoverImageHeight = 60;
 
 
@@ -72,18 +72,22 @@ NSUInteger DeviceSystemMajorVersion() {
     NSDictionary *secondaryTextAttributes = @{ NSFontAttributeName :secondaryFont, NSForegroundColorAttributeName : secondaryTextColor };
 
     CGPoint point;
-    
+    CGRect r;
      // Draw the title string
     NSAttributedString *songTitleAttributedString = [[NSAttributedString alloc] initWithString:self.song.title attributes:mainTextAttributes];
     point = CGPointMake(2*kLeftColumnOffset + kCoverImageHeight, kUpperRowTop);
-    [songTitleAttributedString drawAtPoint:point];
+    r = CGRectMake(point.x, point.y, 260, 44);
+    //[songTitleAttributedString drawAtPoint:point];
+    
+    [songTitleAttributedString drawWithRect:r
+                              options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin
+                              context:nil];
+
 
     // Draw the artist string.
-#if 1
     NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:self.song.artist attributes:secondaryTextAttributes];
     point = CGPointMake(2*kLeftColumnOffset + kCoverImageHeight, kLowerRowTop);
     [artistString drawAtPoint:point];
-#endif
     // Draw the id string.
     NSAttributedString *idString = [[NSAttributedString alloc] initWithString:self.song.id attributes:secondaryTextAttributes];
     point = CGPointMake(kRightColumnOffset, kLowerRowTop);

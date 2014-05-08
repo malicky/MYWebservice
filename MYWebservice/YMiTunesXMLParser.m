@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSMutableArray *songs;
 @property (nonatomic, copy) NSString *currentLinkAudio;
 @property (nonatomic, copy) NSString *currentSongIdentifier;
+
+
 @property (nonatomic, strong) NSDateFormatter *parseFormatter;
 @property (nonatomic) BOOL storingCharacters;
 @property (nonatomic) NSUInteger kCountForNotification;
@@ -21,6 +23,11 @@
 @end
 
 @implementation YMiTunesXMLParser {
+    BOOL _fImageMediumLocationFound;
+    BOOL _fImageBigLocationFound;
+    NSString *_currentSongImageMediumLocation;
+    NSString *_currentSongImageBigLocation;
+
 }
 
 - (instancetype)init {
@@ -81,6 +88,16 @@
     if (self.currentSong) {
         self.currentSong[kElementName_LinkAudio] = [self.currentLinkAudio copy];
         self.currentSong[kElementName_Id] = [self.currentSongIdentifier copy];
+        
+        self.currentSong[@"imageMedium"] = _currentSongImageMediumLocation;
+        self.currentSong[@"imageBig"] = _currentSongImageBigLocation;
+        
+        if (debug == 1) {
+            NSLog(@"_currentSongImageMediumLocation = %@", _currentSongImageMediumLocation);
+            NSLog(@"_currentSongImageBigLocation = %@", _currentSongImageBigLocation);
+
+        }
+        
         [self.songs addObject:self.currentSong];
     }
 }
@@ -102,20 +119,28 @@ static NSString *kElementName_Artist = @"artist";
 static NSString *kAttributeName_Type = @"type";
 static NSString *kAttributeName_TypeAudio = @"audio/x-m4a";
 static NSString *kAttributeName_Href = @"href";
-static NSString *kAttributeName_inId = @"im:id";
+static NSString *kAttributeName_imId = @"im:id";
+static NSString *kAttributeValue_height_medium = @"60";
+static NSString *kAttributeValue_height_big = @"170";
+
+static NSString *kAttributeName_height = @"height";
+
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *) qualifiedName attributes:(NSDictionary *)attributeDict {
 
     if ([elementName isEqualToString:kElementName_Entry]) {
         self.currentSong = [NSMutableDictionary dictionary];
     } else if ([elementName isEqualToString:kElementName_Title] ||
-               [elementName isEqualToString:kElementName_LinkImage]
-               || [elementName isEqualToString:kElementName_NS_Artist]
+               [elementName isEqualToString:kElementName_LinkImage] ||
+               [elementName isEqualToString:kElementName_LinkAudio] ||
+               [elementName isEqualToString:kElementName_NS_Artist] ||
+               [elementName isEqualToString:kElementName_Id]
                ) {
         [self.currentString setString:@""];
         self.storingCharacters = YES;
         
-    } else if ([elementName isEqualToString:kElementName_LinkAudio]) {
+    }
+    if ([elementName isEqualToString:kElementName_LinkAudio]) {
         if (attributeDict[kAttributeName_Type] && [attributeDict[kAttributeName_Type]  isEqualToString:kAttributeName_TypeAudio]){
             if (debug == 1) {
                 NSLog(@"href = %@", attributeDict[kAttributeName_Href]);
@@ -123,11 +148,19 @@ static NSString *kAttributeName_inId = @"im:id";
             self.currentLinkAudio = attributeDict[kAttributeName_Href];
         }
     } else if ([elementName isEqualToString:kElementName_Id]) {
-        if (attributeDict[kAttributeName_inId]){
+        if (attributeDict[kAttributeName_imId]){
             if (debug == 1) {
-                NSLog(@"id = %@", attributeDict[kAttributeName_inId]);
+                NSLog(@"id = %@", attributeDict[kAttributeName_imId]);
             }
-            self.currentSongIdentifier = attributeDict[kAttributeName_inId];
+            self.currentSongIdentifier = attributeDict[kAttributeName_imId];
+        }
+    } else if ([elementName isEqualToString:kElementName_LinkImage]) {
+        if ([attributeDict[kAttributeName_height]isEqualToString:kAttributeValue_height_medium]) {
+            _fImageMediumLocationFound = YES;
+            _currentSongImageMediumLocation = @"";
+        } else if ([attributeDict[kAttributeName_height]isEqualToString:kAttributeValue_height_big]) {
+            _fImageBigLocationFound = YES;
+            _currentSongImageBigLocation = @"";
         }
     }
 }
@@ -140,9 +173,7 @@ static NSString *kAttributeName_inId = @"im:id";
     } else if ([elementName isEqualToString:kElementName_LinkImage]) {
         self.currentSong[kElementName_LinkImage] = [self.currentString copy];
     } else if ([elementName isEqualToString:kElementName_NS_Artist]) {
-        if (debug == 1) {
             self.currentSong[kElementName_Artist] = [self.currentString copy];
-        }
     }
     self.storingCharacters = NO;
 }
@@ -150,6 +181,15 @@ static NSString *kAttributeName_inId = @"im:id";
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     if (self.storingCharacters) {
         [self.currentString appendString:string];
+        
+        if (_fImageMediumLocationFound) {
+            _currentSongImageMediumLocation = [self.currentString copy];
+            _fImageMediumLocationFound = NO;
+        }
+        if (_fImageBigLocationFound) {
+            _currentSongImageBigLocation = [self.currentString copy];
+            _fImageBigLocationFound = NO;
+        }
         if (debug == 1) {
             NSLog(@"self.currentString = %@", self.currentString);
         }

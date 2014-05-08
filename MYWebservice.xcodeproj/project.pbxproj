@@ -30,9 +30,9 @@
 		1363967718CF1BB8007AD63A /* YMSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* YMSongListViewController.m */; };
 		137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809B718D9B3AD006184AC /* YMSong+Helper.m */; };
 		13C122BD18DB00590044C816 /* YMiTunesXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C122BC18DB00590044C816 /* YMiTunesXMLParser.m */; };
-		13D55E6B18E0922B0042C4F5 /* YMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D55E6A18E0922B0042C4F5 /* YMSong.m */; };
 		13F7A9C9191A309100C37DF5 /* YMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9C8191A309100C37DF5 /* YMTableViewCell.m */; };
 		13F7A9D0191A3D5C00C37DF5 /* YMSongView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */; };
+		13F7A9D6191B6AF100C37DF5 /* YMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9D5191B6AF100C37DF5 /* YMSong.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,12 +81,12 @@
 		13C122BB18DB00590044C816 /* YMiTunesXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMiTunesXMLParser.h; sourceTree = "<group>"; };
 		13C122BC18DB00590044C816 /* YMiTunesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMiTunesXMLParser.m; sourceTree = "<group>"; };
 		13C2E2FD18D837EF00BD6455 /* MYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYConstants.h; sourceTree = "<group>"; };
-		13D55E6918E0922B0042C4F5 /* YMSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSong.h; sourceTree = "<group>"; };
-		13D55E6A18E0922B0042C4F5 /* YMSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSong.m; sourceTree = "<group>"; };
 		13F7A9C8191A309100C37DF5 /* YMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTableViewCell.m; sourceTree = "<group>"; };
 		13F7A9CA191A309900C37DF5 /* YMTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMTableViewCell.h; sourceTree = "<group>"; };
 		13F7A9CE191A3D5C00C37DF5 /* YMSongView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSongView.h; sourceTree = "<group>"; };
 		13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSongView.m; sourceTree = "<group>"; };
+		13F7A9D4191B6AF100C37DF5 /* YMSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSong.h; sourceTree = "<group>"; };
+		13F7A9D5191B6AF100C37DF5 /* YMSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSong.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +215,8 @@
 		130139BD18CDA9A1009A4C82 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				13D55E6918E0922B0042C4F5 /* YMSong.h */,
-				13D55E6A18E0922B0042C4F5 /* YMSong.m */,
+				13F7A9D4191B6AF100C37DF5 /* YMSong.h */,
+				13F7A9D5191B6AF100C37DF5 /* YMSong.m */,
 				137809B618D9B3AD006184AC /* YMSong+Helper.h */,
 				137809B718D9B3AD006184AC /* YMSong+Helper.m */,
 				130139AF18CCD4F0009A4C82 /* YMModelObject.h */,
@@ -339,7 +339,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13D55E6B18E0922B0042C4F5 /* YMSong.m in Sources */,
 				13C122BD18DB00590044C816 /* YMiTunesXMLParser.m in Sources */,
 				1363967718CF1BB8007AD63A /* YMSongListViewController.m in Sources */,
 				130139B118CCD4F0009A4C82 /* YMModelObject.m in Sources */,
@@ -348,6 +347,7 @@
 				137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */,
 				130139B718CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m in Sources */,
 				1301397B18CC7CBC009A4C82 /* YMAppDelegate.m in Sources */,
+				13F7A9D6191B6AF100C37DF5 /* YMSong.m in Sources */,
 				1301397718CC7CBC009A4C82 /* main.m in Sources */,
 				13F7A9C9191A309100C37DF5 /* YMTableViewCell.m in Sources */,
 				130139A818CC7EE9009A4C82 /* YMiTunesWebservice.m in Sources */,
@@ -469,6 +469,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MYWebservice/MYWebservice-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -484,6 +486,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Carsten Owerfeldt (CCQJA5YF7V)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MYWebservice/MYWebservice-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;

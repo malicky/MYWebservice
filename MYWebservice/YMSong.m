@@ -2,7 +2,7 @@
 //  YMSong.m
 //  MYWebservice
 //
-//  Created by Malick Youla on 2014-05-07.
+//  Created by Malick Youla on 2014-05-08.
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
@@ -11,10 +11,11 @@
 
 @implementation YMSong
 
+@dynamic artist;
 @dynamic audio;
 @dynamic id;
-@dynamic image;
+@dynamic imageMedium;
 @dynamic title;
-@dynamic artist;
+@dynamic imageBig;
 
 @end

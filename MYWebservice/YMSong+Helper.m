@@ -14,11 +14,12 @@
 - (void)loadFromDictionary:(NSDictionary *)dictionary {
     
     if (debug == 1) {
-        NSLog(@"error: %@", dictionary);
+        NSLog(@"loadFromDictionary: %@", dictionary);
     }
     self.id = dictionary[@"id"];
     self.title = dictionary[@"title"];
-    self.image = dictionary[@"image"];
+    self.imageMedium = dictionary[@"imageMedium"];
+    self.imageBig = dictionary[@"imageBig"];
     self.audio = dictionary[@"audio"];
     self.artist = dictionary[@"artist"];
    

@@ -4,10 +4,11 @@
         <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="audio" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageBig" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageMedium" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="YMSong" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="YMSong" positionX="0" positionY="0" width="128" height="135"/>
     </elements>
 </model>
