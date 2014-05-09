@@ -12,5 +12,6 @@
 @class YMSong;
 
 @interface YMSongView : UIView
+@property (nonatomic, strong) UIImageView *coverImage;
 - (id)initWithFrame:(CGRect)frame andSong:(YMSong *)song;
 @end

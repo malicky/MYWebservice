@@ -9,6 +9,7 @@
 #import "YMTableViewCell.h"
 #import "YMSong.h"
 #import "YMSongView.h"
+#import "UIImageView+Network.h"
 
 NSUInteger kRowHeight = 70;
 NSUInteger kSongViewTag = 1950;
@@ -27,6 +28,11 @@ NSUInteger kSongViewTag = 1950;
     }
   
     YMSongView *songView = [[YMSongView alloc]initWithFrame:CGRectMake(0., 0., 480., kRowHeight)  andSong:song];
+    UIImageView *cover = [[UIImageView alloc]init];
+    [cover loadImageFromURL:[NSURL URLWithString:_song.imageMedium] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] cachingKey:nil];
+    [songView addSubview:cover];
+    songView.coverImage = cover;
+    
     songView.tag = kSongViewTag;
     [self.contentView addSubview:songView];
 

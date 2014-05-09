@@ -33,6 +33,8 @@
 		13F7A9C9191A309100C37DF5 /* YMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9C8191A309100C37DF5 /* YMTableViewCell.m */; };
 		13F7A9D0191A3D5C00C37DF5 /* YMSongView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */; };
 		13F7A9D6191B6AF100C37DF5 /* YMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9D5191B6AF100C37DF5 /* YMSong.m */; };
+		13F7A9DC191BB06600C37DF5 /* UIImageView+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */; };
+		13F7A9DE191BBD4400C37DF5 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13F7A9DD191BBD4400C37DF5 /* placeholder.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,9 @@
 		13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSongView.m; sourceTree = "<group>"; };
 		13F7A9D4191B6AF100C37DF5 /* YMSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSong.h; sourceTree = "<group>"; };
 		13F7A9D5191B6AF100C37DF5 /* YMSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSong.m; sourceTree = "<group>"; };
+		13F7A9DA191BB06600C37DF5 /* UIImageView+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Network.h"; sourceTree = "<group>"; };
+		13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Network.m"; sourceTree = "<group>"; };
+		13F7A9DD191BBD4400C37DF5 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +167,8 @@
 		1301397118CC7CBC009A4C82 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				13F7A9DA191BB06600C37DF5 /* UIImageView+Network.h */,
+				13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */,
 				1301398818CC7CBC009A4C82 /* Images.xcassets */,
 				1301397F18CC7CBC009A4C82 /* MYWebservice.xcdatamodeld */,
 				1301397218CC7CBC009A4C82 /* MYWebservice-Info.plist */,
@@ -208,6 +215,7 @@
 				13F7A9CA191A309900C37DF5 /* YMTableViewCell.h */,
 				13F7A9CE191A3D5C00C37DF5 /* YMSongView.h */,
 				13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */,
+				13F7A9DD191BBD4400C37DF5 /* placeholder.jpg */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -320,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1301398918CC7CBC009A4C82 /* Images.xcassets in Resources */,
+				13F7A9DE191BBD4400C37DF5 /* placeholder.jpg in Resources */,
 				1301397518CC7CBC009A4C82 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +352,7 @@
 				1363967718CF1BB8007AD63A /* YMSongListViewController.m in Sources */,
 				130139B118CCD4F0009A4C82 /* YMModelObject.m in Sources */,
 				130139BA18CD0719009A4C82 /* YMPersistence.m in Sources */,
+				13F7A9DC191BB06600C37DF5 /* UIImageView+Network.m in Sources */,
 				13F7A9D0191A3D5C00C37DF5 /* YMSongView.m in Sources */,
 				137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */,
 				130139B718CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m in Sources */,

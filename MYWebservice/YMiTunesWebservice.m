@@ -17,7 +17,7 @@ const unsigned int kBatchRecordsCount = 20;
 
 - (void)fetchAllWithCompletionBlock:(webServiceCompletionHandler)completionBlock {
     
-     NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=400/xml";
+     NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=25/xml";
     NSURL *url = [NSURL URLWithString:urlString];
     [[[NSURLSession sharedSession] dataTaskWithURL:url
                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
