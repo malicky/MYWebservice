@@ -2,6 +2,7 @@
 #import <CoreData/CoreData.h>
 #import "YMFetchedResultsControllerDataSource.h"
 #import "YMTableViewCell.h"
+#import "MYZoomViewController.h"
 
 extern const NSInteger kRowHeight;
 
@@ -18,7 +19,9 @@ extern const NSInteger kRowHeight;
     if (self) {
         self.tableView = tableView;
         self.tableView.dataSource = self;
+        self.tableView.delegate = self;
         [self.tableView setRowHeight:kRowHeight];
+        [self.tableView setAllowsSelection:YES];
 
     }
     return self;
@@ -59,9 +62,14 @@ extern const NSInteger kRowHeight;
     return NO;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   YMSong *selectedSong = (YMSong *)[self selectedItem];
+   [self.delegate detailViewWithObject:selectedSong];
+}
+
 - (id)selectedItem {
     NSIndexPath *path = self.tableView.indexPathForSelectedRow;
-    return path ? [self.fetchedResultsController objectAtIndexPath:path] : nil;
+    return path ? [self objectAtIndexPath:path] : nil;
 }
 
 @end

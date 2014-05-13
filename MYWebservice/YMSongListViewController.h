@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class YMFetchedResultsControllerDataSource;
+@class YMFetchedResultsControllerDataSource, YMSong;
 
 @interface YMSongListViewController : UITableViewController
 @property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;

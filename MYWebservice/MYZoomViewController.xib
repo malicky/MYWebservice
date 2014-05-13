@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MYZoomViewController">
+            <connections>
+                <outlet property="doubleTapGestureRecognizer" destination="yCi-VE-Csu" id="RSa-Ub-9fh"/>
+                <outlet property="imageView" destination="Vmw-LN-RfU" id="CFM-mG-fr1"/>
+                <outlet property="scrollView" destination="NbH-R6-7nQ" id="ddG-Ct-drA"/>
+                <outlet property="singleTapGestureRecognizer" destination="Z8G-rw-y6A" id="O2D-7r-JH1"/>
+                <outlet property="view" destination="WyF-ru-uKz" id="36i-vY-H9P"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="WyF-ru-uKz">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" maximumZoomScale="2" id="NbH-R6-7nQ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.jpg" id="Vmw-LN-RfU">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="yCi-VE-Csu" appends="YES" id="f22-GC-gyn"/>
+                            </connections>
+                        </imageView>
+                    </subviews>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Z8G-rw-y6A" appends="YES" id="IzH-jU-ZMC"/>
+                    </connections>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <tapGestureRecognizer id="Z8G-rw-y6A" userLabel="Single Tap Gesture Recognizer">
+            <connections>
+                <action selector="handleSingleTap:" destination="-1" id="zFD-Nl-xeh"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer numberOfTapsRequired="2" id="yCi-VE-Csu" userLabel="Double Tap Gesture Recognizer">
+            <connections>
+                <action selector="handleDoubleTap:" destination="-1" id="rjZ-09-210"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="placeholder.jpg" width="625" height="605"/>
+    </resources>
+</document>

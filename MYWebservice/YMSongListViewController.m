@@ -13,6 +13,7 @@
 #import "YMAppDelegate.h"
 #import "YMPersistence.h"
 #import "YMTableViewCell.h"
+#import "MYZoomViewController.h"
 
 #define debug 1
 
@@ -85,12 +86,14 @@
 }
 
 - (void)configureCell:(YMTableViewCell*)cell withObject:(YMSong*)object {
-    cell.song = object; //cell.textLabel.text = object.title;
-    if (debug == 1) {
-        //NSLog(@"cell.textLabel.text: %@", cell.textLabel.text);
-    }
-
-    //cell.detailTextLabel.text = object.videoDescription;
+    cell.song = object;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
+- (void)detailViewWithObject:(YMSong *)song {
+//    UINavigationController *navController =  self.navigationController;
+    MYZoomViewController * zoomVC = [[MYZoomViewController alloc]initWithNibName:@"MYZoomViewController" bundle:nil];
+    [self.navigationController pushViewController:zoomVC animated:YES];
+
+}
 @end

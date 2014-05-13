@@ -13,9 +13,11 @@
 
 @protocol YMFetchedResultsControllerDataSourceDelegate
 - (void)configureCell:(id)cell withObject:(id)object;
+- (void)detailViewWithObject:(id)object;
+
 @end
 
-@interface YMFetchedResultsControllerDataSource : NSObject <UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@interface YMFetchedResultsControllerDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, weak) id<YMFetchedResultsControllerDataSourceDelegate> delegate;
 
