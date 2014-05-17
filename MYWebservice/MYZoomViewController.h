@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class YMSong;
 @interface MYZoomViewController : UIViewController
 //
 
@@ -21,5 +22,5 @@
 @property (strong, nonatomic, readonly) UIImage *image;
 - (id)initWithImage:(UIImage *)image;
 
-
+- (void)setSong:(YMSong *)song;
 @end

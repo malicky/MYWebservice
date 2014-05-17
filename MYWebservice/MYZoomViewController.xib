@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MYZoomViewController">
             <connections>
                 <outlet property="doubleTapGestureRecognizer" destination="yCi-VE-Csu" id="RSa-Ub-9fh"/>
-                <outlet property="imageView" destination="Vmw-LN-RfU" id="CFM-mG-fr1"/>
                 <outlet property="scrollView" destination="NbH-R6-7nQ" id="ddG-Ct-drA"/>
                 <outlet property="singleTapGestureRecognizer" destination="Z8G-rw-y6A" id="O2D-7r-JH1"/>
                 <outlet property="view" destination="WyF-ru-uKz" id="36i-vY-H9P"/>
@@ -23,14 +22,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.jpg" id="Vmw-LN-RfU">
+                        <view contentMode="scaleToFill" id="P0f-Qd-wSm">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <gestureRecognizers/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="yCi-VE-Csu" appends="YES" id="f22-GC-gyn"/>
-                            </connections>
-                        </imageView>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <gestureRecognizers/>
                     <connections>
@@ -52,7 +48,4 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
-    <resources>
-        <image name="placeholder.jpg" width="625" height="605"/>
-    </resources>
 </document>

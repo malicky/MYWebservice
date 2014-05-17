@@ -13,7 +13,8 @@
 #import "YMAppDelegate.h"
 #import "YMPersistence.h"
 #import "YMTableViewCell.h"
-#import "MYZoomViewController.h"
+#import "YMViewController.h"
+#import "MYCoverView.h"
 
 #define debug 1
 
@@ -91,8 +92,8 @@
 }
 
 - (void)detailViewWithObject:(YMSong *)song {
-//    UINavigationController *navController =  self.navigationController;
-    MYZoomViewController * zoomVC = [[MYZoomViewController alloc]initWithNibName:@"MYZoomViewController" bundle:nil];
+       YMViewController * zoomVC = [[YMViewController alloc]initWithNibName:@"YMViewController" bundle:nil andSong:song];
+    //[zoomVC setSong:song];
     [self.navigationController pushViewController:zoomVC animated:YES];
 
 }

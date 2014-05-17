@@ -37,6 +37,7 @@ static char URL_KEY;
 			if ([self.imageURL.absoluteString isEqualToString:url.absoluteString]) {
 				dispatch_sync(dispatch_get_main_queue(), ^{
 					self.image = imageFromData;
+                    self.frame = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
 				});
 			} else {
 //				NSLog(@"urls are not the same, bailing out!");

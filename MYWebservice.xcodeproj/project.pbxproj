@@ -27,18 +27,21 @@
 		130139B118CCD4F0009A4C82 /* YMModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B018CCD4F0009A4C82 /* YMModelObject.m */; };
 		130139B718CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B618CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m */; };
 		130139BA18CD0719009A4C82 /* YMPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B918CD0719009A4C82 /* YMPersistence.m */; };
+		1351A7A5192251A600FD2498 /* MYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1351A7A4192251A600FD2498 /* MYCoverView.m */; };
 		1363967718CF1BB8007AD63A /* YMSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* YMSongListViewController.m */; };
 		137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809B718D9B3AD006184AC /* YMSong+Helper.m */; };
+		139D82BD19264B97002BA574 /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D82BC19264B97002BA574 /* MyScrollView.m */; };
+		139D82BF19265E07002BA574 /* earthFromSaturn.png in Resources */ = {isa = PBXBuildFile; fileRef = 139D82BE19265E07002BA574 /* earthFromSaturn.png */; };
 		13C122BD18DB00590044C816 /* YMiTunesXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C122BC18DB00590044C816 /* YMiTunesXMLParser.m */; };
-		13EA60C4191E799400CAEB70 /* MYZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA60C2191E799400CAEB70 /* MYZoomViewController.m */; };
-		13EA60C5191E799400CAEB70 /* MYZoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13EA60C3191E799400CAEB70 /* MYZoomViewController.xib */; };
+		13E030F8192643E600B294FC /* YMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E030F6192643E600B294FC /* YMViewController.m */; };
+		13E030F9192643E600B294FC /* YMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13E030F7192643E600B294FC /* YMViewController.xib */; };
 		13EA60C8191ECDF400CAEB70 /* UIView+DebugObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA60C7191ECDF400CAEB70 /* UIView+DebugObject.m */; };
+		13EF254819262AD3008445AC /* MyScalableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EF254719262AD3008445AC /* MyScalableView.m */; };
 		13F7A9C9191A309100C37DF5 /* YMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9C8191A309100C37DF5 /* YMTableViewCell.m */; };
 		13F7A9D0191A3D5C00C37DF5 /* YMSongView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */; };
 		13F7A9D6191B6AF100C37DF5 /* YMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9D5191B6AF100C37DF5 /* YMSong.m */; };
 		13F7A9DC191BB06600C37DF5 /* UIImageView+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */; };
 		13F7A9DE191BBD4400C37DF5 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13F7A9DD191BBD4400C37DF5 /* placeholder.jpg */; };
-		13F7A9E1191D161400C37DF5 /* ZoomingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9E0191D161400C37DF5 /* ZoomingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,18 +83,25 @@
 		130139B618CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMFetchedResultsControllerDataSource.m; sourceTree = "<group>"; };
 		130139B818CD0719009A4C82 /* YMPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMPersistence.h; sourceTree = "<group>"; };
 		130139B918CD0719009A4C82 /* YMPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMPersistence.m; sourceTree = "<group>"; };
+		1351A7A3192251A600FD2498 /* MYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCoverView.h; sourceTree = "<group>"; };
+		1351A7A4192251A600FD2498 /* MYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCoverView.m; sourceTree = "<group>"; };
 		1363967518CF1BB8007AD63A /* YMSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YMSongListViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1363967618CF1BB8007AD63A /* YMSongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YMSongListViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		137809B618D9B3AD006184AC /* YMSong+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YMSong+Helper.h"; sourceTree = "<group>"; };
 		137809B718D9B3AD006184AC /* YMSong+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YMSong+Helper.m"; sourceTree = "<group>"; };
+		139D82BB19264B97002BA574 /* MyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScrollView.h; sourceTree = "<group>"; };
+		139D82BC19264B97002BA574 /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
+		139D82BE19265E07002BA574 /* earthFromSaturn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earthFromSaturn.png; sourceTree = "<group>"; };
 		13C122BB18DB00590044C816 /* YMiTunesXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMiTunesXMLParser.h; sourceTree = "<group>"; };
 		13C122BC18DB00590044C816 /* YMiTunesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMiTunesXMLParser.m; sourceTree = "<group>"; };
 		13C2E2FD18D837EF00BD6455 /* MYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYConstants.h; sourceTree = "<group>"; };
-		13EA60C1191E799400CAEB70 /* MYZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYZoomViewController.h; sourceTree = "<group>"; };
-		13EA60C2191E799400CAEB70 /* MYZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYZoomViewController.m; sourceTree = "<group>"; };
-		13EA60C3191E799400CAEB70 /* MYZoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYZoomViewController.xib; sourceTree = "<group>"; };
+		13E030F5192643E600B294FC /* YMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMViewController.h; sourceTree = "<group>"; };
+		13E030F6192643E600B294FC /* YMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMViewController.m; sourceTree = "<group>"; };
+		13E030F7192643E600B294FC /* YMViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YMViewController.xib; sourceTree = "<group>"; };
 		13EA60C6191ECDF400CAEB70 /* UIView+DebugObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DebugObject.h"; sourceTree = "<group>"; };
 		13EA60C7191ECDF400CAEB70 /* UIView+DebugObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DebugObject.m"; sourceTree = "<group>"; };
+		13EF254619262AD3008445AC /* MyScalableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScalableView.h; sourceTree = "<group>"; };
+		13EF254719262AD3008445AC /* MyScalableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScalableView.m; sourceTree = "<group>"; };
 		13F7A9C8191A309100C37DF5 /* YMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTableViewCell.m; sourceTree = "<group>"; };
 		13F7A9CA191A309900C37DF5 /* YMTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMTableViewCell.h; sourceTree = "<group>"; };
 		13F7A9CE191A3D5C00C37DF5 /* YMSongView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSongView.h; sourceTree = "<group>"; };
@@ -101,8 +111,6 @@
 		13F7A9DA191BB06600C37DF5 /* UIImageView+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Network.h"; sourceTree = "<group>"; };
 		13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Network.m"; sourceTree = "<group>"; };
 		13F7A9DD191BBD4400C37DF5 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
-		13F7A9DF191D161400C37DF5 /* ZoomingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomingViewController.h; sourceTree = "<group>"; };
-		13F7A9E0191D161400C37DF5 /* ZoomingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +230,6 @@
 		130139BC18CDA969009A4C82 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				13F7A9DF191D161400C37DF5 /* ZoomingViewController.h */,
-				13F7A9E0191D161400C37DF5 /* ZoomingViewController.m */,
 				1363967518CF1BB8007AD63A /* YMSongListViewController.h */,
 				1363967618CF1BB8007AD63A /* YMSongListViewController.m */,
 				13F7A9C8191A309100C37DF5 /* YMTableViewCell.m */,
@@ -231,9 +237,16 @@
 				13F7A9CE191A3D5C00C37DF5 /* YMSongView.h */,
 				13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */,
 				13F7A9DD191BBD4400C37DF5 /* placeholder.jpg */,
-				13EA60C1191E799400CAEB70 /* MYZoomViewController.h */,
-				13EA60C2191E799400CAEB70 /* MYZoomViewController.m */,
-				13EA60C3191E799400CAEB70 /* MYZoomViewController.xib */,
+				1351A7A3192251A600FD2498 /* MYCoverView.h */,
+				1351A7A4192251A600FD2498 /* MYCoverView.m */,
+				13EF254619262AD3008445AC /* MyScalableView.h */,
+				13EF254719262AD3008445AC /* MyScalableView.m */,
+				139D82BB19264B97002BA574 /* MyScrollView.h */,
+				139D82BC19264B97002BA574 /* MyScrollView.m */,
+				13E030F5192643E600B294FC /* YMViewController.h */,
+				13E030F6192643E600B294FC /* YMViewController.m */,
+				13E030F7192643E600B294FC /* YMViewController.xib */,
+				139D82BE19265E07002BA574 /* earthFromSaturn.png */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -345,10 +358,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139D82BF19265E07002BA574 /* earthFromSaturn.png in Resources */,
 				1301398918CC7CBC009A4C82 /* Images.xcassets in Resources */,
 				13F7A9DE191BBD4400C37DF5 /* placeholder.jpg in Resources */,
+				13E030F9192643E600B294FC /* YMViewController.xib in Resources */,
 				1301397518CC7CBC009A4C82 /* InfoPlist.strings in Resources */,
-				13EA60C5191E799400CAEB70 /* MYZoomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,17 +385,19 @@
 				1363967718CF1BB8007AD63A /* YMSongListViewController.m in Sources */,
 				130139B118CCD4F0009A4C82 /* YMModelObject.m in Sources */,
 				130139BA18CD0719009A4C82 /* YMPersistence.m in Sources */,
-				13F7A9E1191D161400C37DF5 /* ZoomingViewController.m in Sources */,
-				13EA60C4191E799400CAEB70 /* MYZoomViewController.m in Sources */,
+				13EF254819262AD3008445AC /* MyScalableView.m in Sources */,
 				13F7A9DC191BB06600C37DF5 /* UIImageView+Network.m in Sources */,
 				13F7A9D0191A3D5C00C37DF5 /* YMSongView.m in Sources */,
 				137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */,
 				130139B718CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m in Sources */,
 				1301397B18CC7CBC009A4C82 /* YMAppDelegate.m in Sources */,
 				13F7A9D6191B6AF100C37DF5 /* YMSong.m in Sources */,
+				1351A7A5192251A600FD2498 /* MYCoverView.m in Sources */,
 				1301397718CC7CBC009A4C82 /* main.m in Sources */,
+				139D82BD19264B97002BA574 /* MyScrollView.m in Sources */,
 				13EA60C8191ECDF400CAEB70 /* UIView+DebugObject.m in Sources */,
 				13F7A9C9191A309100C37DF5 /* YMTableViewCell.m in Sources */,
+				13E030F8192643E600B294FC /* YMViewController.m in Sources */,
 				130139A818CC7EE9009A4C82 /* YMiTunesWebservice.m in Sources */,
 				1301398118CC7CBC009A4C82 /* MYWebservice.xcdatamodeld in Sources */,
 				130139AB18CCD050009A4C82 /* YMImporter.m in Sources */,

@@ -13,6 +13,9 @@
 //
 
 #import "ZoomingViewController.h"
+#import "YMSong.h"
+#import "MYCoverView.h"
+#import "UIImageView+Network.h"
 
 @interface ZoomingViewController ()
 @property (nonatomic,strong) YMSong *song;
@@ -29,8 +32,16 @@
     self = [self init];
     if (self) {
         _song = selectedSong;
+        MYCoverView *songView = [[MYCoverView alloc]initWithFrame:CGRectMake(0., 0., 170, 170)  andSong:selectedSong];
+        UIImageView *cover = [[UIImageView alloc]init];
+        [cover loadImageFromURL:[NSURL URLWithString:selectedSong.imageBig] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] cachingKey:nil];
+        [songView addSubview:cover];
+        songView.coverImage = cover;
+        self.view = songView;
+
     }
-    return self;
+    
+      return self;
 }
 
 - (CGAffineTransform)orientationTransformFromSourceBounds:(CGRect)sourceBounds

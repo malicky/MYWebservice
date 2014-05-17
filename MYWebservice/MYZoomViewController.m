@@ -7,6 +7,9 @@
 //
 
 #import "MYZoomViewController.h"
+#import "MYCoverView.h"
+#import "UIImageView+Network.h"
+#import "YMSong.h"
 
 @interface MYZoomViewController ()
 @property (weak, nonatomic) IBOutlet UITapGestureRecognizer *singleTapGestureRecognizer;
@@ -15,6 +18,27 @@
 
 @implementation MYZoomViewController
 
+
+- (void)setSong:(YMSong *)song {
+    
+    MYCoverView *songView = [[MYCoverView alloc]initWithFrame:CGRectMake(0., 0., 170, 170)  andSong:song];
+    UIImageView *cover = [[UIImageView alloc]init];
+    [cover loadImageFromURL:[NSURL URLWithString:song.imageBig] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] cachingKey:nil];
+    [songView addSubview:cover];
+    songView.coverImage = cover;
+    
+//[self.contentView addSubview:songView];
+    
+    
+    
+    
+    
+    
+    return;
+    
+
+}
+
 - (id)initWithImage:(UIImage *)image {
     if (self = [super init]) {
         _image = image;
@@ -22,6 +46,7 @@
     
     return self;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
