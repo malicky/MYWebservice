@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -22,19 +22,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.5" maximumZoomScale="3.5" bouncesZoom="NO" id="kh9-d1-lYT" customClass="MyScrollView">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.5" maximumZoomScale="3.5" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh9-d1-lYT" customClass="MyScrollView">
                     <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <view tag="999" contentMode="scaleToFill" id="6Rv-eI-e0k" customClass="MYCoverView">
+                        <view tag="999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Rv-eI-e0k" customClass="MYCoverView">
                             <rect key="frame" x="0.0" y="0.0" width="208" height="238"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="208" id="7Pw-7T-d12"/>
+                                <constraint firstAttribute="height" constant="238" id="gH6-jq-Lbt"/>
+                            </constraints>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="Ga9-3c-u1P" appends="YES" id="W3k-9a-7t2"/>
                             </connections>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="6Rv-eI-e0k" secondAttribute="trailing" constant="112" id="3vs-yR-K33"/>
+                        <constraint firstAttribute="bottom" secondItem="6Rv-eI-e0k" secondAttribute="bottom" constant="310" id="5jv-eB-wS8"/>
+                        <constraint firstItem="6Rv-eI-e0k" firstAttribute="top" secondItem="kh9-d1-lYT" secondAttribute="top" id="9oj-VX-w6d"/>
+                        <constraint firstItem="6Rv-eI-e0k" firstAttribute="leading" secondItem="kh9-d1-lYT" secondAttribute="leading" id="kN6-kR-9h9"/>
+                    </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="T3e-Gi-VH9"/>
                         <outletCollection property="gestureRecognizers" destination="Ga9-3c-u1P" appends="YES" id="3ri-pO-3SO"/>
@@ -42,6 +52,12 @@
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="kh9-d1-lYT" secondAttribute="trailing" id="8Kz-Q3-sUp"/>
+                <constraint firstAttribute="bottom" secondItem="kh9-d1-lYT" secondAttribute="bottom" id="LiD-Kc-Bac"/>
+                <constraint firstItem="kh9-d1-lYT" firstAttribute="top" secondItem="Wci-sI-yJq" secondAttribute="top" constant="20" symbolic="YES" id="h41-XP-vqV"/>
+                <constraint firstItem="kh9-d1-lYT" firstAttribute="leading" secondItem="Wci-sI-yJq" secondAttribute="leading" id="oDQ-wH-aru"/>
+            </constraints>
         </view>
     </objects>
 </document>
