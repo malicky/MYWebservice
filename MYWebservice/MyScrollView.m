@@ -6,8 +6,6 @@
 @implementation MyScrollView
 
 -(void)layoutSubviews {
-    // see WWDC 2010 video on this topic
-    // comment this out and zoom the bird image smaller to see the difference
     [super layoutSubviews];
     UIView* v = [self.delegate viewForZoomingInScrollView:self];
     CGFloat svw = self.bounds.size.width;

@@ -93,7 +93,6 @@
 
 - (void)detailViewWithObject:(YMSong *)song {
        YMViewController * zoomVC = [[YMViewController alloc]initWithNibName:@"YMViewController" bundle:nil andSong:song];
-    //[zoomVC setSong:song];
     [self.navigationController pushViewController:zoomVC animated:YES];
 
 }

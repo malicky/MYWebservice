@@ -29,7 +29,7 @@ NSUInteger kSongViewTag = 1950;
   
     YMSongView *songView = [[YMSongView alloc]initWithFrame:CGRectMake(0., 0., 480., kRowHeight)  andSong:song];
     UIImageView *cover = [[UIImageView alloc]init];
-    [cover loadImageFromURL:[NSURL URLWithString:_song.imageMedium] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] cachingKey:nil];
+    [cover loadImageFromURL:[NSURL URLWithString:_song.imageMedium] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] cachingKey:_song.imageMedium];
     [songView addSubview:cover];
     songView.coverImage = cover;
     

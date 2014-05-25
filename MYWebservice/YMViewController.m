@@ -12,6 +12,7 @@
 #import "YMSong.h"
 #import "UIImageView+Network.h"
 
+#define debug 0
 
 @interface YMViewController () {
     BOOL _oldBounces;
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet MyScrollView *sv;
 @property (weak, nonatomic) IBOutlet MYCoverView* tv;
 @property (strong, nonatomic) YMSong *song;
+
 @end
 
 @implementation YMViewController
@@ -41,19 +43,13 @@
     // Do any additional setup after loading the view from its nib.
     
     UIImageView *cover = [[UIImageView alloc]initWithFrame:CGRectMake(0., 0., 0, 0)];
-    [cover loadImageFromURL:[NSURL URLWithString:_song.imageBig] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] cachingKey:nil];
-    
-    //[songView addSubview:cover];
-    // MYCoverView *songView = [[MYCoverView alloc] initWithFrame:CGRectMake(0., 0., 0, 0)  andSong:_song];
-    //songView.coverImage = cover;
+    [cover loadImageFromURL:[NSURL URLWithString:_song.imageBig] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] cachingKey:_song.imageBig];
     [self.tv addSubview:cover];
-    
-    for (UIView *subview in self.tv.subviews)
-    {
-        NSLog(@"%@ = %@", [subview class], NSStringFromCGRect(subview.frame));
+    if (debug == 1) {
+        for (UIView *subview in self.tv.subviews) {
+            NSLog(@"%@ = %@", [subview class], NSStringFromCGRect(subview.frame));
+        }
     }
-
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,10 +57,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#define which
-
-#ifdef which // I like this effect better than without
 
 - (void) scrollViewWillBeginZooming:(UIScrollView *)scrollView
                            withView:(UIView *)view {
@@ -78,12 +70,12 @@
     view.contentScaleFactor = scale * [UIScreen mainScreen].scale; // *
 }
 
-#endif
-
 // image view is zoomable
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    UIView *imageView __unused = [scrollView viewWithTag:999];
+    if (debug == 1) {
+        UIView *imageView __unused = [scrollView viewWithTag:999];
+    }
     return [scrollView viewWithTag:999];
 }
 

@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MyScalableView.h"
 
 @class YMSong;
 @interface MYCoverView : UIView
-@property (nonatomic, strong) UIImageView *coverImage;
-- (id)initWithFrame:(CGRect)frame andSong:(YMSong *)song;
 @end

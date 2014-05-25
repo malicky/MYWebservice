@@ -19,6 +19,7 @@ static const NSUInteger kLowerRowTop = 50;
 static const NSUInteger kCoverImageHeight = 60;
 static const NSUInteger kSongTitleAttributedStringRectWidth = 260;
 static const NSUInteger kSongTitleAttributedStringRectHeigth = 30;
+static const NSUInteger kSongArtistAttributedStringRectWidth = 150;
 
 
 NSUInteger DeviceSystemMajorVersion();
@@ -86,17 +87,13 @@ NSUInteger DeviceSystemMajorVersion() {
     NSDictionary *mainTextAttributes = @{ NSFontAttributeName :mainFont, NSForegroundColorAttributeName : mainTextColor };
     
     CGPoint point = CGPointMake(2*kLeftColumnOffset + kCoverImageHeight, kUpperRowTop);
+    CGRect r = CGRectMake(point.x, point.y, kSongArtistAttributedStringRectWidth, kSongTitleAttributedStringRectHeigth);
 
     NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:self.song.artist attributes:mainTextAttributes];
-     [artistString drawAtPoint:point];
+     //[artistString drawAtPoint:point];
+    [artistString drawWithRect:r options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin
+                                    context:nil];
     
-    if (debug == 1) {
-        // Draw the id string.
-        NSAttributedString *idString = [[NSAttributedString alloc] initWithString:self.song.id attributes:mainTextAttributes];
-        point = CGPointMake(kRightColumnOffset, kUpperRowTop);
-        [idString drawAtPoint:point];
-    }
-
 }
 
 - (void)drawCoverImage {

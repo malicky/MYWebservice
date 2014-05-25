@@ -15,32 +15,49 @@ static char URL_KEY;
 
 @dynamic imageURL;
 
+- (NSCache *)imageCache {
+    static NSCache *imageCache = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (!imageCache) {
+            imageCache = [[NSCache alloc]init];
+        }
+    });
+    
+    return imageCache;
+}
+
 - (void) loadImageFromURL:(NSURL*)url placeholderImage:(UIImage*)placeholder cachingKey:(NSString*)key {
-	self.imageURL = url;
+
+    self.imageURL = url;
 	self.image = placeholder;
 	
-//	NSData *cachedData = [NSCache objectForKey:key];
-//	if (cachedData) {   
-// 	   self.imageURL   = nil;
-// 	   self.image      = [UIImage imageWithData:cachedData];
-//	   return;
-//	}
+	NSData *cachedData = [[self imageCache] objectForKey:key];
+	if (cachedData) {   
+ 	   self.imageURL   = nil;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.image      = [UIImage imageWithData:cachedData];
+            self.frame = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
+        });
+	   return;
+	}
 
-	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul);
 	dispatch_async(queue, ^{
+        
 		NSData *data = [NSData dataWithContentsOfURL:url];
 		UIImage *imageFromData = [UIImage imageWithData:data];
 		
-		//[NSCache setObject:data forKey:key];
+		[[self imageCache] setObject:data forKey:key];
 
 		if (imageFromData) {
 			if ([self.imageURL.absoluteString isEqualToString:url.absoluteString]) {
-				dispatch_sync(dispatch_get_main_queue(), ^{
+				dispatch_async(dispatch_get_main_queue(), ^{
 					self.image = imageFromData;
                     self.frame = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
 				});
 			} else {
-//				NSLog(@"urls are not the same, bailing out!");
+                // assert(0);
 			}
 		}
 		self.imageURL = nil;
