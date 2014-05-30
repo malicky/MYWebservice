@@ -25,10 +25,14 @@ NSInteger kCoverViewTag = 999;
     return self;
 }
 
+-(void)awakeFromNib {
+    [self setTag:kCoverViewTag]; // so we can find it from the scroll view
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    
-}
+//- (void)drawRect:(CGRect)rect {
+//    
+//}
 
 @end
