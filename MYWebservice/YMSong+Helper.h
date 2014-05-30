@@ -9,6 +9,7 @@
 #import "YMSong.h"
 
 @interface YMSong (Helper)
+
 - (void)loadFromDictionary:(NSDictionary *)dictionary;
 + (NSArray *)findOrCreateSongWithIdentifier:(NSString *)title inContext:(NSManagedObjectContext *)context;
 @end

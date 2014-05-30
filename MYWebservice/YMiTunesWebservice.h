@@ -11,5 +11,7 @@
 typedef void(^webServiceCompletionHandler) (NSMutableArray *records);
 
 @interface YMiTunesWebservice : NSObject
-- (void)fetchAllWithCompletionBlock:(webServiceCompletionHandler)completionBlock;
+
+- (void)fetchAtURL:(NSURL *)url withCompletionBlock:(webServiceCompletionHandler)completionBlock;
+
 @end

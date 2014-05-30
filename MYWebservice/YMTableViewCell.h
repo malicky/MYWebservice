@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class YMSong;
+
 @interface YMTableViewCell : UITableViewCell
+
 @property (nonatomic,strong) YMSong *song;
+
 @end

@@ -23,6 +23,7 @@
 @end
 
 @implementation YMiTunesXMLParser {
+    
     BOOL _fImageMediumLocationFound;
     BOOL _fImageBigLocationFound;
     NSString *_currentSongImageMediumLocation;
@@ -203,7 +204,11 @@ static NSString *kAttributeName_height = @"height";
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
     // Handle errors as appropriate for your application.
     if (debug==1) {
-        NSLog(@"parser error: %@", parseError.localizedDescription);
+        NSString *message = [NSString stringWithFormat:@"Error %li Description: %@, Line: %li, Column: %li", (long)[parseError code],
+         [[parser parserError] localizedDescription], (long)[parser lineNumber],
+         (long)[parser columnNumber]];
+        
+        NSLog(@"parser error:\n%@", message);
     }
 }
 

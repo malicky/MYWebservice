@@ -10,15 +10,13 @@
 #import "YMiTunesXMLParser.h"
 #import "YMSong.h"
 
-const unsigned int kBatchRecordsCount = 20;
+const unsigned int kBatchRecordsCount = 10;
 
 @implementation YMiTunesWebservice {
 }
 
-- (void)fetchAllWithCompletionBlock:(webServiceCompletionHandler)completionBlock {
-    
-     NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=25/xml";
-    NSURL *url = [NSURL URLWithString:urlString];
+- (void)fetchAtURL:(NSURL *)url withCompletionBlock:(webServiceCompletionHandler)completionBlock {
+   
     [[[NSURLSession sharedSession] dataTaskWithURL:url
                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                      if(error) {
@@ -29,6 +27,8 @@ const unsigned int kBatchRecordsCount = 20;
                                      dispatch_queue_t parserQueue = dispatch_queue_create("parserQueue", NULL);
                                      dispatch_async(parserQueue, ^{
                                          YMiTunesXMLParser *parser = [[YMiTunesXMLParser alloc] init];
+                                         
+                                         // parse by chunck of kBatchRecordsCount records for the responsivness of the whole UI
                                          NSMutableArray * result = [parser parseData:data batchItemsCount:kBatchRecordsCount
                                                                  withCompletionBlock:completionBlock];
                                          if (result && ( [result count] > 0 ) && completionBlock) {

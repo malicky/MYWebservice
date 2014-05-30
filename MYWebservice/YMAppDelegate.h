@@ -10,7 +10,10 @@
 
 
 @class YMiTunesWebservice;
+
 @interface YMAppDelegate : UIResponder <UIApplicationDelegate>
+
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) YMiTunesWebservice *webservice;
+
 @end

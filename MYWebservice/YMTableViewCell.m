@@ -19,7 +19,6 @@ NSUInteger kSongViewTag = 1950;
 
 -  (void)setSong:(YMSong *)song {
     
-    // save 
     _song = song;
     
         // the cell may have been reused, remove the song's view with the kSongViewTag
@@ -65,7 +64,6 @@ NSUInteger kSongViewTag = 1950;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

@@ -9,6 +9,7 @@
 #import "YMModelObject.h"
 
 @implementation YMModelObject
+
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context {
     return [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
 }

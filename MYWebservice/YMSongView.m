@@ -25,14 +25,15 @@ static const NSUInteger kSongArtistAttributedStringRectWidth = 150;
 NSUInteger DeviceSystemMajorVersion();
 
 @interface YMSongView ()
+
 @property (nonatomic, getter=isHighlighted) BOOL highlighted;
 @property (nonatomic, strong) YMSong *song;
 @property (nonatomic, assign) NSUInteger songIndex;
+
 @end
 
 
 @implementation YMSongView {
-    
 }
 
 - (id)initWithFrame:(CGRect)frame andSong:(YMSong *)song

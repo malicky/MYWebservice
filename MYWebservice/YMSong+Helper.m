@@ -22,7 +22,6 @@
     self.imageBig = dictionary[@"imageBig"];
     self.audio = dictionary[@"audio"];
     self.artist = dictionary[@"artist"];
-   
 }
 
 + (NSArray *)findOrCreateSongWithIdentifier:(NSString *)id inContext:(NSManagedObjectContext *)context {

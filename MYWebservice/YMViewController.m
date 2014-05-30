@@ -17,7 +17,6 @@ extern NSInteger kCoverViewTag;
 #define debug 0
 
 @interface YMViewController () {
-    BOOL _oldBounces;
 }
 
 @property (weak, nonatomic) IBOutlet MyScrollView *scrollView;
@@ -67,21 +66,15 @@ extern NSInteger kCoverViewTag;
 
 - (void) scrollViewWillBeginZooming:(UIScrollView *)scrollView
                            withView:(UIView *)view {
-    self->_oldBounces = scrollView.bounces;
-    scrollView.bounces = NO;
 }
 
 - (void) scrollViewDidEndZooming:(UIScrollView *)scrollView
                         withView:(UIView *)view atScale:(float)scale {
-    scrollView.bounces = self->_oldBounces;
     view.contentScaleFactor = scale * [UIScreen mainScreen].scale; // *
 }
 
 // image view is zoomable
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    if (debug == 1) {
-        UIView *imageView __unused = [scrollView viewWithTag:kCoverViewTag];
-    }
     return [scrollView viewWithTag:kCoverViewTag];
 }
 

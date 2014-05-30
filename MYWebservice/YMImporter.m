@@ -17,41 +17,39 @@
 
 NSString *kUniqueIdforImport = @"id";
 
-@interface YMImporter () {
-}
+@interface YMImporter ()
+
 @property (nonatomic, strong) NSManagedObjectContext *contextParent;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic,strong) YMiTunesWebservice *webservice;
+
 @end
 
 @implementation YMImporter
+
 - (id)initWithParentContext:(NSManagedObjectContext *)context webservice:(YMiTunesWebservice *)webservice {
     self = [super init];
     if (!self) {
         return nil;
     }
+    // The import moc is local
     self.context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    
+    // the parent context is the main context
     [self.context setParentContext:context];
     self.contextParent = context;
+    
     self.webservice = webservice;
     
     return self;
 }
-
-- (id)initWithContext:(NSManagedObjectContext *)context webservice:(YMiTunesWebservice *)webservice {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    self.context = context;
-    self.webservice = webservice;
-    
-    return self;
-}
-
 
 - (void)import {
-    [self.webservice fetchAllWithCompletionBlock:^(NSMutableArray *records) {
+    
+    NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=400/xml";
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    [self.webservice fetchAtURL:url withCompletionBlock:^(NSMutableArray *records) {
         [self.context performBlock:^{
             for (NSDictionary *record in records) {
                 NSString *identifier = record[kUniqueIdforImport];

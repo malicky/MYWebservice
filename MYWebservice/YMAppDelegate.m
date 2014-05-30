@@ -15,8 +15,10 @@
 #import "YMSongListViewController.h"
 
 @interface YMAppDelegate ()
+
 @property (nonatomic, strong) YMImporter *importer;
 @property (nonatomic, strong) YMSongListViewController *listViewController;
+
 @end
 
 

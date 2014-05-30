@@ -9,6 +9,8 @@
 #import <CoreData/CoreData.h>
 
 @interface YMModelObject : NSManagedObject
+
 + (id)entityName;
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context;
+
 @end

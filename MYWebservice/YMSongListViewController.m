@@ -18,8 +18,10 @@
 #define debug 1
 
 @interface YMSongListViewController () <NSXMLParserDelegate ,YMFetchedResultsControllerDataSourceDelegate>
+
 @property (nonatomic, strong) YMFetchedResultsControllerDataSource *dataSource;
 @property (nonatomic, assign) CGRect frame;
+
 @end
 
 @implementation YMSongListViewController {

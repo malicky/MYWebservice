@@ -11,6 +11,8 @@
 @class YMiTunesWebservice, YMPersistence;
 
 @interface YMImporter : NSObject
+
 - (id)initWithParentContext:(NSManagedObjectContext *)context webservice:(YMiTunesWebservice *)webservice;
 - (void)import;
+
 @end

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class YMSong;
+
 @interface YMViewController : UIViewController
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andSong:(YMSong *)song;
+
 @end
