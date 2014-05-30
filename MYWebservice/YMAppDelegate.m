@@ -33,7 +33,7 @@
     // Create itunes songs importer
     self.importer = [[YMImporter alloc] initWithParentContext:stack.managedObjectContext
                                              webservice:self.webservice];
-    
+    // import from iTunes
     [self.importer import];
     
     // Override point for customization after application launch.
@@ -48,6 +48,7 @@
     // set the songs list view controller to be the root view controller
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.listViewController];
     self.window.rootViewController = navigationController;
+    
     
    [self.window makeKeyAndVisible];
 

@@ -46,24 +46,22 @@ NSUInteger DeviceSystemMajorVersion();
     return self;
 }
 
-NSUInteger DeviceSystemMajorVersion() {
-    static NSUInteger _deviceSystemMajorVersion = -1;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _deviceSystemMajorVersion = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] integerValue];
-    });
-    return _deviceSystemMajorVersion;
-}
-
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     
+    // Artist name's string
     [self drawArtist];
+    
+    // song's title string
     [self drawTitle];
+    
+    // song's cover image
     [self drawCoverImage];
 }
+
+#pragma draw methods
 
 - (void)drawTitle {
     UIColor *secondaryTextColor = [UIColor darkGrayColor];
@@ -77,10 +75,8 @@ NSUInteger DeviceSystemMajorVersion() {
     [songTitleAttributedString drawWithRect:r
                                     options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin
                                     context:nil];
-    
-    
-    
 }
+
 - (void)drawArtist {
     UIColor *mainTextColor = [UIColor blackColor];
     UIFont *mainFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
@@ -90,7 +86,7 @@ NSUInteger DeviceSystemMajorVersion() {
     CGRect r = CGRectMake(point.x, point.y, kSongArtistAttributedStringRectWidth, kSongTitleAttributedStringRectHeigth);
 
     NSAttributedString *artistString = [[NSAttributedString alloc] initWithString:self.song.artist attributes:mainTextAttributes];
-     //[artistString drawAtPoint:point];
+
     [artistString drawWithRect:r options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin
                                     context:nil];
     

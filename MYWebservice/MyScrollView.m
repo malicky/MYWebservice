@@ -7,22 +7,27 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    UIView* v = [self.delegate viewForZoomingInScrollView:self];
+    
+    // get the cover view
+    UIView* coverView = [self.delegate viewForZoomingInScrollView:self];
+    CGFloat coverViewWidth = coverView.frame.size.width;
+    CGFloat coverViewHeigth = coverView.frame.size.height;
+
     CGFloat svw = self.bounds.size.width;
     CGFloat svh = self.bounds.size.height;
-    CGFloat vw = v.frame.size.width;
-    CGFloat vh = v.frame.size.height;
-    CGRect f = v.frame;
-    if (vw < svw)
-        f.origin.x = (svw - vw) / 2.0;
+    
+    CGRect f = coverView.frame;
+    if (coverViewWidth < svw)
+        f.origin.x = (svw - coverViewWidth) / 2.0;
     else
         f.origin.x = 0;
-    if (vh < svh)
-        f.origin.y = (svh - vh) / 2.0;
+    
+    if (coverViewHeigth < svh)
+        f.origin.y = (svh - coverViewHeigth) / 2.0;
     else
         f.origin.y = 0;
-    v.frame = f;
     
+    coverView.frame = f;
 }
 
 @end

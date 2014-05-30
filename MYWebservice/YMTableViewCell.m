@@ -18,21 +18,30 @@ NSUInteger kSongViewTag = 1950;
 }
 
 -  (void)setSong:(YMSong *)song {
+    
+    // save 
     _song = song;
     
-   // self.textLabel.text = song.title;
-    
+        // the cell may have been reused, remove the song's view with the kSongViewTag
     UIView *v = [self.contentView viewWithTag:kSongViewTag];
     if (v) {
         [v removeFromSuperview];
     }
-  
+    
+    // create a song's view
     YMSongView *songView = [[YMSongView alloc]initWithFrame:CGRectMake(0., 0., 480., kRowHeight)  andSong:song];
+    
+    // load (asynchronously) the image of the song's cover view
     UIImageView *cover = [[UIImageView alloc]init];
-    [cover loadImageFromURL:[NSURL URLWithString:_song.imageMedium] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] cachingKey:_song.imageMedium];
+    [cover loadImageFromURL:[NSURL URLWithString:_song.imageMedium]
+           placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]
+                 cachingKey:_song.imageMedium];
+    
+    // add song's cover view to song' view
     [songView addSubview:cover];
     songView.coverImage = cover;
     
+    // add songView as subview of this custom cell and set the tag
     songView.tag = kSongViewTag;
     [self.contentView addSubview:songView];
 

@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@class YMSong;
 @interface MYCoverView : UIView
 @end

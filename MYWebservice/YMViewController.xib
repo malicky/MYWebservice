@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YMViewController" propertyAccessControl="all">
             <connections>
-                <outlet property="sv" destination="kh9-d1-lYT" id="N2M-Wa-GXW"/>
-                <outlet property="tv" destination="6Rv-eI-e0k" id="X5L-ZJ-7uh"/>
+                <outlet property="coverView" destination="6Rv-eI-e0k" id="fQf-m3-bec"/>
+                <outlet property="scrollView" destination="kh9-d1-lYT" id="96f-jl-5OO"/>
                 <outlet property="view" destination="Wci-sI-yJq" id="4US-7J-Rva"/>
             </connections>
         </placeholder>

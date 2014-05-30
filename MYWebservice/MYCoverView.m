@@ -8,6 +8,7 @@
 
 #import "MYCoverView.h"
 
+NSInteger kCoverViewTag = 999;
 
 @interface MYCoverView ()
 @end
@@ -19,13 +20,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self setTag:kCoverViewTag]; // so we can find it from the scroll view
     }
     return self;
 }
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-//- (void)drawRect:(CGRect)rect {
-//}
+- (void)drawRect:(CGRect)rect {
+    
+}
 
 @end

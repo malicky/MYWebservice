@@ -9,7 +9,6 @@
 #import "YMSongListViewController.h"
 #import "YMFetchedResultsControllerDataSource.h"
 #import "YMSong.h"
-#import "MYConstants.h"
 #import "YMAppDelegate.h"
 #import "YMPersistence.h"
 #import "YMTableViewCell.h"
@@ -18,7 +17,7 @@
 
 #define debug 1
 
-@interface YMSongListViewController () <NSXMLParserDelegate , YMFetchedResultsControllerDataSourceDelegate>
+@interface YMSongListViewController () <NSXMLParserDelegate ,YMFetchedResultsControllerDataSourceDelegate>
 @property (nonatomic, strong) YMFetchedResultsControllerDataSource *dataSource;
 @property (nonatomic, assign) CGRect frame;
 @end
@@ -29,7 +28,7 @@
 -(id)initWithFrame:(CGRect)rect andContext:(NSManagedObjectContext *)context{
 	if (self = [super init]) {
         _frame = rect;
-        self.managedObjectContext = context;
+        _managedObjectContext = context;
 	}
     return self;
 }
@@ -39,8 +38,10 @@
     
     self.view.frame = self.frame;
     
+    // initialize the datasource property
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"YMSong"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
+
     self.dataSource = [[YMFetchedResultsControllerDataSource alloc] initWithTableView:self.tableView];
     [self.dataSource reuseIdentifier:@"SongCellIdentifier"];
 
@@ -50,7 +51,7 @@
                                                                                      sectionNameKeyPath:nil cacheName:nil];
     
     
-    // Respond to changes
+    // Register self to respond to save notifications
     [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
                                                           NSManagedObjectContext *moc = self.managedObjectContext;
@@ -64,7 +65,6 @@
 
 #pragma mark - FETCHING
 - (void)performFetch {
-    int static k = 0;
     NSError *error;
 	if (![ self.dataSource.fetchedResultsController  performFetch:&error]) {
 		// Update to handle the error appropriately.
@@ -76,6 +76,7 @@
         [[YMPersistence sharedInstance] saveContexts];
         
         if (debug == 1) {
+            int static k = 0;
             NSLog(@"int static k: %d: %@", ++k, self.title);
         }
     }
@@ -83,11 +84,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // fetch the already imported songs
     [self performFetch];
 }
 
 - (void)configureCell:(YMTableViewCell*)cell withObject:(YMSong*)object {
-    cell.song = object;
+    cell.song = object; // pass the song's data
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 

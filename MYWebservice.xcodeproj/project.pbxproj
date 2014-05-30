@@ -91,7 +91,6 @@
 		139D82BC19264B97002BA574 /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
 		13C122BB18DB00590044C816 /* YMiTunesXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMiTunesXMLParser.h; sourceTree = "<group>"; };
 		13C122BC18DB00590044C816 /* YMiTunesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMiTunesXMLParser.m; sourceTree = "<group>"; };
-		13C2E2FD18D837EF00BD6455 /* MYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYConstants.h; sourceTree = "<group>"; };
 		13E030F5192643E600B294FC /* YMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMViewController.h; sourceTree = "<group>"; };
 		13E030F6192643E600B294FC /* YMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMViewController.m; sourceTree = "<group>"; };
 		13E030F7192643E600B294FC /* YMViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YMViewController.xib; sourceTree = "<group>"; };
@@ -137,7 +136,6 @@
 		1301395C18CC7CBB009A4C82 = {
 			isa = PBXGroup;
 			children = (
-				13C2E2FD18D837EF00BD6455 /* MYConstants.h */,
 				1301397018CC7CBC009A4C82 /* MYWebservice */,
 				1301399618CC7CBC009A4C82 /* MYWebserviceTests */,
 				1301396718CC7CBC009A4C82 /* Frameworks */,

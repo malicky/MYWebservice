@@ -11,6 +11,12 @@
 @class YMFetchedResultsControllerDataSource, YMSong;
 
 @interface YMSongListViewController : UITableViewController
+
+// NSManagedObjectContext object bound to the datasource.
 @property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;
--(id)initWithFrame:(CGRect)rect andContext:(NSManagedObjectContext*)context;
+
+
+-(id)initWithFrame:(CGRect)rect
+        andContext:(NSManagedObjectContext*)context; // NSManagedObjectContext object bound to the datasource.
+
 @end
