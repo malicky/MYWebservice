@@ -169,9 +169,9 @@
 			children = (
 				130139BB18CDA959009A4C82 /* Application */,
 				130139BC18CDA969009A4C82 /* ViewControllers */,
+				130139BE18CDA9C5009A4C82 /* Controllers */,
 				130139BD18CDA9A1009A4C82 /* Models */,
 				1301397118CC7CBC009A4C82 /* Supporting Files */,
-				130139BE18CDA9C5009A4C82 /* Controllers */,
 			);
 			path = MYWebservice;
 			sourceTree = "<group>";
@@ -179,8 +179,6 @@
 		1301397118CC7CBC009A4C82 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				13F7A9DA191BB06600C37DF5 /* UIImageView+Network.h */,
-				13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */,
 				1301398818CC7CBC009A4C82 /* Images.xcassets */,
 				1301397F18CC7CBC009A4C82 /* MYWebservice.xcdatamodeld */,
 				1301397218CC7CBC009A4C82 /* MYWebservice-Info.plist */,
@@ -214,6 +212,8 @@
 		130139BB18CDA959009A4C82 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				13F7A9DA191BB06600C37DF5 /* UIImageView+Network.h */,
+				13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */,
 				1301397918CC7CBC009A4C82 /* YMAppDelegate.h */,
 				1301397A18CC7CBC009A4C82 /* YMAppDelegate.m */,
 			);
