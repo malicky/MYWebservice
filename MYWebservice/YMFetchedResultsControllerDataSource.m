@@ -38,6 +38,8 @@ extern const NSInteger kRowHeight;
     }
 }
 
+#pragma mark - UITableViewDataSource delegate methods
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.fetchedResultsController.sections.count;
 }

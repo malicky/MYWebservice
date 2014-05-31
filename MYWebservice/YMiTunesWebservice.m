@@ -10,7 +10,7 @@
 #import "YMiTunesXMLParser.h"
 #import "YMSong.h"
 
-const unsigned int kBatchRecordsCount = 10;
+const unsigned int kPageRecordsCount = 10; //
 
 @implementation YMiTunesWebservice {
 }
@@ -28,8 +28,8 @@ const unsigned int kBatchRecordsCount = 10;
                                      dispatch_async(parserQueue, ^{
                                          YMiTunesXMLParser *parser = [[YMiTunesXMLParser alloc] init];
                                          
-                                         // parse by chunck of kBatchRecordsCount records for the responsivness of the whole UI
-                                         NSMutableArray * result = [parser parseData:data batchItemsCount:kBatchRecordsCount
+                                         // parse by pages of kPageRecordsCount records for UI responsivness.
+                                         NSMutableArray * result = [parser parseData:data batchItemsCount:kPageRecordsCount
                                                                  withCompletionBlock:completionBlock];
                                          if (result && ( [result count] > 0 ) && completionBlock) {
                                              completionBlock (result);

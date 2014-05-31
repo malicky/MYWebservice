@@ -27,7 +27,8 @@
     }
     return self;
 }
-
+// Core data stack with a parent/child context set up
+// with the main context is a child of the parent writer context
 - (void)setupManagedObjectContexts {
     _backgroundManagedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
     _backgroundManagedObjectContext.undoManager = [[NSUndoManager alloc] init];
