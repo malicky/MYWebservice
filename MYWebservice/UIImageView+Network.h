@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSURL *imageURL;
 
+// Asynchronously load the image at url, with in-memory caching
 - (void) loadImageFromURL:(NSURL*)url placeholderImage:(UIImage*)placeholder
                cachingKey:(NSString*)key;
 

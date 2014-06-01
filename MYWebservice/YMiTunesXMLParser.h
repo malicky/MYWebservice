@@ -13,6 +13,8 @@ typedef void(^parseCompletionHandler) (NSMutableArray *records);
 
 - (instancetype)init;
 - (NSArray *)parseData:(NSData *)data;
+
+// Parse by batchItemsCount, then save the songs in core data
 - (NSMutableArray *)parseData:(NSData *)data
                batchItemsCount:(NSUInteger)count
           withCompletionBlock:(parseCompletionHandler)completionBlock;

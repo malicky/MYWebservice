@@ -55,13 +55,13 @@ NSString *kUniqueIdforImport = @"id";
                 NSString *identifier = record[kUniqueIdforImport];
                 [[self contextParent] performBlock:^{
                     YMSong *song = nil;
-                    NSArray *songs = [YMSong findOrCreateSongWithIdentifier:identifier inContext:[self contextParent]];
-                    if (songs.lastObject) {
+                    NSArray *songs = [YMSong findSongWithIdentifier:identifier inContext:[self contextParent]];
+                    if (songs.lastObject) { // already imported
                         if (debug == 1) {
                             song = songs.lastObject;
                             NSLog(@"Already existing song: id = %@, title = %@", song.id, song.title);
                         }
-                    } else {
+                    } else { // create a new core data song
                         song = [YMSong insertNewObjectIntoContext:[self contextParent]];
                         song.id = identifier;
                         [song loadFromDictionary:record];

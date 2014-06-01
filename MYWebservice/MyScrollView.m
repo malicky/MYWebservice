@@ -4,7 +4,6 @@
 
 
 @implementation MyScrollView
-
 -(void)layoutSubviews {
     [super layoutSubviews];
     
@@ -12,7 +11,7 @@
     UIView* coverView = [self.delegate viewForZoomingInScrollView:self];
     CGFloat coverViewWidth = coverView.frame.size.width;
     CGFloat coverViewHeigth = coverView.frame.size.height;
-
+    
     CGFloat svw = self.bounds.size.width;
     CGFloat svh = self.bounds.size.height;
     
@@ -29,5 +28,4 @@
     
     coverView.frame = f;
 }
-
 @end

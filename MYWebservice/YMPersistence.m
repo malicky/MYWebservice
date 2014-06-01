@@ -30,14 +30,18 @@
 // Core data stack with a parent/child context set up
 // with the main context is a child of the parent writer context
 - (void)setupManagedObjectContexts {
-    _backgroundManagedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    
+    _backgroundManagedObjectContext = [self setupManagedObjectContextWithConcurrencyType:NSPrivateQueueConcurrencyType]; // for background save
     _backgroundManagedObjectContext.undoManager = [[NSUndoManager alloc] init];
 
+    // main context for the ui
     _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     _managedObjectContext.undoManager = nil;
 
+    // save from _managedObjectContext will be pushed in the _backgroundManagedObjectContext
     [_managedObjectContext setParentContext:_backgroundManagedObjectContext];
     
+    // Observe the NSManagedObjectContextDidSaveNotification to merge changes if necessary
     [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
                                                       object:nil
                                                        queue:nil

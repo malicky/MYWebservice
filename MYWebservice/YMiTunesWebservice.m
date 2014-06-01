@@ -15,6 +15,7 @@ const unsigned int kPageRecordsCount = 10; //
 @implementation YMiTunesWebservice {
 }
 
+// fetch the xml from the webservice api
 - (void)fetchAtURL:(NSURL *)url withCompletionBlock:(webServiceCompletionHandler)completionBlock {
    
     [[[NSURLSession sharedSession] dataTaskWithURL:url
@@ -24,6 +25,7 @@ const unsigned int kPageRecordsCount = 10; //
                                          completionBlock(nil);
                                          return ;
                                      }
+                                     // in case of succes, start a background queue for parsing
                                      dispatch_queue_t parserQueue = dispatch_queue_create("parserQueue", NULL);
                                      dispatch_async(parserQueue, ^{
                                          YMiTunesXMLParser *parser = [[YMiTunesXMLParser alloc] init];

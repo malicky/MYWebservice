@@ -53,7 +53,7 @@
                                                                                      sectionNameKeyPath:nil cacheName:nil];
     
     
-    // Register self to respond to save notifications
+    // Observe the NSManagedObjectContextDidSaveNotification to update the tableview
     [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
                                                           NSManagedObjectContext *moc = self.managedObjectContext;

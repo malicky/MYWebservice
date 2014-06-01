@@ -78,13 +78,20 @@
 - (void)finishedCurrentSong {
     [self addCurrentSong];
     
+    // check that the parsed number of songs against kCountForNotification
     if ([self.songs count] % self.kCountForNotification == 0 && self.callback) {
+        // send to callback to save the songs
         self.callback ([self.songs copy]);
+        
+        // cleanup
         [self.songs removeAllObjects];
     }
+    
+    // reset
     self.currentSong = nil;
 }
 
+// accumulate the parded songs in self.songs
 - (void)addCurrentSong {
     if (self.currentSong) {
         self.currentSong[kElementName_LinkAudio] = [self.currentLinkAudio copy];

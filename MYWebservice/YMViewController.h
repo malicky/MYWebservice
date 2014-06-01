@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Malick Youla. All rights reserved.
 //
 
+// Zooming view controller class
+
 #import <UIKit/UIKit.h>
 
 @class YMSong;

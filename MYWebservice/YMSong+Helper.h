@@ -11,5 +11,5 @@
 @interface YMSong (Helper)
 
 - (void)loadFromDictionary:(NSDictionary *)dictionary;
-+ (NSArray *)findOrCreateSongWithIdentifier:(NSString *)title inContext:(NSManagedObjectContext *)context;
++ (NSArray *)findSongWithIdentifier:(NSString *)title inContext:(NSManagedObjectContext *)context;
 @end

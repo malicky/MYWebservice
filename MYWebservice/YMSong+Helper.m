@@ -11,6 +11,7 @@
 #define debug 1
 
 @implementation YMSong (Helper)
+// loading song object from dictionary
 - (void)loadFromDictionary:(NSDictionary *)dictionary {
     
     if (debug == 1) {
@@ -24,10 +25,10 @@
     self.artist = dictionary[@"artist"];
 }
 
-+ (NSArray *)findOrCreateSongWithIdentifier:(NSString *)id inContext:(NSManagedObjectContext *)context {
++ (NSArray *)findSongWithIdentifier:(NSString *)id inContext:(NSManagedObjectContext *)context {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[self entityName]];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id = %@", id];
-    fetchRequest.fetchLimit = 1;
+    fetchRequest.fetchLimit = 1; // only one is enough
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
     if (error) {
