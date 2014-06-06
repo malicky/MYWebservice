@@ -35,7 +35,14 @@ NSUInteger DeviceSystemMajorVersion();
 
 @implementation YMSongView {
 }
-
+/**
+ *  <#Description#>
+ *
+ *  @param frame <#frame description#>
+ *  @param song  <#song description#>
+ *
+ *  @return <#return value description#>
+ */
 - (id)initWithFrame:(CGRect)frame andSong:(YMSong *)song
 {
     self = [super initWithFrame:frame];
@@ -48,8 +55,11 @@ NSUInteger DeviceSystemMajorVersion();
 }
 
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+/**
+ *  <#Description#>
+ *
+ *  @param rect <#rect description#>
+ */
 - (void)drawRect:(CGRect)rect {
     
     // Artist name's string
@@ -92,7 +102,9 @@ NSUInteger DeviceSystemMajorVersion();
                                     context:nil];
     
 }
-
+/**
+ *  set the frame of the cover view
+ */
 - (void)drawCoverImage {
     CGRect imageframe = CGRectMake(kLeftColumnOffset, kUpperRowTop, kCoverImageHeight, kCoverImageHeight);
     [self.coverImage setFrame:imageframe];

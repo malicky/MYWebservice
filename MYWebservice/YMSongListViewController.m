@@ -53,7 +53,7 @@
                                                                                      sectionNameKeyPath:nil cacheName:nil];
     
     
-    // Observe the NSManagedObjectContextDidSaveNotification to update the tableview
+    // Add self as observer of NSManagedObjectContextDidSaveNotification to fire performFetch and update the tableview
     [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
                                                       object:nil queue:nil usingBlock:^(NSNotification *note) {
                                                           NSManagedObjectContext *moc = self.managedObjectContext;
@@ -66,6 +66,9 @@
 }
 
 #pragma mark - FETCHING
+/**
+ *  There was a save notification: reload the table, and persist the changes
+ */
 - (void)performFetch {
     NSError *error;
 	if (![ self.dataSource.fetchedResultsController  performFetch:&error]) {
@@ -75,6 +78,7 @@
         NSUInteger count = [self.dataSource.fetchedResultsController.fetchedObjects count];
         [self.tableView reloadData];
         self.title =  [NSString stringWithFormat:@"%lu Songs", (unsigned long)count];
+        
         [[YMPersistence sharedInstance] saveContexts];
         
         if (debug == 1) {

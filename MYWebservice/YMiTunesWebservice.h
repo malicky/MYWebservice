@@ -11,7 +11,12 @@
 typedef void(^webServiceCompletionHandler) (NSMutableArray *records);
 
 @interface YMiTunesWebservice : NSObject
-
+/**
+ *  fetch the xml from the webservice api
+ *
+ *  @param url             api's url
+ *  @param completionBlock completion block to be called
+ */
 - (void)fetchAtURL:(NSURL *)url withCompletionBlock:(webServiceCompletionHandler)completionBlock;
 
 @end

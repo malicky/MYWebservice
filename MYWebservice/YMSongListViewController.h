@@ -12,10 +12,20 @@
 
 @interface YMSongListViewController : UITableViewController
 
-// NSManagedObjectContext object bound to the datasource.
+/**
+ *  NSManagedObjectContext object bound to the datasource.
+ */
 @property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;
 
--(id)initWithFrame:(CGRect)rect
-        andContext:(NSManagedObjectContext*)context; // NSManagedObjectContext object bound to the datasource.
+/**
+ *  <#Description#>
+ *
+ *  @param rect    <#rect description#>
+ *  @param context managed object context that will be passed to the datasource
+ *
+ *  @return an instance of the class
+ */
+-(instancetype)initWithFrame:(CGRect)rect
+        andContext:(NSManagedObjectContext*)context;
 
 @end

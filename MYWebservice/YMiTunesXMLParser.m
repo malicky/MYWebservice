@@ -23,14 +23,30 @@
 @end
 
 @implementation YMiTunesXMLParser {
-    
+    /**
+     *  Parsing the location of medium image of the cover
+     */
     BOOL _fImageMediumLocationFound;
+    /**
+     *  Parsing the location of the big image of the cover
+     */
     BOOL _fImageBigLocationFound;
+    /**
+     *  location of the medium image (60x60)
+     */
     NSString *_currentSongImageMediumLocation;
+    /**
+     *  location of the big image (170x170)
+     */
     NSString *_currentSongImageBigLocation;
 
 }
 
+/**
+ *  Description
+ *
+ *  @return return value description
+ */
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -43,6 +59,13 @@
     return self;
 }
 
+/**
+ *  Parse the passed data
+ *
+ *  @param NSData to be parsed
+ *
+ *  @return an array of songs objects if success, nil otherwise
+ */
 - (NSArray *)parseData:(NSMutableData *)data {
     self.songs = [NSMutableArray array];
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
@@ -55,6 +78,15 @@
     return nil;
 }
 
+/**
+ *  Parse a chunk of the passe data
+ *
+ *  @param data            NSData to be parsed
+ *  @param count           number of songs before passing to the importer
+ *  @param completionBlock <#completionBlock description#>
+ *
+ *  @return an array of songs objects if success, nil otherwise
+ */
 - (NSMutableArray *)parseData:(NSMutableData *)data
               batchItemsCount:(NSUInteger)count
           withCompletionBlock:(parseCompletionHandler)completionBlock {
@@ -74,7 +106,9 @@
 }
 
 #pragma mark Parsing support methods
-
+/**
+ *  Called when a new song has been saved
+ */
 - (void)finishedCurrentSong {
     [self addCurrentSong];
     
@@ -91,7 +125,9 @@
     self.currentSong = nil;
 }
 
-// accumulate the parded songs in self.songs
+/**
+ *  accumulate the parsed songs in self.songs
+ */
 - (void)addCurrentSong {
     if (self.currentSong) {
         self.currentSong[kElementName_LinkAudio] = [self.currentLinkAudio copy];
@@ -133,6 +169,7 @@ static NSString *kAttributeValue_height_big = @"170";
 
 static NSString *kAttributeName_height = @"height";
 
+#pragma mark - NSXMLParser delegate methods
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *) qualifiedName attributes:(NSDictionary *)attributeDict {
 
@@ -204,7 +241,7 @@ static NSString *kAttributeName_height = @"height";
     }
 }
 
-/*
+/* //TODO:
  A production application should include robust error handling as part of its parsing implementation.
  The specifics of how errors are handled depends on the application.
  */

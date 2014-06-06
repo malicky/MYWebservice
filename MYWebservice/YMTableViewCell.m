@@ -14,9 +14,12 @@
 NSUInteger kRowHeight = 70;
 NSUInteger kSongViewTag = 1950;
 
-@implementation YMTableViewCell {
-}
-
+@implementation YMTableViewCell
+/**
+ *  Set the song property and create a view YMSongView
+ *
+ *  @param song <#song description#>
+ */
 -  (void)setSong:(YMSong *)song {
     
     _song = song;
@@ -47,6 +50,14 @@ NSUInteger kSongViewTag = 1950;
     return;
 }
 
+/**
+ *  <#Description#>
+ *
+ *  @param style           <#style description#>
+ *  @param reuseIdentifier <#reuseIdentifier description#>
+ *
+ *  @return <#return value description#>
+ */
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

@@ -16,6 +16,7 @@ const unsigned int kPageRecordsCount = 10; //
 }
 
 // fetch the xml from the webservice api
+// TODO: code refactoring
 - (void)fetchAtURL:(NSURL *)url withCompletionBlock:(webServiceCompletionHandler)completionBlock {
    
     [[[NSURLSession sharedSession] dataTaskWithURL:url

@@ -4,6 +4,9 @@
 
 
 @implementation MyScrollView
+/**
+ *  Center the cover view
+ */
 -(void)layoutSubviews {
     [super layoutSubviews];
     

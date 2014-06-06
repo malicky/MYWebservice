@@ -16,8 +16,7 @@ extern NSInteger kCoverViewTag;
 
 #define debug 0
 
-@interface YMViewController () {
-}
+@interface YMViewController ()
 
 @property (weak, nonatomic) IBOutlet MyScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet MYCoverView* coverView;
@@ -45,6 +44,9 @@ extern NSInteger kCoverViewTag;
     [self loadCoverViewImage];
 }
 
+/**
+ *  Load asynchronously the big image (171x170)
+ */
 -(void)loadCoverViewImage {
     UIImageView *cover = [[UIImageView alloc]initWithFrame:CGRectMake(0., 0., 0., 0.)];
     [cover loadImageFromURL:[NSURL URLWithString:_song.imageBig]
@@ -63,6 +65,8 @@ extern NSInteger kCoverViewTag;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UIScrollViewDelegate Protocol for zooming
 
 - (void) scrollViewWillBeginZooming:(UIScrollView *)scrollView
                            withView:(UIView *)view {

@@ -8,5 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ *  Init with a tag so we can indentify the view
+ */
 @interface MYCoverView : UIView
 @end
