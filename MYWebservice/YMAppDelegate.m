@@ -13,6 +13,7 @@
 #import "YMPersistence.h"
 #import "YMiTunesWebservice.h"
 #import "YMSongListViewController.h"
+#import "Reachability.h"
 
 @interface YMAppDelegate ()
 
@@ -26,6 +27,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus] == NotReachable) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No internet connection", nil)
+                                                         message:NSLocalizedString(@"Internet connection not available.", nil)
+                                                        delegate:nil
+                                               cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                               otherButtonTitles:nil];
+        [alert show];
+    }
+    
     // Set up the Persistence stack as a singleton
     YMPersistence *stack = [[YMPersistence sharedInstance] initWithStoreURL:self.storeURL
                                                                    modelURL:self.modelURL];
