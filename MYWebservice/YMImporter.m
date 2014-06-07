@@ -15,7 +15,16 @@
 
 #define debug 1
 
+/**
+ *  The maximim number of songs to download
+ */
+const int kMaxSongs = 400;
+
+/**
+ *  When importing, the id is used prevent importing a song imported
+ */
 NSString *kUniqueIdforImport = @"id";
+
 
 @interface YMImporter ()
 
@@ -44,11 +53,13 @@ NSString *kUniqueIdforImport = @"id";
     return self;
 }
 
+/**
+ *  Before saving into coredata, check that the song was not previously imported (comparing id).
+ */
 - (void)import {
-    
-    NSString *urlString = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=400/xml";
+    NSString *urlString = [NSString stringWithFormat:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=%i/xml", kMaxSongs];
     NSURL *url = [NSURL URLWithString:urlString];
-
+    
     [self.webservice fetchAtURL:url withCompletionBlock:^(NSMutableArray *records) {
         [self.context performBlock:^{
             for (NSDictionary *record in records) {
@@ -61,7 +72,7 @@ NSString *kUniqueIdforImport = @"id";
                             song = songs.lastObject;
                             NSLog(@"Already existing song: id = %@, title = %@", song.id, song.title);
                         }
-                    } else { // create a new core data song
+                    } else { // create a new core data entity song
                         song = [YMSong insertNewObjectIntoContext:[self contextParent]];
                         song.id = identifier;
                         [song loadFromDictionary:record];
@@ -73,6 +84,9 @@ NSString *kUniqueIdforImport = @"id";
     }];
 }
 
+/**
+ *  Push the imported songs in the parent context (main context).
+ */
 - (void)saveInParentContext {
     [self.contextParent performBlock:^{
         if ([self.contextParent hasChanges]) {

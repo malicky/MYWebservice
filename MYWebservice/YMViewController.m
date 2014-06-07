@@ -45,7 +45,7 @@ extern NSInteger kCoverViewTag;
 }
 
 /**
- *  Load asynchronously the big image (171x170)
+ *  Load asynchronously the big image (170x170)
  */
 -(void)loadCoverViewImage {
     UIImageView *cover = [[UIImageView alloc]initWithFrame:CGRectMake(0., 0., 0., 0.)];

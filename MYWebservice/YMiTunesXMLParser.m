@@ -159,7 +159,6 @@ static NSString *kElementName_Id = @"id";
 static NSString *kElementName_NS_Artist = @"im:artist";
 static NSString *kElementName_Artist = @"artist";
 
-
 static NSString *kAttributeName_Type = @"type";
 static NSString *kAttributeName_TypeAudio = @"audio/x-m4a";
 static NSString *kAttributeName_Href = @"href";
@@ -171,7 +170,8 @@ static NSString *kAttributeName_height = @"height";
 
 #pragma mark - NSXMLParser delegate methods
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *) qualifiedName attributes:(NSDictionary *)attributeDict {
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *) qualifiedName attributes:(NSDictionary *)attributeDict {
 
     if ([elementName isEqualToString:kElementName_Entry]) {
         self.currentSong = [NSMutableDictionary dictionary];
@@ -210,7 +210,8 @@ static NSString *kAttributeName_height = @"height";
     }
 }
 
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName {
     if ([elementName isEqualToString:kElementName_Entry]) {
         [self finishedCurrentSong];
     } else if ([elementName isEqualToString:kElementName_Title]) {
@@ -241,7 +242,7 @@ static NSString *kAttributeName_height = @"height";
     }
 }
 
-/* //TODO:
+/* 
  A production application should include robust error handling as part of its parsing implementation.
  The specifics of how errors are handled depends on the application.
  */
@@ -251,7 +252,12 @@ static NSString *kAttributeName_height = @"height";
         NSString *message = [NSString stringWithFormat:@"Error %li Description: %@, Line: %li, Column: %li", (long)[parseError code],
          [[parser parserError] localizedDescription], (long)[parser lineNumber],
          (long)[parser columnNumber]];
-        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Parsing error", nil)
+                                                         message:NSLocalizedString(message, nil)
+                                                        delegate:nil
+                                               cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                               otherButtonTitles:nil];
+        [alert show];
         NSLog(@"parser error:\n%@", message);
     }
 }

@@ -6,7 +6,6 @@
 
 extern const NSInteger kRowHeight;
 
-
 @interface YMFetchedResultsControllerDataSource ()
 @property (nonatomic, strong) UITableView* tableView;
 @property (nonatomic,copy) NSString *reuseIdentifier;

@@ -12,7 +12,9 @@
 
 @interface YMImporter : NSObject
 
-- (id)initWithParentContext:(NSManagedObjectContext *)context webservice:(YMiTunesWebservice *)webservice;
+/**
+ *  Initialize the importer with the context to save in and the webservice to request
+ */- (id)initWithParentContext:(NSManagedObjectContext *)context webservice:(YMiTunesWebservice *)webservice;
 - (void)import;
 
 @end
