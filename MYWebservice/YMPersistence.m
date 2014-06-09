@@ -18,7 +18,15 @@
 
 @implementation YMPersistence
 
-- (id)initWithStoreURL:(NSURL *)storeURL modelURL:(NSURL *)modelURL {
+/**
+ *  Description
+ *
+ *  @param storeURL location of persistent store
+ *  @param modelURL location of mom file
+ *
+ *  @return return an instance of YMPersistence
+ */
+- (instancetype)initWithStoreURL:(NSURL *)storeURL modelURL:(NSURL *)modelURL {
     self = [super init];
     if (self) {
         _storeURL = storeURL;
@@ -76,6 +84,9 @@
     return [[NSManagedObjectModel alloc] initWithContentsOfURL:self.modelURL];
 }
 
+/**
+ *  Save main context and background contextes
+ */
 - (void)saveContexts {
     [self saveManagedObjectContext:self.managedObjectContext];
     [self saveManagedObjectContext:self.backgroundManagedObjectContext];
@@ -87,12 +98,17 @@
             NSError *error = nil;
             if (![context save:&error]) {
                 NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
+                exit(1);
             }
         }];
     }
 }
 
+/**
+ *  Singleton of YMPersistence
+ *
+ *  @return a singse instance
+ */
 + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
     static id shared = nil;

@@ -11,7 +11,6 @@
 #define debug 1
 
 @implementation YMSong (Helper)
-// loading song object from dictionary
 - (void)loadFromDictionary:(NSDictionary *)dictionary {
     
     if (debug == 1) {

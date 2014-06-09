@@ -149,7 +149,6 @@
 
 // Constants for the XML element names that will be considered during the parse. 
 // Declaring these as static constants reduces the number of objects created during the run
-// and is less prone to programmer error.
 //
 static NSString *kElementName_Entry = @"entry";
 static NSString *kElementName_Title = @"title";
@@ -242,10 +241,6 @@ static NSString *kAttributeName_height = @"height";
     }
 }
 
-/* 
- A production application should include robust error handling as part of its parsing implementation.
- The specifics of how errors are handled depends on the application.
- */
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
     // Handle errors as appropriate for your application.
     if (debug==1) {

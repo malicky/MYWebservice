@@ -18,7 +18,6 @@ NSUInteger kSongViewTag = 1950;
 /**
  *  Set the song property and create a view YMSongView
  *
- *  @param song <#song description#>
  */
 -  (void)setSong:(YMSong *)song {
     
@@ -35,6 +34,8 @@ NSUInteger kSongViewTag = 1950;
     
     // load (asynchronously) the image of the song's cover view
     UIImageView *cover = [[UIImageView alloc]init];
+    
+    
     [cover loadImageFromURL:[NSURL URLWithString:_song.imageMedium]
            placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]
                  cachingKey:_song.imageMedium];
@@ -50,14 +51,7 @@ NSUInteger kSongViewTag = 1950;
     return;
 }
 
-/**
- *  <#Description#>
- *
- *  @param style           <#style description#>
- *  @param reuseIdentifier <#reuseIdentifier description#>
- *
- *  @return <#return value description#>
- */
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

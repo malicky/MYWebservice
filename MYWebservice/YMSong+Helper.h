@@ -10,6 +10,20 @@
 
 @interface YMSong (Helper)
 
+/**
+ *  Set the properties of song using dictionary
+ *
+ *  @param dictionary <#dictionary description#>
+ */
 - (void)loadFromDictionary:(NSDictionary *)dictionary;
-+ (NSArray *)findSongWithIdentifier:(NSString *)title inContext:(NSManagedObjectContext *)context;
+
+/**
+ *  <#Description#>
+ *
+ *  @param id      id was saved from the server
+ *  @param context moc
+ *
+ *  @return an array of songs (one song)
+ */
++ (NSArray *)findSongWithIdentifier:(NSString *)id inContext:(NSManagedObjectContext *)context;
 @end

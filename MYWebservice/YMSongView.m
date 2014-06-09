@@ -35,14 +35,7 @@ NSUInteger DeviceSystemMajorVersion();
 
 @implementation YMSongView {
 }
-/**
- *  <#Description#>
- *
- *  @param frame <#frame description#>
- *  @param song  <#song description#>
- *
- *  @return <#return value description#>
- */
+
 - (id)initWithFrame:(CGRect)frame andSong:(YMSong *)song
 {
     self = [super initWithFrame:frame];
@@ -55,11 +48,6 @@ NSUInteger DeviceSystemMajorVersion();
 }
 
 
-/**
- *  <#Description#>
- *
- *  @param rect <#rect description#>
- */
 - (void)drawRect:(CGRect)rect {
     
     // Artist name's string

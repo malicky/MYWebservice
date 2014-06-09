@@ -15,6 +15,10 @@ NSInteger kCoverViewTag = 999;
 
 @implementation MYCoverView 
 
+
+/**
+ *  Init with a tag so we can indentify the view
+ */
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
