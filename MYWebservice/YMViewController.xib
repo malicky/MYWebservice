@@ -13,7 +13,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tapGestureRecognizer numberOfTapsRequired="2" id="Ga9-3c-u1P">
+        <tapGestureRecognizer id="Ga9-3c-u1P">
             <connections>
                 <action selector="tapped:" destination="-1" id="3F2-px-Tei"/>
             </connections>

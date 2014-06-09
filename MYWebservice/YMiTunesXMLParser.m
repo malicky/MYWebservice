@@ -24,6 +24,16 @@
 
 @implementation YMiTunesXMLParser {
     /**
+     *  Parsing the<id im:id
+     */
+    BOOL _fImIdFound;
+
+    /**
+     *  location of album in iTunes store
+     */
+    NSString *_currentSongAlbumInStore;
+
+    /**
      *  Parsing the location of medium image of the cover
      */
     BOOL _fImageMediumLocationFound;
@@ -132,6 +142,8 @@
     if (self.currentSong) {
         self.currentSong[kElementName_LinkAudio] = [self.currentLinkAudio copy];
         self.currentSong[kElementName_Id] = [self.currentSongIdentifier copy];
+        self.currentSong[@"inItunesStore"] = _currentSongAlbumInStore;
+
         
         self.currentSong[@"imageMedium"] = _currentSongImageMediumLocation;
         self.currentSong[@"imageBig"] = _currentSongImageBigLocation;
@@ -139,6 +151,7 @@
         if (debug == 1) {
             NSLog(@"_currentSongImageMediumLocation = %@", _currentSongImageMediumLocation);
             NSLog(@"_currentSongImageBigLocation = %@", _currentSongImageBigLocation);
+            NSLog(@"_currentSongAlbumInStore = %@", _currentSongAlbumInStore);
 
         }
         
@@ -197,6 +210,9 @@ static NSString *kAttributeName_height = @"height";
                 NSLog(@"id = %@", attributeDict[kAttributeName_imId]);
             }
             self.currentSongIdentifier = attributeDict[kAttributeName_imId];
+            _currentSongAlbumInStore = @"";
+            _fImIdFound = YES;
+
         }
     } else if ([elementName isEqualToString:kElementName_LinkImage]) {
         if ([attributeDict[kAttributeName_height]isEqualToString:kAttributeValue_height_medium]) {
@@ -235,6 +251,11 @@ static NSString *kAttributeName_height = @"height";
             _currentSongImageBigLocation = [self.currentString copy];
             _fImageBigLocationFound = NO;
         }
+        if (_fImIdFound) {
+            _currentSongAlbumInStore = [self.currentString copy];
+            _fImIdFound = NO;
+        }
+        
         if (debug == 1) {
             NSLog(@"self.currentString = %@", self.currentString);
         }

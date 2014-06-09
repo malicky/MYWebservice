@@ -60,6 +60,15 @@ extern NSInteger kCoverViewTag;
     }
 }
 
+/**
+ *  navigated to the iTunes application and shown the selected song.
+ */
+- (void)goToiTunesStore {
+    NSString *stringURL = self.song.inItunesStore;
+    NSURL *url = [NSURL URLWithString:stringURL];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -82,16 +91,10 @@ extern NSInteger kCoverViewTag;
     return [scrollView viewWithTag:kCoverViewTag];
 }
 
-// image view is also zoomable by double-tapping
+
+// By clicking on the album artwork, user should be navigated to the iTunes application and shown the selected song.
 - (IBAction) tapped: (UIGestureRecognizer*) tap {
-    UIView* v = tap.view;
-    UIScrollView* sv = (UIScrollView*)v.superview;
-    if (sv.zoomScale < 1)
-        [sv setZoomScale:1 animated:YES];
-    else if (sv.zoomScale < sv.maximumZoomScale)
-        [sv setZoomScale:sv.maximumZoomScale animated:YES];
-    else
-        [sv setZoomScale:sv.minimumZoomScale animated:YES];
+    [self goToiTunesStore];
 }
 
 @end

@@ -29,6 +29,7 @@
 		130139BA18CD0719009A4C82 /* YMPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 130139B918CD0719009A4C82 /* YMPersistence.m */; };
 		1302A22219439EA3003F91A6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1302A22119439EA3003F91A6 /* SystemConfiguration.framework */; };
 		1302A22619439F14003F91A6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1302A22519439F14003F91A6 /* Reachability.m */; };
+		130B800E1946213E007DAB6D /* YMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 130B800D1946213E007DAB6D /* YMSong.m */; };
 		1351A7A5192251A600FD2498 /* MYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1351A7A4192251A600FD2498 /* MYCoverView.m */; };
 		1363967718CF1BB8007AD63A /* YMSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363967618CF1BB8007AD63A /* YMSongListViewController.m */; };
 		137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137809B718D9B3AD006184AC /* YMSong+Helper.m */; };
@@ -39,7 +40,6 @@
 		13EA60C8191ECDF400CAEB70 /* UIView+DebugObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EA60C7191ECDF400CAEB70 /* UIView+DebugObject.m */; };
 		13F7A9C9191A309100C37DF5 /* YMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9C8191A309100C37DF5 /* YMTableViewCell.m */; };
 		13F7A9D0191A3D5C00C37DF5 /* YMSongView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */; };
-		13F7A9D6191B6AF100C37DF5 /* YMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9D5191B6AF100C37DF5 /* YMSong.m */; };
 		13F7A9DC191BB06600C37DF5 /* UIImageView+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */; };
 		13F7A9DE191BBD4400C37DF5 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13F7A9DD191BBD4400C37DF5 /* placeholder.jpg */; };
 /* End PBXBuildFile section */
@@ -86,6 +86,8 @@
 		1302A22119439EA3003F91A6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1302A22419439F14003F91A6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1302A22519439F14003F91A6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		130B800C1946213E007DAB6D /* YMSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSong.h; sourceTree = "<group>"; };
+		130B800D1946213E007DAB6D /* YMSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSong.m; sourceTree = "<group>"; };
 		1351A7A3192251A600FD2498 /* MYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCoverView.h; sourceTree = "<group>"; };
 		1351A7A4192251A600FD2498 /* MYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCoverView.m; sourceTree = "<group>"; };
 		1363967518CF1BB8007AD63A /* YMSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YMSongListViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -105,8 +107,6 @@
 		13F7A9CA191A309900C37DF5 /* YMTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMTableViewCell.h; sourceTree = "<group>"; };
 		13F7A9CE191A3D5C00C37DF5 /* YMSongView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSongView.h; sourceTree = "<group>"; };
 		13F7A9CF191A3D5C00C37DF5 /* YMSongView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSongView.m; sourceTree = "<group>"; };
-		13F7A9D4191B6AF100C37DF5 /* YMSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSong.h; sourceTree = "<group>"; };
-		13F7A9D5191B6AF100C37DF5 /* YMSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSong.m; sourceTree = "<group>"; };
 		13F7A9DA191BB06600C37DF5 /* UIImageView+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Network.h"; sourceTree = "<group>"; };
 		13F7A9DB191BB06600C37DF5 /* UIImageView+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Network.m"; sourceTree = "<group>"; };
 		13F7A9DD191BBD4400C37DF5 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
@@ -252,8 +252,8 @@
 		130139BD18CDA9A1009A4C82 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				13F7A9D4191B6AF100C37DF5 /* YMSong.h */,
-				13F7A9D5191B6AF100C37DF5 /* YMSong.m */,
+				130B800C1946213E007DAB6D /* YMSong.h */,
+				130B800D1946213E007DAB6D /* YMSong.m */,
 				137809B618D9B3AD006184AC /* YMSong+Helper.h */,
 				137809B718D9B3AD006184AC /* YMSong+Helper.m */,
 				130139AF18CCD4F0009A4C82 /* YMModelObject.h */,
@@ -396,12 +396,12 @@
 				137809B818D9B3AD006184AC /* YMSong+Helper.m in Sources */,
 				130139B718CD00AA009A4C82 /* YMFetchedResultsControllerDataSource.m in Sources */,
 				1301397B18CC7CBC009A4C82 /* YMAppDelegate.m in Sources */,
-				13F7A9D6191B6AF100C37DF5 /* YMSong.m in Sources */,
 				1351A7A5192251A600FD2498 /* MYCoverView.m in Sources */,
 				1301397718CC7CBC009A4C82 /* main.m in Sources */,
 				139D82BD19264B97002BA574 /* MyScrollView.m in Sources */,
 				13EA60C8191ECDF400CAEB70 /* UIView+DebugObject.m in Sources */,
 				1302A22619439F14003F91A6 /* Reachability.m in Sources */,
+				130B800E1946213E007DAB6D /* YMSong.m in Sources */,
 				13F7A9C9191A309100C37DF5 /* YMTableViewCell.m in Sources */,
 				13E030F8192643E600B294FC /* YMViewController.m in Sources */,
 				130139A818CC7EE9009A4C82 /* YMiTunesWebservice.m in Sources */,

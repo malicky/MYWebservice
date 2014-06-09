@@ -22,6 +22,8 @@
     self.imageBig = dictionary[@"imageBig"];
     self.audio = dictionary[@"audio"];
     self.artist = dictionary[@"artist"];
+    self.inItunesStore = dictionary[@"inItunesStore"];
+
 }
 
 + (NSArray *)findSongWithIdentifier:(NSString *)id inContext:(NSManagedObjectContext *)context {
