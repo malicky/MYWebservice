@@ -45,7 +45,7 @@
     // Create itunes songs importer
     self.importer = [[YMImporter alloc] initWithParentContext:stack.managedObjectContext
                                              webservice:self.webservice];
-    // import from iTunes
+    // Start import from iTunes
     [self.importer import];
     
     // Override point for customization after application launch.

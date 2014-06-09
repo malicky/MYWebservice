@@ -2,7 +2,7 @@
 //  UIImageView+Network.m
 //
 //  Created by Soroush Khanlou on 8/25/12.
-//
+//  Adapted by me to use an NSCache etc...
 //
 
 #import "UIImageView+Network.h"
